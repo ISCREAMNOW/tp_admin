@@ -1,0 +1,36 @@
+<div class="news-list" id="table_list">
+
+    {foreach $articleList as $article}
+    <div class="news-item">
+        <div class="fl news-pic">
+            <a href="{:url('frontend/News/show', ['article_id' => $article['article_id']])}" title="{$article.article_title}">
+                <img class="fl" src="{$article.article_image|quick_pic_thumb='@260w_150h'}" alt="{$article.article_title}" />
+            </a>
+        </div>
+        <div class="fl news-info news-info-pic">
+            <h3 class="news-title">
+                <a href="{:url('frontend/News/show', ['article_id' => $article['article_id']])}" title="{$article.article_title}">{$article.article_title|msubstr=0,30}</a>
+            </h3>
+            <p class="news-tip">
+                <span>来源：{$article.article_origin|default='本网站'}</span>
+                <span>
+                    <i class="time"></i>
+                    {$article.article_publish_time|format_time}
+                </span>
+                <span>
+                    <i class="num"></i>
+                    {$article.article_click}
+                </span>
+            </p>
+            <p class="news-detail">{$article.article_abstract|msubstr=0,150}</p>
+        </div>
+    </div>
+    {/foreach}
+
+    <div class="page">
+        <!--分页 _start-->
+        {$pageHtml}
+        <!--分页 _end-->
+    </div>
+
+</div>

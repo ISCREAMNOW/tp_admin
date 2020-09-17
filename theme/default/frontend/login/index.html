@@ -1,0 +1,345 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta property="qc:admins" content="56207406376255516375" />
+    <title>登录</title>
+
+    <link rel="stylesheet" href="__FRONTEND__/login/css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+    <!--font css-->
+    <link rel="stylesheet" href="__STATIC__/plugs/awesome/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="__FRONTEND__/login/css/sign.css" type="text/css" media="screen" charset="utf-8" />
+    <script src="__FRONTEND__/login/js/library/es5-shim.js"></script>
+    <script src="__FRONTEND__/login/js/library/es5-sham.js"></script>
+
+    <script type="text/javascript">
+        with(window) {
+            RM_SITE_MAIN_WEBBASEURL='__FRONTEND__/login/';
+            RM_SITE_MAIN_TOPLEVELDOMAINNAME='www.apprh.com';
+            RM_CONTROL='Account';
+            RM_ACTION='login';
+//            RM_IMGDIR='https://secure0.jmstatic.com/static_passport/dist/v1.0.17211/images';
+//            RM_CLIENT_TIME = parseInt((new Date()).getTime() / 1000);
+            GA_ACCOUNT = "UA-10208510-1";
+        }
+        var screen_wide = document.documentElement.clientWidth > 1200 ? true : false ;
+        function getCookie(name)
+        {
+            var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+            if(arr=document.cookie.match(reg))
+                return (arr[2]);
+            else
+                return null;
+        }
+        RM_UID = getCookie('uid');
+        RM_NICKNAME = null;
+        if ( getCookie('nickname') != null ){
+            RM_NICKNAME = decodeURIComponent(getCookie('nickname'));
+        }
+        var is_semwinner = false;
+
+//        window._adwq = window._adwq || [];
+//        _adwq.push(['_setAccount', '1ng4e']);
+//        _adwq.push(['_setDomainName', '.jumei.com']);
+//        _adwq.push(['_trackPageview']);
+
+        window._gaq = window._gaq || [];
+        _gaq.push(['_setAccount', GA_ACCOUNT]);
+
+
+    </script>
+
+    <script src="__FRONTEND__/login/js/website.js"></script>
+    <script src="__FRONTEND__/login/js/boot.js"></script>
+    <script src="__FRONTEND__/login/js/jquery.cookie.js"></script>
+</head>
+
+</head>
+<!-- KEEP THIS!
+<body>
+-->
+<body>
+
+<style>
+    .top_nav_hot{ position: absolute;left:81px;top:-4px;}
+
+</style>
+<div id="header_container">
+    <!--新版的login页面没有头部 -->
+    <div id="logo">
+        <a href="/" id="home" title="环创科技" style="background:url(__FRONTEND__/login/images/logo_new_v1.jpg) no-repeat bottom left;"> 环创科技 </a>
+        <div class="header_logo_box">
+            <a href="" rel="nofollow" class="top_link lightning" target="_blank"></a>
+            <a href="" rel="nofollow" class="top_link gild" target="_blank"></a>
+            <a href="" rel="nofollow" class="top_link credit" target="_blank"></a>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $(".top_hot").hover(function () {
+                    $(".top_nav_hot").css("display","none")
+                },
+                function () {
+                    $(".top_nav_hot").css("display","block")
+                }
+        );
+    });
+</script>
+
+
+<link href="__FRONTEND__/login/css/login.css" rel="stylesheet"/>
+
+
+<link type="text/css" href="//g.alicdn.com/sd/ncpc/nc.css?t=1507279099554" rel="stylesheet"/>
+<script type="text/javascript" src="//g.alicdn.com/sd/ncpc/nc.js?t=1507279099554"></script>
+
+<style>
+    .loginWrap .loginBord {
+        width: 300px;
+    }
+    #username, #login_password, #dynamic_mobile {
+        padding-left: 38px;
+        width: 252px;
+    }
+
+    .dynamic_pass input {
+        width: 88px;
+        display: inline-block;
+    }
+
+    .phonecode {
+        width:130px;
+    }
+
+    .gt_guide_tip {
+        left: 40px!important;
+    }
+    .iconAccout a {
+        margin-right: 10px;
+    }
+    .textBtnsWrap {
+        background-color: #F4F6F4;
+    }
+    .t_v_txt_btn {
+        width: 49px !important;
+    }
+
+</style>
+
+<script>
+    var REDIRECT = 'http://www.apprh.com/';
+    var IS_OPEN_PASSPORT = 1;
+    var SHOW_VERIFY_CODE = 'aliyun';
+    var DYNAMIC_VERIFY_TYPE = '';
+    window.isOpenDynamicLogin = true;
+    window.dynamicSmsExpireTime = 15;
+</script>
+
+<script>
+    var NC_SCENE = "login";
+    var NC_APPKEY = "CF_APP_1"; //"P1WM";
+</script>
+<div id="_umfp" style="display:inline;width:1px;height:1px;overflow:hidden"></div>
+<div class="sign">
+    <div class="loginWrap" style="background-image: url(../images/signPic.jpg)  no-repeat center center">
+        <div class="loginBoardWrap">
+            <div class="loginImage"></div>
+            <div class="loginBord">
+                <div class="loginTit">
+                    <div class="tosignup">还没有环创帐号？<a href="{:url('frontend/Login/register')}?login&redirect=">30秒注册</a></div>
+                    <h1><strong>登录环创</strong></h1>
+                </div>
+                <div class="radio_wrapper">
+                    <span>
+                        <input name="method" type="radio" rel="login-dynamic-form" value="dynamic" id="radio_dynamic"/>
+                        <label for="radio_dynamic">
+                            手机动态密码登录
+                        </label>
+                    </span>
+                    <span>
+                        <input name="method" type="radio" rel="login-user-form" value="normal" id="radio_normal"/>
+                        <label for="radio_normal">
+                            普通登录
+                        </label>
+                    </span>
+                </div>
+                <form id="login-dynamic-form" action="">
+                    <input style="display:none" type="text" name="fakeusernameremembered"/>
+                    <input style="display:none" type="password" name="fakepasswordremembered"/>
+                    <div class="textbox_ui user">
+                        <input type="text" placeholder="已注册的手机号码" id="dynamic_mobile" autofocus autocomplete="off" value="">
+                        <div class="focus_text">请输入11位手机号码</div>
+                        <div class="invalid">
+                            <i></i>
+                            <div class="msg"></div>
+                        </div>
+                    </div>
+                    <div class="gtVerifyWrap" style="display: none!important;">
+                        <div class="textbox_ui">
+                            <p class="gtHeader">请拖动下方的滚动条，完成拼图验证</p>
+                            <div class="clearfix">
+                                <script async type="text/javascript" src="https://api.geetest.com/get.php?gt=064db254049f316e75b404fd9bb4f54e&random=2&product=float"></script>
+                            </div>
+                            <div id="dynamic_gt_verify"></div>
+                            <div class="invalid">
+                                <i></i>
+                                <div class="msg"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="verityWrap">
+                        <div class="textbox_ui">
+                            <input type="text" placeholder="验证码" autocomplete="off" id="dynamic_verify_code" maxlength="4">
+                            <div class="focus_text">按右图填写，不区分大小写</div>
+                            <div class="invalid">
+                                <i></i>
+                                <div class="msg"></div>
+                            </div>
+                        </div>
+                        <span id="change_dynamic_verify_code"><img src="">换一张</span>
+                    </div>
+                    <div class="dynamic_pass_wrap line">
+                        <div class="textbox_ui dynamic_pass pass">
+                            <input type="text" placeholder="动态密码" id="dynamic_password" autocomplete="off">
+                            <div class="focus_text">请点击获取手机动态密码</div>
+                            <div class="hint"></div>
+                            <div class="invalid">
+                                <i></i>
+                                <div class="msg"></div>
+                            </div>
+                        </div>
+                        <a href="javascript:;" id="getPhoneCode" class="phonecode"><strong>获取手机动态密码</strong></a>
+                    </div>
+                    <p>
+                        <label for="dynamic_auto_login">
+                            <input type="checkbox" id="dynamic_auto_login" checked>
+                            &nbsp;自动登录
+                        </label>
+                    </p>
+
+                    <input class="loginbtn submit_btn" type="submit" value="登 录" style=" display: block;width: 100%;">
+                </form>
+                <form id="login-user-form" method="post" action="/frontend/Login/login">
+                    <input style="display:none" type="text" name="fakeusernameremembered"/>
+                    <input style="display:none" type="password" name="fakepasswordremembered"/>
+                    <div class="textbox_ui user">
+                        <input type="text" placeholder="已验证手机/邮箱/用户名" id="username" autofocus autocomplete="off" value="">
+                        <div class="focus_text">请输入登录名，登录名可能是您的手机号、邮箱或用户名</div>
+                        <div class="invalid">
+                            <i></i>
+                            <div class="msg"></div>
+                        </div>
+                    </div>
+                    <div class="textbox_ui pass">
+                        <input type="password" placeholder="密码" id="login_password" autocomplete="off">
+                        <div class="focus_text">请输入您的密码，您的密码可能为字母、数字或符号的组合</div>
+                        <div class="invalid">
+                            <i></i>
+                            <div class="msg"></div>
+                        </div>
+                    </div>
+                    <div class="aliyunWrap textbox_ui">
+                        <div id="aliyun_verify" style="width:300px;height:46px;" ></div>
+                        <div class="invalid aliyun_invalid">
+                            <i></i>
+                            <div class="msg"></div>
+                        </div>
+                    </div>
+                    <div class="gtVerifyWrap">
+                        <div class="textbox_ui">
+                            <p class="gtHeader">请拖动下方的滚动条，完成拼图验证</p>
+                            <div class="clearfix">
+                                <script async type="text/javascript" src="https://api.geetest.com/get.php?gt=064db254049f316e75b404fd9bb4f54e&product=float"></script>
+                            </div>
+                            <div id="gt_verify"></div>
+                            <div class="invalid">
+                                <i></i>
+                                <div class="msg"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="verityWrap">
+                        <div class="textbox_ui">
+                            <input type="text" placeholder="验证码" autocomplete="off" id="verify_code" maxlength="4">
+                            <div class="focus_text">按右图填写，不区分大小写</div>
+                            <div class="invalid">
+                                <i></i>
+                                <div class="msg"></div>
+                            </div>
+                        </div>
+                        <span id="change_verify_code"><img src="">换一张</span>
+                    </div>
+                    <p>
+                        <a href="/frontend/Login/resetreq?=login" class="fr">忘记密码?</a>
+                        <label for="auto_login">
+                            <input type="checkbox" id="auto_login" checked>
+                            &nbsp;自动登录
+                        </label>
+                    </p>
+                    <input class="loginbtn submit_btn" type="submit" value="登 录" style=" display: block;width: 100%;">
+                    <div id="errorMsg"></div>
+                </form>
+                <div class="iconAccout" >
+                    <div>你也可以使用以下帐号登录</div>
+                    <p>
+                        <a href="#" class="a1" title="QQ">QQ</a>
+                        <a href="#" class="a2" title="支付宝">支付宝</a>
+                        <a href="#" class="a3" title="新浪微博">新浪微博</a>
+                        <a href="#" class="a4" title="360">360</a>
+                        <a href="#" class="a5" title="百度">百度</a>
+                        <span>更多<i></i></span>
+                    </p>
+                    <p class="icon-p" style="display: none;">
+                        <a href="#" class="a6" title="微信">微信</a>
+                        <a href="#" class="a7" title="人人">人人</a>
+                        <a href="#" class="a8" title="蘑菇街">蘑菇街</a>
+                        <a href="#" class="a9" title="团800">团800</a>
+                    </p>
+                </div>
+                <div class="shadow_l"></div>
+                <div class="shadow_r"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    seajs.use('login/index', function(){
+    });
+</script>
+
+<div class="clear"></div>
+
+
+<div id="footer_container" class="footer_white" style="padding-top:5px;background: none;border-top: none;">
+    <div class="footer_con" id="footer_copyright">
+        <p class="footer_copy_con">环创科技版权所有©2017-2027&#160;&#160;&#160;&#160;&#160;{:sysconf('company_name')}&#160;&#160;&#160;&#160;&#160;{:sysconf('site_icp')}&#160;&#160;&#160;&#160;&#160;{:sysconf('company_address')}</p>
+        <p>滇公网安备&#160;&#160;&#160;&#160;&#160;xxxxxx号</p>
+        <script>
+            function change_urlknet(eleId){
+                var str=document.getElementById(eleId).href;
+                var str1=str.substring(0,(str.length-6));
+                str1+=RndNum(6);
+                document.getElementById(eleId).href=str1;
+            }
+            function RndNum(k){
+                var rnd="";
+                for (var i=0;i<k;i++) {
+                    rnd+=Math.floor(Math.random()*10);
+                }
+                return rnd;
+            }
+        </script>
+    </div>
+</div>
+<!--*连续登陆探测 -->
+
+
+</body>
+</html>

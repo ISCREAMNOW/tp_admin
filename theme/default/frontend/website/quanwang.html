@@ -1,0 +1,142 @@
+{extend name='common/base_layout' /}
+
+{block name="lib-head"}
+<script type="text/javascript" src="__FRONTEND__/assets/js/jquery.js"></script>
+<script type="text/javascript" src="__FRONTEND__/assets/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="__FRONTEND__/assets/js/layer/layer.js"></script>
+<script type="text/javascript" src="__FRONTEND__/assets/js/jquery.method.js"></script>
+<script type="text/javascript" src="__FRONTEND__/assets/js/jquery.modal.js"></script>
+<script type="text/javascript" src="__FRONTEND__/js/common.js"></script>
+
+
+<script src="__FRONTEND__/website/js/index.js"></script>
+<script src="__FRONTEND__/website/js/ljs-v1.0.js"></script>
+
+{/block}
+
+{block name="css-head"}
+
+
+<link href="__FRONTEND__/website/css/common.css" rel="stylesheet" type="text/css" />
+<link href="__FRONTEND__/website/css/style.css" rel="stylesheet" type="text/css" />
+<link href="__FRONTEND__/website/css/cartoon.css" rel="stylesheet" type="text/css" />
+
+{/block}
+
+<!-- content -->
+{block name="content"}
+
+<!-- 引入头部文件 _start -->
+{include file="common/header"}
+<!-- 引入头部文件 _end -->
+
+<!--内容 _start-->
+
+<!--build-top-nav _start-->
+{include file="frontend/website/_build_top_nav" /}
+<!--build-top-nav _end-->
+
+<section class="build_white">
+
+    <h2 class="fs30 fw400 ta-c pt30 lh40 pb10">全网营销型网站建设</h2>
+
+    <p class="fs18 ta-c main lh30 c6">环创全网营销型网站建设将为您提供从PC电脑版网站、手机触屏版网站、APP手机客户端、微信平台开发等四网合一
+
+        的网站系统建设，实现同一个后台同步管理、各种终端自适应</p>
+
+    <div class="build_qwyx">
+
+        <p class="p1"><span><img src="__FRONTEND__/website/images/static/qw_ico01.png" /></span>PC网站</p>
+
+        <b><img src="__FRONTEND__/website/images/static/qw_ico05.png" /></b>
+
+        <p class="p2"><span><img src="__FRONTEND__/website/images/static/qw_ico02.png" /></span>手机触屏网站</p>
+
+        <b><img src="__FRONTEND__/website/images/static/qw_ico05.png" /></b>
+
+        <p class="p3"><span><img src="__FRONTEND__/website/images/static/qw_ico03.png" /></span>APP客户端</p>
+
+        <b><img src="__FRONTEND__/website/images/static/qw_ico05.png" /></b>
+
+        <p class="p4"><span><img src="__FRONTEND__/website/images/static/qw_ico04.png" /></span>微信平台</p>
+
+        <div class="clear"></div>
+
+    </div>
+
+</section><!--build01-->
+
+
+
+<section class="qwyx_center">
+
+    <div class="main">
+
+        <span><img src="__FRONTEND__/website/images/static/qw_center.png" /></span>
+
+        <h2>全网营销，四网合一</h2>
+
+        <h3>自适应各种终端</h3>
+
+        <p>全网营销型网站使企业官网自动适用各终端，抓住每位访客，PC网站、手机网站、手机客户端设计风格统一，统一品牌形象</p>
+
+        <h3>完整的营销链条</h3>
+
+        <p>二维码、微博、微信、手机搜索、移动广告等多种收费和免费入口，增大网站访问量，消息推送、微支付等行政完整营销链条</p>
+
+        <h3>全网数据统一管理</h3>
+
+        <p>统一后台管理、同步更新，减少管理成本。智能分析不同终端的客户数据，订单数据，访问数据，并实施精准营销，坐享无限商机</p>
+
+    </div>
+
+</section><!--build02-->
+
+
+
+<section class="build_white pt30">
+
+    <div class="main pt30 pb30"><img src="__FRONTEND__/website/images/static/qw_bot.png" width="1080" /></div>
+
+</section><!--build03-->
+
+<!--contact-box _start-->
+{include file="frontend/website/_contact_info" /}
+<!--contact-box _end-->
+
+<!--内容 _end-->
+
+<!-- 底部 _star-->
+
+<!-- 右侧边栏 _start -->
+{include file="common/sidebar"}
+<!-- 右侧边栏 _end -->
+
+<!-- 底部 _start-->
+{include file="common/footer"}
+<!-- 底部 _end-->
+<script type="text/javascript" src="__FRONTEND__/hctech/js/common.js"></script>
+<!-- 底部 _end-->
+
+
+
+<script type="text/javascript">
+    $().ready(function(){
+        // 缓载图片
+        $("img").lazyload({
+            skip_invisible: false,
+            effect:'fadeIn',
+            failure_limit: 20,
+            threshold: 200
+        });
+    });
+</script>
+
+
+
+
+{/block}
+
+{block name="js-foot"}
+
+{/block}

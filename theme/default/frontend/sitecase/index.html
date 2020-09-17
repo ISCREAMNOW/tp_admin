@@ -1,0 +1,288 @@
+{extend name='common/base_layout' /}
+
+{block name="lib-head"}
+<script type="text/javascript" src="__FRONTEND__/assets/js/jquery.js"></script>
+<script type="text/javascript" src="__FRONTEND__/assets/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="__FRONTEND__/assets/js/layer/layer.js"></script>
+<script type="text/javascript" src="__FRONTEND__/assets/js/jquery.method.js"></script>
+<script type="text/javascript" src="__FRONTEND__/assets/js/jquery.modal.js"></script>
+<script type="text/javascript" src="__FRONTEND__/js/common.js"></script>
+{/block}
+
+{block name="css-head"}
+
+<!-- layui 2.0-->
+<link rel="stylesheet" href="__STATIC__/plugs/layui/css/layui.css">
+<script src="__STATIC__/plugs/layui/layui.js"></script>
+
+
+<script type="text/javascript" src="__FRONTEND__/assets/js/table/jquery.tablelist.js"></script>
+<!-- 网站案例CSS -->
+<link type="text/css" rel="stylesheet" href="__FRONTEND__/hctech/css/case.css"/>
+
+{/block}
+
+<!-- content -->
+{block name="content"}
+
+<!-- 引入头部文件 _start -->
+{include file="common/header"}
+<!-- 引入头部文件 _end -->
+
+<!--内容 _start-->
+<!--banner-->
+<div class="case-slider">
+    <ul class="slider-pic">
+
+        <li style="background: url(__FRONTEND__/hctech/images/case-adv.png) no-repeat center top;"><a href="/" target="_blank"></a></li>
+
+    </ul>
+    <div class="slider-dot w1210">
+        <div class="dot-group">
+
+            <a class="dot current" href="javascript:;"></a>
+
+        </div>
+    </div>
+</div>
+<!--客户案例-->
+<div class="content-wrap">
+    <div class="w1210">
+        <!--左侧行业分类-->
+        <div class="left-category case-category">
+            <h2 value=0 class="active">
+                <a href="javascript:;">全部行业</a>
+            </h2>
+            <ul>
+                {foreach $siteIndustryList as $siteIndustry}
+                <li value={$siteIndustry.id}>
+                    <a href="javascript:;">{$siteIndustry.industry_name}</a>
+                </li>
+                {/foreach}
+            </ul>
+        </div>
+        <!--筛选条件-->
+        <div class="case-wrap">
+            <div id="filter">
+                <div class="case-top clearfix">
+                    <!--<div class="select-location fl form-horizontal">
+                        <div class="form-group">
+                            &lt;!&ndash; 分类描述 &ndash;&gt;
+                            <select class="form-control" id="case_province">
+                                <option value="0">所有省份</option>
+                                <option value=37>山东省</option>
+                                <option value=11>北京市</option>
+                                <option value=13>河北省</option>
+                                <option value=44>广东省</option>
+                                <option value=41>河南省</option>
+                                <option value=33>浙江省</option>
+                                <option value=35>福建省</option>
+                                <option value=15>内蒙古自治区</option>
+                                <option value=23>黑龙江省</option>
+                                <option value=22>吉林省</option>
+                                <option value=31>上海市</option>
+                                <option value=52>贵州省</option>
+                                <option value=51>四川省</option>
+                                <option value=62>甘肃省</option>
+                                <option value=43>湖南省</option>
+                                <option value=81>香港特别行政区</option>
+                                <option value=61>陕西省</option>
+                                <option value=32>江苏省</option>
+                                <option value=42>湖北省</option>
+                                <option value=21>辽宁省</option>
+                                <option value=12>天津市</option>
+                                <option value=65>新疆维吾尔自治区</option>
+                                <option value=50>重庆市</option>
+                                <option value=14>山西省</option>
+                                <option value=53>云南省</option>
+                                <option value=64>宁夏回族自治区</option>
+                                <option value=46>海南省</option>
+                                <option value=63>青海省</option>
+                            </select>
+                            <select class="form-control" id="case_city">
+                                <option value="0">所有城市</option>
+                                <option parent=37 style="display:none" class="city" value=37,02>青岛市</option>
+                                <option parent=37 style="display:none" class="city" value=37,06>烟台市</option>
+                                <option parent=37 style="display:none" class="city" value=37,07>潍坊市</option>
+                                <option parent=37 style="display:none" class="city" value=37,13>临沂市</option>
+                                <option parent=11 style="display:none" class="city" value=11,01>北京市</option>
+                                <option parent=13 style="display:none" class="city" value=13,05>邢台市</option>
+                                <option parent=13 style="display:none" class="city" value=13,03>秦皇岛市</option>
+                                <option parent=13 style="display:none" class="city" value=13,02>唐山市</option>
+                                <option parent=13 style="display:none" class="city" value=13,04>邯郸市</option>
+                                <option parent=44 style="display:none" class="city" value=44,03>深圳市</option>
+                                <option parent=44 style="display:none" class="city" value=44,19>东莞市</option>
+                                <option parent=44 style="display:none" class="city" value=44,01>广州市</option>
+                                <option parent=44 style="display:none" class="city" value=44,12>肇庆市</option>
+                                <option parent=44 style="display:none" class="city" value=44,13>惠州市</option>
+                                <option parent=44 style="display:none" class="city" value=44,09>茂名市</option>
+                                <option parent=41 style="display:none" class="city" value=41,13>南阳市</option>
+                                <option parent=41 style="display:none" class="city" value=41,01>郑州市</option>
+                                <option parent=41 style="display:none" class="city" value=41,03>洛阳市</option>
+                                <option parent=33 style="display:none" class="city" value=33,04>嘉兴市</option>
+                                <option parent=33 style="display:none" class="city" value=33,07>金华市</option>
+                                <option parent=33 style="display:none" class="city" value=33,01>杭州市</option>
+                                <option parent=35 style="display:none" class="city" value=35,07>南平市</option>
+                                <option parent=35 style="display:none" class="city" value=35,01>福州市</option>
+                                <option parent=15 style="display:none" class="city" value=15,22>兴安盟</option>
+                                <option parent=15 style="display:none" class="city" value=15,05>通辽市</option>
+                                <option parent=15 style="display:none" class="city" value=15,07>呼伦贝尔市</option>
+                                <option parent=23 style="display:none" class="city" value=23,12>绥化市</option>
+                                <option parent=22 style="display:none" class="city" value=22,07>松原市</option>
+                                <option parent=22 style="display:none" class="city" value=22,02>吉林市</option>
+                                <option parent=22 style="display:none" class="city" value=22,05>通化市</option>
+                                <option parent=31 style="display:none" class="city" value=31,01>上海市</option>
+                                <option parent=52 style="display:none" class="city" value=52,04>安顺市</option>
+                                <option parent=52 style="display:none" class="city" value=52,03>遵义市</option>
+                                <option parent=52 style="display:none" class="city" value=52,23>黔西南州</option>
+                                <option parent=52 style="display:none" class="city" value=52,01>贵阳市</option>
+                                <option parent=51 style="display:none" class="city" value=51,19>巴中市</option>
+                                <option parent=51 style="display:none" class="city" value=51,01>成都市</option>
+                                <option parent=51 style="display:none" class="city" value=51,14>眉山市</option>
+                                <option parent=62 style="display:none" class="city" value=62,11>定西市</option>
+                                <option parent=43 style="display:none" class="city" value=43,02>株洲市</option>
+                                <option parent=43 style="display:none" class="city" value=43,13>娄底市</option>
+                                <option parent=43 style="display:none" class="city" value=43,06>岳阳市</option>
+                                <option parent=43 style="display:none" class="city" value=43,09>益阳市</option>
+                                <option parent=81 style="display:none" class="city" value=81>香港特别行政区</option>
+                                <option parent=61 style="display:none" class="city" value=61,01>西安市</option>
+                                <option parent=32 style="display:none" class="city" value=32,05>苏州市</option>
+                                <option parent=32 style="display:none" class="city" value=32,11>镇江市</option>
+                                <option parent=32 style="display:none" class="city" value=32,09>盐城市</option>
+                                <option parent=42 style="display:none" class="city" value=42,05>宜昌市</option>
+                                <option parent=42 style="display:none" class="city" value=42,28>恩施州</option>
+                                <option parent=42 style="display:none" class="city" value=42,10>荆州市</option>
+                                <option parent=42 style="display:none" class="city" value=42,11>黄冈市</option>
+                                <option parent=21 style="display:none" class="city" value=21,02>大连市</option>
+                                <option parent=21 style="display:none" class="city" value=21,13>朝阳市</option>
+                                <option parent=12 style="display:none" class="city" value=12,01>天津市</option>
+                                <option parent=65 style="display:none" class="city" value=65,28>巴音郭楞蒙古自治州</option>
+                                <option parent=65 style="display:none" class="city" value=65,01>乌鲁木齐市</option>
+                                <option parent=50 style="display:none" class="city" value=50,01>重庆市</option>
+                                <option parent=14 style="display:none" class="city" value=14,11>吕梁市</option>
+                                <option parent=14 style="display:none" class="city" value=14,05>晋城市</option>
+                                <option parent=53 style="display:none" class="city" value=53,01>昆明市</option>
+                                <option parent=53 style="display:none" class="city" value=53,07>丽江市</option>
+                                <option parent=64 style="display:none" class="city" value=64,03>吴忠市</option>
+                                <option parent=46 style="display:none" class="city" value=46,01>海口市</option>
+                                <option parent=46 style="display:none" class="city" value=46,02>三亚市</option>
+                                <option parent=63 style="display:none" class="city" value=63,01>西宁市</option>
+                            </select>
+                        </div>
+                    </div>-->
+                    <a class="btn fr" href="javascript:;" target="_blank" style="display: none;">我要上镜</a>
+                </div>
+                <input type='hidden' id="category" value=0>
+            </div>
+
+            <!-- 网站案例列表 _start -->
+            {include file="frontend/sitecase/_sitecase_list"}
+            <!-- 网站案例列表 _end -->
+
+        </div>
+
+    </div>
+</div>
+<!--内容 _end-->
+
+<!-- 底部 _star-->
+
+<!-- 右侧边栏 _start -->
+{include file="common/sidebar"}
+<!-- 右侧边栏 _end -->
+
+<!-- 底部 _start-->
+{include file="common/footer"}
+<!-- 底部 _end-->
+<script type="text/javascript" src="__FRONTEND__/hctech/js/common.js"></script>
+<!-- 底部 _end-->
+<script type="text/javascript" src="__FRONTEND__/hctech/js/case.js"></script>
+<script type="text/javascript">
+    $().ready(function() {
+        // 我要上镜
+        $('.btn-apply').click(function () {
+            $.open({
+                title: '申请上镜',
+                skin: 'layui-layer-case',
+                width: '670px',
+                ajax: {
+                    url:'/case/apply',
+                    method:'get'
+                },
+                btn:[]
+            })
+        });
+
+        var tablelist = $(".case-list").tablelist();
+        //阻断行业和地区筛选条件合并
+        var showAllCategory = function() {
+            tablelist.page.cur_page = 1;
+            $('.case-category li, .case-category h2').removeClass('active');
+            $('.case-category h2').addClass('active');
+            tablelist.load({
+                'category' : '0',
+                'case_city' : $("#case_city").val(),
+                'case_province' : $("#case_province").val(),
+            });
+        }
+        var refresh = function() {
+            tablelist.page.cur_page = 1;
+            tablelist.load({
+                'category' : $("#category").val(),
+                'case_city' : $("#case_city").val(),
+                'case_province' : $("#case_province").val(),
+            });
+            return false;
+        }
+        $("#case_province").change(function() {
+            $("#case_city").val(0);
+            var check = this.value;
+            $(".city").each(function(){
+                var p = $(this).attr("parent");
+                if(p == check){
+                    $(this).attr("style","");
+                }else{
+                    $(this).attr("style","display:none");
+                }
+            });
+            showAllCategory();
+        });
+        $("#case_city").change(function() {
+            showAllCategory();
+        });
+        $('.case-category li, .case-category h2').click(function(){
+            $('.case-category li, .case-category h2').removeClass('active');
+            $(this).addClass('active');
+            $("#case_province").val(0);
+            $("#category").val(this.value);
+            $("#case_city").val(0);
+            refresh();
+        });
+        // 鼠标滑过小图标显示二维码
+        $('body').on('mouseover','.case-item .iconfont',function () {
+            $(this).parent().find('.other-info').show();
+        });
+        $('body').on('mouseleave','.case-item',function () {
+            $(this).find('.other-info').hide();
+        });
+    });
+</script>
+
+
+<script type="text/javascript">
+    $().ready(function(){
+        // 缓载图片
+        $("img").lazyload({
+            skip_invisible: false,
+            effect:'fadeIn',
+            failure_limit: 20,
+            threshold: 200
+        });
+    });
+</script>
+
+{/block}
+
+{block name="js-foot"}
+
+{/block}

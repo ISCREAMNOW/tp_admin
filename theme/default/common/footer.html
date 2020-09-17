@@ -1,0 +1,111 @@
+<div class="site-footer">
+
+
+
+
+
+    <div class="footer-related">
+
+
+
+
+        <div class="footer-article w1210">
+
+            <!-- 底部导航 -->
+            {volist name="footerMenu" id="menu" key="k"}
+            <dl class="col-article">
+                <dt>{$menu.title}</dt>
+                <dd>
+
+                {volist name="menu['sub']" id="sub"}
+                <p><a href="{$sub.url}" target="{$sub.target}">{$sub.title}</a> </p>
+                {/volist}
+                </dd>
+            </dl>
+            {/volist}
+
+            <!--联系我们-->
+            <dl class="col-article col-article-spe">
+                <dt>联系我们</dt>
+                <dd>
+                    <p><i class="iconfont icon-tel"></i>{:sysconf('hc_phone')}</p>
+                    <p><i class="iconfont icon-qq"></i>{:sysconf('hc_qq')}</p>
+                </dd>
+            </dl>
+
+            <div class="col-code fl">
+                <div class="code">
+                    <img src="{:sysconf('wx_qrcode')}" alt="环创科技微信公众号">
+                </div>
+                <p>官方微信公众号</p>
+            </div>
+
+        </div>
+
+
+        <div class="footer-links w1210">
+            <span>友情链接：</span>
+            <!-- 友情链接循环开始 -->
+
+            {foreach $fLinks as $flink}
+            <a href="{$flink.url}" target="{$flink.target}" title="{$flink.name}">{$flink.name}</a>
+            {/foreach}
+
+            <!-- 友情链接循环结束 -->
+        </div>
+
+        
+        <div class="footer-info">
+            <div class="info-text">
+                <!-- 底部导航 -->
+                <p class="nav-bottom">
+
+
+                    <a href="{:url('frontend/Article/company')}" target="_blank">公司简介</a>
+
+
+                    <em>|</em>
+
+                    <a href="{:url('frontend/Article/show', ['article_id' => 11])}" target="_blank">联系我们</a>
+
+
+                    <em>|</em>
+
+                    <a href="#" target="_blank">官网论坛</a>
+
+
+                    <em>|</em>
+
+                    <a href="{:url('frontend/Article/show', ['article_id' => 14])}" target="_blank">投诉建议</a>
+
+
+                    <em>|</em>
+
+                    <a href="{:url('frontend/Article/show', ['article_id' => 16])}" target="_blank">商务合作</a>
+
+
+                    <em>|</em>
+
+                    <a href="#" target="_blank">站点地图</a>
+
+                </p>
+                <p class="copyright">
+                    {:sysconf('company_name')}({:sysconf('site_copy')}) 版权所有 <em></em>
+                    <a href="http://www.miibeian.gov.cn/" target="_blank" rel="nofollow">{:sysconf('site_icp')}</a>
+                </p>
+                <p class="company-info">{:sysconf('company_address')}</p>
+                <p class="qualified">
+
+                </p>
+            </div>
+
+            <!-- 工商网监 _start -->
+
+            <!-- 工商网监 _end -->
+
+        </div>
+
+    </div>
+</div>
+
+<!-- 第三方流量统计 -->

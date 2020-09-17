@@ -1,0 +1,61 @@
+<form class="layui-form layui-box" style='padding:25px 30px 20px 0' action="__SELF__" data-auto="true" method="post">
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">网站行业名称</label>
+        <div class="layui-input-block">
+            <input type="text" name="industry_name" value='{$vo.industry_name|default=""}' required="required" lay-verify="title" title="请输入网站行业名称" placeholder="请输入网站行业名称" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">网站行业描述</label>
+        <div class="layui-input-block">
+            <textarea placeholder="请输入网站行业描述" title="请输入网站行业描述" class="layui-textarea" name="description">{$vo.description|default=""}</textarea>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">是否显示</label>
+        <div class="layui-input-block">
+            <input name="status" value="0" title="不显示" {eq name='0' value='$vo.status|default=0'}checked=""{/eq} type="radio">
+            <input name="status" value="1" title="显示" {eq name='1' value='$vo.status|default=1'}checked=""{/eq} type="radio">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">排序</label>
+        <div class="layui-input-block">
+            <input type="text" name="sort" value='{$vo.sort|default="255"}' lay-verify="sort" title="排序(0-255)" placeholder="排序(0-255)" class="layui-input">
+        </div>
+    </div>
+
+    <div class="hr-line-dashed"></div>
+    <div class="layui-form-item text-center">
+        {if isset($vo['id'])}<input type='hidden' value='{$vo.id}' name='id'/>{/if}
+        <button class="layui-btn" type='submit'>保存数据</button>
+        <button class="layui-btn layui-btn-danger" type='button' data-confirm="确定要取消编辑吗？" data-close>取消编辑</button>
+    </div>
+
+</form>
+
+<script>window.form.render();</script>
+
+<script>
+    layui.use(['form', 'laydate', 'element'], function(){
+        var form = layui.form
+            ,layer = layui.layer
+            ,laydate = layui.laydate
+            ,element = layui.element; //选项卡 依赖element 模块
+
+
+        //自定义验证规则
+        form.verify({
+            title: function(value){
+                if(value.length < 3){
+                    return '标题至少得3个字符啊';
+                }
+            }
+        });
+
+    });
+</script>

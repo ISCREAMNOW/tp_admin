@@ -1,0 +1,80 @@
+{extend name='common/content' /}
+
+{block name="button"}
+<div class="nowrap pull-right" style="margin-top:10px">
+    {if auth("$classuri/addCategory")}
+    <button data-modal='{:url("$classuri/addCategory")}' data-title="添加分类" class='layui-btn layui-btn-small'><i class='fa fa-plus'></i> 添加分类</button>
+    {/if}
+    {if auth("$classuri/delCategory")}
+    <button data-update data-field='delete' data-action='{:url("$classuri/delCategory")}' class='layui-btn layui-btn-small layui-btn-danger'><i class='fa fa-remove'></i> 删除分类</button>
+    {/if}
+</div>
+{/block}
+
+{block name="content"}
+
+<form onsubmit="return false;" data-auto="" method="POST">
+    <input type="hidden" value="resort" name="action"/>
+    <div class="layui-form">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>
+                    <input data-none-auto="" data-check-target='.list-check-box' lay-skin="primary" lay-filter="allChoose" type="checkbox">
+                </th>
+                <th>ID</th>
+                <th class='list-table-class_sort-td'>
+                    排 序
+                </th>
+                <th>分类名称</th>
+                <th class='text-center'>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            {foreach $list as $key=>$vo}
+            <tr>
+                <td>
+                    <input class="list-check-box" value='{$vo.ids}' lay-skin="primary" type="checkbox">
+                </td>
+                <td>{$vo.class_id}</td>
+                <td class='list-table-class_sort-td'>
+                    {$vo.class_sort}
+                </td>
+                <td>{$vo.spl}{$vo.class_name}</td>
+                <td class='text-center nowrap'>
+
+                    <div class="layui-btn-group">
+                        {if auth("$classuri/addCategory")}
+                        <button type="button" data-modal='{:url("$classuri/addCategory")}?class_id={$vo.class_id}' class="layui-btn layui-btn-primary layui-btn-small"><i class="layui-icon"></i></button>
+                        {/if}
+
+                        {if auth("$classuri/delCategory")}
+                        <button type="button" data-update="{$vo.ids}" data-field='delete' data-action='{:url("$classuri/delCategory")}' class="layui-btn layui-btn-primary layui-btn-small"><i class="layui-icon"></i></button>
+                        {/if}
+                    </div>
+                </td>
+            </tr>
+            {/foreach}
+            </tbody>
+        </table>
+    </div>
+</form>
+
+<script>window.form.render();</script>
+<script>
+    layui.use('form', function(){
+        var $ = layui.jquery, form = layui.form;
+
+        //全选
+        form.on('checkbox(allChoose)', function(data){
+            var child = $(data.elem).parents('table').find('tbody input[type="checkbox"]');
+            child.each(function(index, item){
+                item.checked = data.elem.checked;
+            });
+            form.render('checkbox');
+        });
+
+    });
+</script>
+
+{/block}

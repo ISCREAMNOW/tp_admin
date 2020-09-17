@@ -1,0 +1,87 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*页面禁止滚动*/
+.noscroll { position: fixed; top: 0; right: 0; left: 0;}
+
+/*浮动*/
+.fl { float: left;}
+.fr { float: right;}
+
+/*背景色*/
+.bg-gray { background: #68dcf5;}
+.bg-blue { background: #68dcf5;}
+.bg-purple { background: #bd82ff;}
+.bg-green { background: #6cea82;}
+.bg-yellow { background: #ffce58;}
+
+/*头部*/
+.header-wrap.open .header { border-bottom: 1px solid #ddd;}
+.header .logo-gray { display: none;}
+.header.active, .header-wrap.open .header { background: #fff;}
+.header.active .index-logo, .header-wrap.open .header .index-logo { display: none;}
+.header.active .logo-gray, .header-wrap.open .header .logo-gray { display: block;}
+.index-logo { -webkit-box-flex: 1; padding: 7px 0 0 10px;}
+.index-logo img { height: 40px;}
+.header .header-content .nav-wap-right { margin: 0;}
+.dropmenu-btn { position: fixed; top: 3px; right: .8rem; display: inline-block; width: 50px; height: 50px; line-height: 58px; text-align: center;}
+.dropmenu-btn span { position: absolute; right: 0; width: 25px; height: 2px; background: #fff; -webkit-transition: all .5s; -o-transition: all .5s; -moz-transition: all .5s; transition: all .5s;}
+.dropmenu-btn .line-t { top: 15px;}
+.dropmenu-btn .line-m { top: 50%; -webkit-transform: translateY(-50%); -ms-transform: translateY(-50%); -o-transform: translateY(-50%); -moz-transform: translateY(-50%); transform: translateY(-50%);}
+.dropmenu-btn .line-b { bottom: 15px;}
+.dropmenu-btn.active .line-t { -webkit-transform-origin: 100% 50%; -ms-transform-origin: 100% 50%; -o-transform-origin: 100% 50%; -moz-transform-origin: 100% 50%; transform-origin: 100% 50%; -webkit-transform: rotate(-45deg); -ms-transform: rotate(-45deg); -o-transform: rotate(-45deg); -moz-transform: rotate(-45deg); transform: rotate(-45deg);}
+.dropmenu-btn.active .line-m { opacity: 0;}
+.dropmenu-btn.active .line-b { -webkit-transform-origin:100% 50%; -ms-transform-origin: 100% 50%; -o-transform-origin:100% 50%; -moz-transform-origin:100% 50%; transform-origin:100% 50%; -webkit-transform: rotate(45deg); -ms-transform: rotate(45deg); -o-transform: rotate(45deg); -moz-transform: rotate(45deg); transform: rotate(45deg);}
+.header.active .dropmenu-btn span, .header-wrap.open .dropmenu-btn span { background: #888;}
+
+/*折叠菜单*/
+.nav-menu { position: fixed; top: 100%; bottom: 0; z-index: 207; width: 100%; background: #fff; -webkit-transform: translate(0, -100%); transform: translate(0, -100%); -webkit-transition: -webkit-transform .4s ease-in; transition: transform .4s ease-in;}
+.header-wrap.open .nav-menu { top: 55px; -webkit-transform: translate(0, 0); transform: translate(0, 0); -webkit-transition: -webkit-transform .4s cubic-bezier(.175, .885, .32, 1.1);  transition: transform .4s cubic-bezier(.175, .885, .32, 1.1);}
+.header-wrap.open .nav-menu .menu { display: block;}
+.nav-menu .menu { position: relative; display: none; height: 100%; padding: 20px; box-sizing: border-box;}
+.nav-menu .menu h3 { padding-bottom: .5rem; font-size: .6rem; font-weight: 300; color: #999;}
+.nav-menu .menu h3 .iconfont { display: inline-block; width: 1.4rem; font-size: 1.2rem; vertical-align: middle;}
+.nav-menu .menu .menu-list { padding-bottom: .8rem; overflow: hidden;}
+.nav-menu .menu .menu-list li { position: relative; float: left; width: 33.33%; padding: 6px 4px; box-sizing: border-box;}
+.nav-menu .menu .menu-list li a { display: block; font-size: 14px; line-height: 1.4rem; color: #333; text-indent: 10px; text-overflow: ellipsis; white-space: nowrap; word-wrap: break-word; word-break: break-all; overflow: hidden;}
+.nav-menu .menu .menu-list li a .iconfont { float: left; width: 1.3rem; height: 1.3rem; font-size: .9rem; line-height: 1.4rem; color: #fff; text-align: center; text-indent: 0; background: #f00; border-radius: 4px;}
+.nav-menu .menu .menu-list li a .icon-yun { background: #fda253;}
+.nav-menu .menu .menu-list li a .icon-shop { background: #ff3332;}
+.nav-menu .menu .menu-list li a .icon-shop { background: #ff3332;}
+.nav-menu .menu .menu-list li a .icon-erp { background: #45a0fb;}
+.nav-menu .menu .menu-list li a .icon-logistic { background: #12cab2;}
+.nav-menu .menu .menu-list li a .icon-cash { background: #7ccb31;}
+.nav-menu .menu .menu-list li a .icon-code { background: #fc6075;}
+.nav-menu .menu .menu-list li a .icon-product { background: #fc6701;}
+.nav-menu .menu .menu-list li a .icon-maintenance { background: #66a3ff;}
+.nav-menu .menu .menu-list li a .icon-operate { background: #f7b532;}
+.nav-menu .menu .menu-list li a .icon-design { background: #33d5bd;}
+.nav-menu .menu .menu-list li a .icon-seo { background: #db52db;}
+.nav-menu .menu .user-login { position: absolute; right: 20px; bottom: 20px; left: 20px; display: none; text-align: center;}
+.nav-menu .menu .user-login a { padding: 0 15px; color: #666;}
+.nav-menu .menu .nav-menu-close { position: absolute; bottom: 1.5rem; left: 50%; width: 1.4rem; height: 1.4rem; margin-left: -.7rem; line-height: 1.65rem; color: #ccc; border: 1px solid; border-radius: 50%;}
+.nav-menu .menu .nav-menu-close .iconfont { font-size: 1.4rem;}
+
+/*底部*/
+.footer-info { position: relative; padding: 10px; text-align: center; background: #202020;}
+.footer-info .footer-menu { overflow: hidden; box-sizing: border-box;}
+.footer-info .footer-menu h3 { padding-top: 15px; font-size: 14px; font-weight: 700; color: #999; text-align: left; letter-spacing: 1px;}
+.footer-info .footer-menu ul { padding: 10px 0; text-align: left; overflow: hidden;}
+.footer-info .footer-menu ul li { float: left; width: 25%; font-size: 12px;}
+.footer-info .footer-menu ul li a { color: #aaa;}
+.footer-info .footer-menu ul li a:hover { font-size: 12px;}
+.footer-line { height: 1px; background: #666; -webkit-transform: scaleY(0.5); transform: scaleY(0.5);}
+.footer-info .wx-code { width: 5rem; margin: 1rem auto;}
+.footer-info .wx-code img { width: 100%;}
+.footer-info .footer-platforms { display: none; padding: 10px 0 6px;}
+.footer-info .footer-platforms li { display: inline-block; padding: 0 .5rem; margin: 0 .6rem .5rem; font-size: 13px; line-height: 1.2rem; color: #999; border: 1px solid #999; border-radius: 1rem;}
+.footer-info .footer-platforms li .iconfont { font-size: 22px; vertical-align: middle;}
+.footer-info .footer-platforms li a:hover { font-size: 13px; color: #666;}
+.footer-info .copyright { padding: 0 0 .5rem; font-size: 12px; color: #999; background: transparent;}
+
+/*底部菜单*/
+.footer-nav { height: 50px;}
+.footer-nav ul li i { height: 30px; font-size: 27px; line-height: 30px;}
+
+/*百度商桥*/
+#newBridge { display: none !important;}

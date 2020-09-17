@@ -1,0 +1,13 @@
+!.gitignore
+!.gitattributes
+!/static/upload/picture/default
+/.idea
+/.svn
+/.git
+/cgi-bin
+/runtime
+/nbproject
+/composer.lock
+/phpMAdmin
+/.env
+/data/databack

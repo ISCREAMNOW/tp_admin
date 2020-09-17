@@ -1,0 +1,146 @@
+{extend name='common/base_layout' /}
+
+{block name="lib-head"}
+<script type="text/javascript" src="__FRONTEND__/assets/js/jquery.js"></script>
+<script type="text/javascript" src="__FRONTEND__/assets/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="__FRONTEND__/assets/js/layer/layer.js"></script>
+<script type="text/javascript" src="__FRONTEND__/assets/js/jquery.method.js"></script>
+<script type="text/javascript" src="__FRONTEND__/assets/js/jquery.modal.js"></script>
+<script type="text/javascript" src="__FRONTEND__/js/common.js"></script>
+
+
+<script src="__FRONTEND__/website/js/index.js"></script>
+<script src="__FRONTEND__/website/js/ljs-v1.0.js"></script>
+
+{/block}
+
+{block name="css-head"}
+
+
+<link href="__FRONTEND__/website/css/common.css" rel="stylesheet" type="text/css" />
+<link href="__FRONTEND__/website/css/style.css" rel="stylesheet" type="text/css" />
+<link href="__FRONTEND__/website/css/cartoon.css" rel="stylesheet" type="text/css" />
+
+{/block}
+
+<!-- content -->
+{block name="content"}
+
+<!-- 引入头部文件 _start -->
+{include file="common/header"}
+<!-- 引入头部文件 _end -->
+
+<!--内容 _start-->
+
+<!--build-top-nav _start-->
+{include file="frontend/website/_build_top_nav" /}
+<!--build-top-nav _end-->
+
+<section class="build_white">
+    <h2 class="build_tit01">品牌型网站建设</h2>
+    <p class="build_p01">品牌型网站建设（企业官网建设）是以企业品牌形象展示及创意为主，网站通过对企业品牌的塑造、信息的介绍，让浏览者熟悉企业的情况、了解企业所提供的产品和服务，并通过有效的在线沟通、交流方式搭建起潜在客户与企业之间的桥梁。</p>
+    <h3 class="build_cy"><img src="__FRONTEND__/website/images/static/build_img11.jpg" /></h3>
+</section><!--build01-->
+
+<section class="build_dark build_ch">
+    <div class="main">
+        <div class="bg-image"><img src="__FRONTEND__/website/images/static/build_bg10.png" width="1903" height="645" /></div>
+        <div class="six_shape shape01">
+            <h2>网站策划</h2>
+            <p>Website Producer</p>
+            <div class="corner-1"></div>
+            <div class="corner-2"></div>
+        </div><!--six_shape-->
+        <div class="six_shape shape02">
+            <h2>创意设计</h2>
+            <p>Creative Design</p>
+            <div class="corner-1"></div>
+            <div class="corner-2"></div>
+        </div><!--six_shape-->
+        <div class="six_shape shape03">
+            <h2>交互设计</h2>
+            <p>Interaction Design</p>
+            <div class="corner-1"></div>
+            <div class="corner-2"></div>
+        </div><!--six_shape-->
+        <div class="six_shape shape04">
+            <h2>网站开发</h2>
+            <p>Website Development</p>
+            <div class="corner-1"></div>
+            <div class="corner-2"></div>
+        </div><!--six_shape-->
+        <span class="shape05"><img src="__FRONTEND__/website/images/static/build_img14.png" /></span>
+
+    </div>
+</section><!--build02-->
+
+<section class="build_white pb10">
+    <h2 class="build_tit01">采用新一代HTML5标准</h2>
+    <p class="build_p01">更高的交互性能和更好的动画效果，创新国际化品牌网站设计概念，一切超乎您的想象</p>
+    <table class="build_new">
+        <tr>
+            <td class="td01">
+                <h3>以品牌为导向</h3>
+            </td>
+            <td class="td02">
+                <h3>设计趋势研究</h3>
+                <p>通过多年的策划与执行经验的总结，我们力图将趋势前瞻性研究与设计、战略及技术纳入一个多选择的整合途径，为品牌导出领先行业的时代设计语言。设计研究将积极地贯穿于整个创意的过程，助力品牌实效传播
+                    与定向解决方案的产出。</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="td03">
+                <h3>品牌数字识别规范</h3>
+                <p>基础UI规范及品牌数字资产搜集、梳理网站关键数字载体设计实施（如）
+                    数字品牌基础规范（logo数字化规范、色彩、基础图形）
+                    数字品牌应用规范（网站基本要素规范、结构与布局规范等）
+
+                    与定向解决方案的产出。</p>
+            </td>
+            <td class="td04">
+                <h3>内容与架构</h3>
+            </td>
+        </tr>
+    </table>
+</section><!--build01-->
+
+<!--contact-box _start-->
+{include file="frontend/website/_contact_info" /}
+<!--contact-box _end-->
+
+<!--内容 _end-->
+
+<!-- 底部 _star-->
+
+<!-- 右侧边栏 _start -->
+{include file="common/sidebar"}
+<!-- 右侧边栏 _end -->
+
+<!-- 底部 _start-->
+{include file="common/footer"}
+<!-- 底部 _end-->
+<script type="text/javascript" src="__FRONTEND__/hctech/js/common.js"></script>
+<!-- 底部 _end-->
+
+
+
+<script type="text/javascript">
+    $().ready(function(){
+        // 缓载图片
+        $("img").lazyload({
+            skip_invisible: false,
+            effect:'fadeIn',
+            failure_limit: 20,
+            threshold: 200
+        });
+    });
+</script>
+
+
+
+
+{/block}
+
+{block name="js-foot"}
+
+{/block}

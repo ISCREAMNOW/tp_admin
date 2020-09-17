@@ -1,0 +1,188 @@
+{extend name='common/base_layout' /}
+
+{block name="lib-head"}
+<script type="text/javascript" src="__FRONTEND__/assets/js/jquery.js"></script>
+<script type="text/javascript" src="__FRONTEND__/assets/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="__FRONTEND__/assets/js/layer/layer.js"></script>
+<script type="text/javascript" src="__FRONTEND__/assets/js/jquery.method.js"></script>
+<script type="text/javascript" src="__FRONTEND__/assets/js/jquery.modal.js"></script>
+<script type="text/javascript" src="__FRONTEND__/js/common.js"></script>
+{/block}
+
+{block name="css-head"}
+
+<!-- layui 2.0-->
+<link rel="stylesheet" href="__STATIC__/plugs/layui/css/layui.css">
+<script src="__STATIC__/plugs/layui/layui.js"></script>
+
+<link type="text/css" rel="stylesheet" href="__FRONTEND__/css/index.css"/>
+
+<script type="text/javascript" src="__FRONTEND__/assets/js/table/jquery.tablelist.js"></script>
+<!-- 资讯频道CSS -->
+<link type="text/css" rel="stylesheet" href="__FRONTEND__/css/news.css"/>
+
+{/block}
+
+<!-- content -->
+{block name="content"}
+
+<!-- 引入头部文件 _start -->
+{include file="common/article_header"}
+<!-- 引入头部文件 _end -->
+
+<!--内容 _start-->
+<div class="w1210">
+	<!-- 当前位置 -->
+	<div class="content clearfix">
+
+		<!--头部 end-->
+		<div class="w1210">
+
+			<div class="article-cat-box">
+				<ul class="article-cat-list clearfix">
+
+					{foreach $articleClassList as $key=>$articleClass}
+					{php} $rightKey = ($key+1)%3 {/php}
+					<li class="item {if $rightKey eq 0}item-specil{/if}">
+						<div class="content">
+							<div class="name">
+								<img src="{$articleClass.class_icon}" />
+								<a href="{:url('frontend/News/lists', ['ac_id' => $articleClass['class_id']])}" title="{$articleClass.class_name}">{$articleClass.class_name}</a>
+							</div>
+							{notempty name="articleClass['sub']"}
+							<div class="extra">
+								{foreach $articleClass['sub'] as $sub}
+								<span>
+									<a href="{:url('frontend/News/lists', ['ac_id' => $sub['class_id']])}" title="{$sub.class_name}">{$sub.class_name}</a>
+								</span>
+								{/foreach}
+							</div>
+							{/notempty}
+						</div>
+					</li>
+					{/foreach}
+
+				</ul>
+			</div>
+
+			<!-- 当前位置 _start -->
+			<div class="breadcrumb clearfix">
+				<a href="{:url('frontend/News/index')}" class="index">首页</a>
+
+
+				<span class="crumbs-arrow">&gt;</span>
+				{if $articleId neq 0}
+				<a class="last" href="{:url('frontend/News/lists', ['ac_id' => $articleId])}">{$articleClassName}</a>
+				{elseif $keyword neq '' /}
+				<a class="last" href="javalasspt:;">搜索到 <span>{$articleTotal}</span> 条关于 <b style="color: red;">{:I('get.keyword')}</b> 的结果</a>
+				{else /}
+				<a class="last" href="javascript:;">新闻动态</a>
+				{/if}
+
+			</div>
+			<!-- 当前位置 _end -->
+			<div class="main-left fl">
+
+				<!-- 新闻列表 _start -->
+				{include file="frontend/news/_news_list"}
+				<!-- 新闻列表 _end -->
+
+			</div>
+			<!-- 推荐文章 -->
+			<div class="main-right fr">
+				<!--推荐文章-->
+				<div class="industry">
+					<h2 class="article-title">
+						<a class="title" href="javascript:void(0)">
+							<i class="title-icon"></i>
+							<span>推荐文章</span>
+						</a>
+					</h2>
+					<div class="industry-content article-recommend">
+
+                        <!--推荐新闻列表-->
+						{include file="frontend/news/_recommend_news_list" /}
+
+					</div>
+				</div>
+				<!--联系我们-->
+				<div class="article contact " style="margin-bottom: 25px;">
+					<h2 class="article-title">
+						<a class="title" href="javascript:void(0);">
+							<i class="title-icon"></i>
+							<span>联系我们</span>
+						</a>
+					</h2>
+					<div class="contact-content">
+						<div class="contact-code fl first">
+							<div class="pic">
+								<img width="130" src="{:sysconf('wx_qrcode')}" alt="微信公众号" />
+							</div>
+							<h3>公众号</h3>
+						</div>
+						<div class="contact-code fl">
+							<div class="pic">
+								<img width="130" src="{:sysconf('wx_qrcode')}" alt="手机客户端" />
+							</div>
+							<h3>APP</h3>
+						</div>
+						<div class="clear"></div>
+						<div class="contact-type phone">
+							<i class="icon"></i>
+							<p>
+								<a href="#">垂询热线：{:sysconf('hc_phone')}</a>
+							</p>
+						</div>
+						<div class="contact-type email">
+							<i class="icon"></i>
+							<p>
+								<a href="#">商务合作：{:sysconf('hc_email')}</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+
+		<script type="text/javascript">
+            var tablelist;
+            $().ready(function() {
+                tablelist = $("#table_list").tablelist({
+                    // 支持保存查询条件
+                    params: $("#articleSearchForm").serializeJson()
+                });
+            });
+		</script>
+	</div>
+</div>
+<!--内容 _end-->
+
+<!-- 底部 _star-->
+
+<!-- 右侧边栏 _start -->
+{include file="common/sidebar"}
+<!-- 右侧边栏 _end -->
+
+<!-- 底部 _start-->
+{include file="common/footer"}
+<!-- 底部 _end-->
+<script type="text/javascript" src="__FRONTEND__/hctech/js/common.js"></script>
+<!-- 底部 _end-->
+
+<script type="text/javascript" src="__FRONTEND__/js/jquery.fly.min.js"></script>
+<script type="text/javascript" src="__FRONTEND__/assets/js/szy.cart.js"></script>
+<script type="text/javascript" src="__FRONTEND__/js/news.js"></script>
+<script type="text/javascript">
+    $().ready(function(){
+        //图片缓载
+        $.imgloading.loading();
+
+    });
+</script>
+
+{/block}
+
+{block name="js-foot"}
+
+{/block}

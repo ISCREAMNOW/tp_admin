@@ -1,0 +1,116 @@
+{extend name='common/content' /}
+
+
+{block name="content"}
+<style>
+    .clearfix {
+        margin: 10px auto;
+    }
+    .layui-btn.backup {
+        background-color: #2bb0d4;
+        border-radius: 2px!important;
+    }
+    .layui-btn.backup:hover {
+        opacity: .8;
+        filter: alpha(opacity=80);
+        color: #fff;
+    }
+</style>
+
+<blockquote class="layui-elem-quote layui-quote-nm">
+    数据库中共有 {$tables} 张表，共计 {$total}
+</blockquote>
+
+<div class="layui-form">
+    <div class="clearfix">
+        <button data-update data-field='export' data-action='{:url("$classuri/export")}' class="layui-btn backup" id="export">立即备份</button>
+        <button data-update data-field='optimize' data-action='{:url("$classuri/optimize")}' class="layui-btn backup" id="optimize">优化表</button>
+        <button data-update data-field='repair' data-action='{:url("$classuri/repair")}' class="layui-btn backup" id="repair">修复表</button>
+    </div>
+    <form id="export-form" onsubmit="return false;" data-auto="" method="POST">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>
+                    <input data-none-auto="" data-check-target='.list-check-box' lay-skin="primary" lay-filter="allChoose" type="checkbox">
+                </th>
+                <th>表名</th>
+                <th>引擎类型</th>
+                <!--<th class='text-center'>字符集</th>-->
+                <th>行数 <br/>{$totalsize.row} 条</th>
+                <th>表大小 <br/>{$totalsize.table|format_bytes}</th>
+                <th>碎片 <br/>{$totalsize.free|format_bytes}</th>
+                <th>数据 <br/>{$totalsize.data|format_bytes}</th>
+                <th>索引 <br/>{$totalsize.index|format_bytes}</th>
+                <th>备注</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            {foreach $list as $key=>$vo}
+            <tr>
+                <td>
+                    <input class="list-check-box" value='{$vo.name}' lay-skin="primary" type="checkbox">
+                </td>
+                <td>{$vo.name}</td>
+                <td>{$vo.engine}</td>
+                <!--<td class='text-center'>{$vo.collation}</td>-->
+                <td>{$vo.rows}</td>
+                <td>{$vo.size}</td>
+                <td>{$vo.data_free|format_bytes}</td>
+                <td>{$vo.data_length|format_bytes}</td>
+                <td>{$vo.index_length|format_bytes}</td>
+                <td>{$vo.comment}</td>
+                <td>
+                    <!--{if auth("$classuri/optimize")}
+                    <span class="text-explode">|</span>
+                    <a data-update="{$vo.name}" data-field='optimize' data-action='{:url("$classuri/optimize")}?id={$vo.name}'
+                       href="javascript:void(0)">优化表</a>
+                    {/if}
+                    {if auth("$classuri/repair")}
+                    <span class="text-explode">|</span>
+                    <a data-update="{$vo.name}" data-field='repair' data-action='{:url("$classuri/repair")}?id={$vo.name}'
+                       href="javascript:void(0)">修复表</a>
+                    {/if}-->
+
+                    <div class="layui-btn-group">
+
+                        {if auth("$classuri/edit")}
+                        <button type="button" data-modal='{:url("$classuri/showTableDetail")}?table={$vo.name}' data-title="{$vo.comment}（{$vo.name}）" class="layui-btn layui-btn-primary layui-btn-small">表字段</button>
+                        {/if}
+
+                        {if auth("$classuri/optimize")}
+                        <button type="button" data-update="{$vo.name}" data-field='optimize' data-action='{:url("$classuri/optimize")}?id={$vo.name}' class="layui-btn layui-btn-primary layui-btn-small">优化</button>
+                        {/if}
+
+                        {if auth("$classuri/repair")}
+                        <button type="button" data-update="{$vo.name}" data-field='optimize' data-action='{:url("$classuri/repair")}?id={$vo.name}' class="layui-btn layui-btn-primary layui-btn-small">修复</button>
+                        {/if}
+                    </div>
+                </td>
+            </tr>
+            {/foreach}
+            </tbody>
+        </table>
+    </form>
+</div>
+
+<script>window.form.render();</script>
+
+<script>
+    layui.use('form', function(){
+        var $ = layui.jquery
+            , form = layui.form;
+
+        //全选
+        form.on('checkbox(allChoose)', function(data){
+            var child = $(data.elem).parents('table').find('tbody input[type="checkbox"]');
+            child.each(function(index, item){
+                item.checked = data.elem.checked;
+            });
+            form.render('checkbox');
+        });
+
+    });
+</script>
+{/block}

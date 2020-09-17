@@ -1,0 +1,166 @@
+{switch name="form.type"}
+
+{//text:单行文本
+textarea:多行文本
+static:静态文本
+password:密码
+checkbox:复选框
+radio:单选按钮
+date:日期
+datetime:日期+时间
+hidden:隐藏
+switch:开关
+array:数组
+select:下拉框
+linkage:普通联动下拉框
+linkages:快速联动下拉框
+image:单张图片
+images:多张图片
+file:单个文件
+files:多个文件
+ueditor:UEditor
+wangeditor:wangEditor
+editormd:markdown
+icon:字体图标
+tags:标签
+number:数字
+bmap:百度地图
+colorpicker:取色器
+jcrop:图片裁剪
+masked:格式文本
+range:范围
+time:时间}
+
+{case value="text"}
+{// 单行文本 }
+<input type="text" name="{$form.name}" {if $form.required eq 1}required="required"{/if} title="请输入{$form.title}" placeholder="请输入{$form.title}"
+value="{$form.value|default=''}" class="layui-input">
+{/case}
+
+{case value="textarea"}
+{// 多行文本 }
+<textarea placeholder="请输入{$form.title}" title="请输入{$form.title}" class="layui-textarea" name="{$form.name}">{$form.value|default=""}</textarea>
+{/case}
+
+{case value="password"}
+{// 密码 }
+<input type="password" name="{$form.name}" {if $form.required eq 1}required="required"{/if} title="请输入{$form.title}" placeholder="请输入{$form.title}"
+value="{$form.value|default=''}" class="layui-input">
+{/case}
+
+{case value="checkbox"}
+{// 复选框 }
+{foreach $form.options as $key=>$option}
+<input name="{$form.name}[]" value="{$key}" title="{$option}" {in name="key" value="$form.value|default=''"}checked{/in} type="checkbox">
+{/foreach}
+{/case}
+
+{case value="radio"}
+{// 单选按钮 }
+{foreach $form.options as $key=>$option}
+<input name="{$form.name}" value="{$key}" title="{$option}" {if $form.value eq $key}checked=""{/if} type="radio">
+{/foreach}
+{/case}
+
+{case value="date"}
+{// 日期 }
+<!--todo -->
+<input type="password" name="{$form.name}" {if $form.required eq 1}required="required"{/if} title="请输入{$form.title}" placeholder="请输入{$form.title}"
+value="{$form.value|default=''}" class="layui-input">
+{/case}
+
+{case value="datetime"}
+{// 日期+时间 }
+<!--todo -->
+<input type="password" name="{$form.name}" {if $form.required eq 1}required="required"{/if} title="请输入{$form.title}" placeholder="请输入{$form.title}"
+value="{$form.value|default=''}" class="layui-input">
+{/case}
+
+{case value="hidden"}
+{// 隐藏 }
+<input type="hidden" name="{$form.name}" {if $form.required eq 1}required="required"{/if} title="请输入{$form.title}" placeholder="请输入{$form.title}"
+value="{$form.value|default=''}" class="layui-input">
+{/case}
+
+{case value="switch"}
+{// 开关 }
+<input name="{$form.name}" value="1" title="启用" {if $form.value eq 1}checked=""{/if} type="radio">
+<input name="{$form.name}" value="0" title="禁用" {if $form.value eq 0}checked=""{/if} type="radio">
+{/case}
+
+{case value="select"}
+{// 下拉框  }
+<!--todo -->
+<select name="{$form.name}" lay-verify="required" lay-search="">
+    <option value="">请选择一项</option>
+</select>
+{/case}
+
+{case value="image"}
+{// 单张图片 }
+<!--<img data-tips-image style="height:auto;max-height:32px;min-width:32px" src="{$form.value|default='static/admin/theme/default/img/image.png'}"/>-->
+<!--<input type="hidden" name="{$form.name}" onchange="$(this).prev('img').attr('src', this.value)"-->
+       <!--value="{$form.value|default=''}" class="layui-input">-->
+<!--<a class="btn btn-link" data-file="one" data-type="ico,png,jpg" data-field="{$form.name}">上传图片</a>-->
+
+
+<!-- todo 默认图片设置 -->
+{if isset($form.value)}
+<img data-tips-image style="height:auto;max-height:32px;min-width:32px" src="{:get_pic_by_id($form.value,-4)}"/>
+{else /}
+<img data-tips-image style="height:auto;max-height:32px;min-width:32px" src="{:get_pic_by_id(-4)}"/>
+{/if}
+{// 存储图片id}
+<input type="hidden" name="{$form.name}" onchange="$(this).prev('img').attr('src', $(this).attr('data-url'));" value="{$form.value|default=''}" class="layui-input">
+<a class="btn btn-link" data-file="one" data-type="ico,png,jpg" data-field="{$form.name}">上传图片</a>
+{/case}
+
+{case value="images"}
+{// 多张图片 }
+<img data-tips-image style="height:auto;max-height:32px;min-width:32px" src="{$form.value}"/>
+<input type="hidden" name="{$form.name}" onchange="$(this).prev('img').attr('src', this.value)"
+       value="{$form.value}" class="layui-input">
+<a class="btn btn-link" data-file="one" data-type="ico,png,jpg" data-field="site_logo">上传图片</a>
+{/case}
+
+{case value="file"}
+{// 单个文件 }
+<input type="password" name="{$form.name}" {if $form.required eq 1}required="required"{/if} title="请输入{$form.title}" placeholder="请输入{$form.title}"
+value="{$form.value|default=''}" class="layui-input">
+{/case}
+
+{case value="files"}
+{// 多个文件 }
+<input type="password" name="{$form.name}" {if $form.required eq 1}required="required"{/if} title="请输入{$form.title}" placeholder="请输入{$form.title}"
+value="{$form.value|default=''}" class="layui-input">
+{/case}
+
+{case value="tags"}
+{// 标签 }
+<!--todo -->
+<input type="password" name="{$form.name}" {if $form.required eq 1}required="required"{/if} title="请输入{$form.title}" placeholder="请输入{$form.title}"
+value="{$form.value|default=''}" class="layui-input">
+{/case}
+
+{case value="number"}
+{// 数字 }
+<input type="number" name="{$form.name}" {if $form.required eq 1}required="required"{/if} title="请输入{$form.title}" placeholder="请输入{$form.title}"
+value="{$form.value|default=''}" class="layui-input">
+{/case}
+
+{case value="range"}
+{// 范围 }
+<!--todo -->
+<input type="password" name="{$form.name}" {if $form.required eq 1}required="required"{/if} title="请输入{$form.title}" placeholder="请输入{$form.title}"
+value="{$form.value|default=''}" class="layui-input">
+{/case}
+
+{case value="time"}
+{// 时间 }
+<!--todo -->
+<input type="password" name="{$form.name}" {if $form.required eq 1}required="required"{/if} title="请输入{$form.title}" placeholder="请输入{$form.title}"
+value="{$form.value|default=''}" class="layui-input">
+{/case}
+
+{/switch}
+

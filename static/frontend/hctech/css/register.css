@@ -1,0 +1,32 @@
+@charset "utf-8"; 
+/* CSS Document */
+/*头部*/
+.header { width: 1100px; min-width: 1100px; border: 0;}
+.header .logo-info { padding: 5px 0 15px;}
+.logo-info span.findpw { margin-top: 38px;}
+.header .header-phone { padding-top: 35px; font-size: 16px; line-height: 50px; color: #333;}
+.header .header-phone .iconfont { font-size: 40px; vertical-align: middle;}
+
+/*注册*/
+.reg-content { padding: 50px 0; background: url(../images/reg-bg.png) no-repeat center top;}
+.reg-type { display: none;}
+.reg-con { width: 400px; background: #fff; border-radius: 10px;}
+.reg-wrap { padding: 30px 40px; margin: 0; border: 0;}
+.reg-con .reg-title { padding-bottom: 25px; font-size: 18px; font-weight: 300; color: #333; text-align: center;}
+.reg-con .form-horizontal { width: 100%; margin: 0;}
+.form-horizontal .form-group-spe { margin-bottom: 25px;}
+.form-horizontal .form-group label.input-left { display: none;}
+.form-horizontal .form-group .form-control-box { margin: 0;}
+.form-horizontal .form-group input[type="text"], .form-horizontal .form-group input[type="password"] { width: 288px; padding: 5px 15px; box-shadow: none;}
+.form-horizontal .form-group input[type="text"].input-small { width: 136px;}
+.form-horizontal .form-group .form-control-error { top: 43px; left: 0;}
+.phonecode { color: #fff; background: #00b3f2; border: 1px solid #00b3f2; border-radius: 2px;}
+.phonecode:hover { color: #fff;}
+.form-horizontal .form-group .form-control-box .iconfont.remember { display: inline-block; width: 14px; height: 14px; margin-right: 3px; font-size: 13px; font-weight: 700; line-height: 16px; color: #fff; text-align: center; cursor: pointer; overflow: hidden; background: #00b3f2; border-radius: 2px;}
+.form-horizontal .form-group .form-control-box .iconfont.remember.disabled { text-indent: -9em; background: #e5e5e5;}
+.form-horizontal .form-group .form-control-box .checkbox { display: none;}
+.form-horizontal .form-group .form-control-box label span { cursor: pointer;}
+.reg-btn { width: 320px; margin: 0;}
+.form-horizontal .reg-btn .form-group-spe { margin: 0;}
+.reg-btn .btn-img { width: 320px; height: 40px; padding: 0; font-size: 14px; background: #00b3f2; border-radius: 2px;}
+.login-link { padding-top: 10px; color: #999; text-align: right;}

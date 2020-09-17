@@ -1,0 +1,56 @@
+@charset "utf-8";
+/* CSS Document */
+body { background: #f3f3f3;}
+/*banner*/
+.case-slider { position: relative; z-index: 1; width: 100%; height: 460px; min-width: 1210px;}
+.case-slider .slider-pic { position: relative; z-index: 0; width: 100%; height: 460px; overflow: hidden;}
+.case-slider .slider-pic li { position: absolute; z-index: 0; width: 100%; height: 460px; margin: 0 auto;}
+.case-slider .slider-pic li.current { z-index: 1;}
+.case-slider .slider-pic li a { display: block; width: 100%; height: 460px;}
+.slider-dot { height: 12px;}
+.slider-dot .dot-group { width: 540px; margin: -52px auto; font-size: 0; line-height: 0; text-align: center;}
+.slider-dot .dot { position: relative; display: inline-block; overflow: hidden; width: 15px; height: 15px; margin: 0 5px; border: 1px solid #fff; border-radius: 50%; background-color: rgba(0,0,0,.2); filter: progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr='#33000000', endColorstr='#33000000'); background-image: url(###)\9; -webkit-transition: background .3s ease; transition: background .3s ease;}
+.slider-dot .dot:after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 0; background-color: #fff; box-shadow: 0 0 1px #fff; -webkit-transition: height .5s ease; -moz-transition: height .5s ease; -ms-transition: height .5s ease; -o-transition: height .5s ease; transition: height .5s ease;}
+.slider-dot .dot.current, .slider-dot .dot:hover { background: #fff;}
+.slider-dot .dot.current:after { height: 100%;}
+
+/*客户案例*/
+.content-wrap { width: 100%; min-width: 1210px; padding: 30px 0 30px; overflow: hidden;}
+
+/*左侧分类*/
+.case-category { float: left; width: 205px; text-align: center; background: #fff;}
+.case-category h2 { position: relative; z-index: 1; height: 50px; margin-bottom: 2px; font-size: 16px; font-weight: 300; line-height: 50px;}
+.case-category h2 a { position: relative; z-index: 2; display: block; width: 100%; height: 100%; color: #333;}
+.case-category ul { padding: 10px 0;}
+.case-category li { position: relative; z-index: 1; height: 40px; margin-bottom: 10px; line-height: 40px;}
+.case-category li a { display: block; width: 100%; height: 100%; font-size: 14px; color: #444;}
+.case-category h2.active, .case-category li.active { background: #ff5400; opacity: .9; filter: alpha(opacity=90);}
+.case-category h2.active a, .case-category li.active a { color: #fff;}
+
+/*案例*/
+.case-group-box h3 { padding: 10px 10px 20px; font-size: 26px; font-weight: 300; color: #f9f9f9; text-align: center;}
+.case-wrap { padding-left: 205px; line-height: 1.8;}
+.case-wrap .case-top { padding: 0 0 20px 30px; overflow: hidden;}
+.case-wrap .case-top .form-horizontal { width: auto; padding-top: 0;}
+.case-wrap .case-top .form-horizontal .form-control { margin-right: 10px; height: 30px;}
+.case-wrap .case-top .btn { color: #fff; background: #ff6519; border-color: #ff6519;}
+.case-list .case-item { position: relative; float: left; width: 270px; padding: 40px 17px 20px; margin: 0 0 30px 30px; background: #fff;}
+.case-list .case-item .iconfont { position: absolute; top: 6px; right: 12px; font-size: 22px; color: #ff6519; cursor: pointer;}
+.case-list .case-item .case-tag { position: absolute; top: 0; left: 0; z-index: 2; width: 50px; height: 50px; background: url(../images/case-icon.png) no-repeat 0 0;}
+.case-list .case-item .case-logo { position: relative; z-index: 1; width: 106px; height: 106px; margin: 0 auto; overflow: hidden; border: 1px solid #eee; border-radius: 50%;}
+.case-list .case-item .case-logo img { display: block; max-width: 100%;}
+.case-list .case-item .case-name { height: 27px; padding: 20px 0 6px; font-size: 15px; font-weight: 700; color: #333; text-align: center; overflow: hidden;}
+.case-list .case-item p { height: 22px; padding-top: 5px; color: #666; overflow: hidden;}
+.case-list .case-item .case-desc { height: 90px; padding-top: 0; font-size: 12px; color: #666; text-align: center;}
+.case-list .case-item .use-product span { color: #00b3f2;}
+.case-list .case-item .address { width: 66%; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;}
+.case-list .other-info { position: absolute; bottom: 0; right: 0; left: 0; z-index: 10; display: none; padding: 15px 15px 20px; background: rgba(255,255,255,.9);}
+.case-list .other-info .qrcode-list { padding-bottom: 15px; overflow: hidden;}
+.case-list .other-info .qrcode-list dd { float: left; width: 50%;}
+.case-list .other-info .qrcode-list dd p { font-size: 14px; font-weight: 700; color: #666; text-align: center;}
+.case-list .other-info .qrcode-list dd img { display: block; width: 125px; height: 125px; margin: 0 auto;}
+.case-list .other-info .qrcode-list-one dd { float: none; width: 100%;}
+.case-list .other-info .case-btn { display: block; width: 110px; height: 30px; margin: 0 auto; font-size: 13px; line-height: 30px; color: #00b3f2; text-align: center; letter-spacing: 2px; border: 1px solid #00b3f2; border-radius: 3px;}
+
+/*底部*/
+.site-footer { border: 0;}

@@ -1,0 +1,282 @@
+{extend name='common/base_layout' /}
+
+{block name="lib-head"}
+<script type="text/javascript" src="__FRONTEND__/assets/js/jquery.js"></script>
+<script type="text/javascript" src="__FRONTEND__/assets/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="__FRONTEND__/assets/js/layer/layer.js"></script>
+<script type="text/javascript" src="__FRONTEND__/assets/js/jquery.method.js"></script>
+<script type="text/javascript" src="__FRONTEND__/assets/js/jquery.modal.js"></script>
+<script type="text/javascript" src="__FRONTEND__/js/common.js"></script>
+
+
+<script src="__FRONTEND__/website/js/css3-mediaqueries.js"></script>
+<script src="__FRONTEND__/website/js/index.js"></script>
+<script src="__FRONTEND__/website/js/build.js"></script>
+{/block}
+
+{block name="css-head"}
+
+
+<link href="__FRONTEND__/website/css/common.css" rel="stylesheet" type="text/css" />
+<link href="__FRONTEND__/website/css/style.css" rel="stylesheet" type="text/css" />
+<link href="__FRONTEND__/website/css/cartoon.css" rel="stylesheet" type="text/css" />
+
+{/block}
+
+<!-- content -->
+{block name="content"}
+
+<!-- 引入头部文件 _start -->
+{include file="common/header"}
+<!-- 引入头部文件 _end -->
+
+<!--内容 _start-->
+
+<!--left float-->
+<menu id="build_float" class="static_float">
+    <a class="sel" href="javascript:buildFloatClick(457);">建站导航</a>
+    <a href="javascript:buildFloatClick(1057);">技术优势</a>
+    <a href="javascript:buildFloatClick(1702);">开发模式</a>
+    <a href="javascript:buildFloatClick(2346);">网页设计</a>
+    <a href="javascript:buildFloatClick(2996);">程序开发</a>
+</menu>
+<!--banner-->
+<section class="build_banner">
+    <menu>
+        <ul>
+            <li>
+                <div>
+                    <h2 class="h01">营销</h2>
+                    <h3>营销结果导向</h3>
+                </div>
+                <p>环创绝不提供花架子网站，我们将新技术、新理念融合到每个对营销结果有利的应用中</p>
+            </li>
+            <li>
+                <div>
+                    <h2 class="h02">体验</h2>
+                    <h3>用户体验为主</h3>
+                </div>
+                <p>友好的用户体验设计让用户信赖、让用户方便浏览和操作、让更多用户找到您的网站</p>
+            </li>
+            <li>
+                <div>
+                    <h2 class="h03">品质</h2>
+                    <h3>细节决定成败</h3>
+                </div>
+                <p>无论是网站整体的框架，还是局部细节的处理，您都能感受到环创对细节和品质的追求</p>
+            </li>
+            <li>
+                <div>
+                    <h2 class="h04">运营</h2>
+                    <h3>网站重在运营</h3>
+                </div>
+                <p>网站重在后期的运营，环创为您的网站运营、营销、推广和维护提供全程支持</p>
+            </li>
+        </ul>
+        <div class="clear"></div>
+    </menu>
+</section><!--banner END-->
+<section class="build_nav">
+    <h2><img src="__FRONTEND__/website/images/static/build_tit01.png" /></h2>
+    <h3>深圳网站建设专业品牌</h3>
+    <h4>环创采用新一代HTML5标准，基于N层结构体系设计，为您打造企业营销和电子商务网站</h4>
+    <menu id="build_one">
+        <a class="a1" href="{:url('frontend/Website/marketing')}" title="网络营销型网站建设">
+            <span></span>
+            <p>网络营销型</p>
+        </a>
+        <a class="a2" href="{:url('frontend/Website/vis')}" title="品牌创意型网站建设">
+            <span></span>
+            <p>品牌创意型</p>
+        </a>
+        <a class="a3" href="{:url('frontend/Website/b2c')}" title="电子商务型网站建设">
+            <span></span>
+            <p>电子商务型</p>
+        </a>
+        <a class="a4" href="{:url('frontend/Website/weixin')}" title="深圳小程序开发">
+            <span></span>
+            <p>小程序开发</p>
+        </a>
+        <a class="a5" href="{:url('frontend/News/lists', ['ac_id' => 4])}" title="电商ERP系统">
+            <span></span>
+            <p>电商ERP系统</p>
+        </a>
+        <a class="a6" href="{:url('frontend/Website/quanwang')}" title="全网营销型网站建设">
+            <span></span>
+            <p>全网营销型</p>
+        </a>
+        <div class="clear"></div>
+    </menu>
+</section><!--build_nav END-->
+<section class="build_images">
+    <ul id="build_two">
+        <li class="text"><img src="__FRONTEND__/website/images/static/build_img01.jpg" /><span>环创基于云计算平台、采用分布式存储和硬件负载均衡，让您的网站具有更高的稳定性和安全性</span></li>
+        <li class="img img01">
+            <h2>CLOUD <b>COMPUTING</b></h2>
+            <h3>云计算</h3>
+            <span>01</span>
+        </li>
+        <li class="text"><img src="__FRONTEND__/website/images/static/build_img02.jpg" /><span>环创采用全新一代HTML5和CSS3为您构建网站，为您带来全新交互及动画体验，并全面兼容移动设备</span></li>
+        <li class="img img01">
+            <h2>INTERNET <b>STANDARD</b></h2>
+            <h3>HTML5</h3>
+            <span>02</span>
+        </li>
+        <li class="img img02">
+            <h2 style="text-align:right;margin-right:25px;">USER <b>EXPERIENCE</b></h2>
+            <h3 style="text-align:right;margin-right:25px;">用户体验</h3>
+            <span style="left:10px;">03</span>
+        </li>
+        <li class="text"><img src="__FRONTEND__/website/images/static/build_img03.jpg" /><span>环创全新UE用户体验设计和网站流程优化，让用户更方便、更快捷的进行网站浏览和功能操作</span></li>
+        <li class="img img03">
+            <h2 style="text-align:right;margin-right:25px;">GATABASE <b>STRUCTURE</b></h2>
+            <h3 style="text-align:right;margin-right:25px;">N层结构</h3>
+            <span style="left:10px;">04</span>
+        </li>
+        <li class="text"><img src="__FRONTEND__/website/images/static/build_img04.jpg" /><span>环创基于N层结构体系的数据库设计，具有更高的稳定性、扩展性、安全性，并更方便进行后台管理</span></li>
+        <li class="text"><img src="__FRONTEND__/website/images/static/build_img05.jpg" /><span>环创集结国内一流美术学院的专业设计团队，为您提供更完美的视觉设计和企业形象展示，并赢得更多访问者的信赖</span></li>
+        <li class="img img01">
+            <h2>VISUAL <b>DESIGN</b></h2>
+            <h3>视觉设计</h3>
+            <span>05</span>
+        </li>
+        <li class="text"><img src="__FRONTEND__/website/images/static/build_img06.jpg" /><span>环创免费为客户网站提供SEO搜索引擎优化推广，让您的关键词免费获得更多搜索和展示的机会</span></li>
+        <li class="img img02">
+            <h2 style="font-size:14px;">SEARCH ENGINE <b>OPTIMIZATION</b></h2>
+            <h3>SEO优化</h3>
+            <span>06</span>
+        </li>
+    </ul>
+</section><!--build_images END-->
+<section class="build_model">
+    <h2>建站模式</h2>
+    <p>环创从不以牺牲质量、降低价格来获得客户</p>
+    <h3>我们通过业界领先的新技术和新理念，层层把关各个环节，为您打造真正赚钱的网站</h3>
+
+    <ul id="build_three">
+        <li>
+            <h4>营销导向式</h4>
+            <h5>Marketing</h5>
+            <h6><img class="sel" style="height:232px;top:-116px;" src="__FRONTEND__/website/images/static/build_bg05.png" /></h6>
+        </li>
+        <li>
+            <h4>全面顾问式</h4>
+            <h5>Adviser</h5>
+            <h6><img src="__FRONTEND__/website/images/static/build_bg05.png" /></h6>
+        </li>
+        <li>
+            <h4>专业定制式</h4>
+            <h5>Professional</h5>
+            <h6><img src="__FRONTEND__/website/images/static/build_bg05.png" /></h6>
+        </li>
+        <li>
+            <h4>金牌保障式</h4>
+            <h5>Gold medal</h5>
+            <h6><img src="__FRONTEND__/website/images/static/build_bg05.png" /></h6>
+        </li>
+    </ul>
+    <div class="clear"></div>
+
+    <dl id="build_threesum">
+        <dd style="display:block;"><p>您的网站为您创造利润了吗？您注重的是过程还是结果呢？</p>
+            <p>环创通过市场调查发现，目前高达95%的网站都没有达到客户建站之初的预期值。</p>
+            <p>环创提供的建站服务都是以网络营销结果为导向的，我们不仅是提出新理念、新技术，而在于把这些新理念和新技术充分应用</p>
+            <p>到一个企业能实际使用获得效益的产品中，真正帮助客户利用互联网来创造价值。</p></dd>
+        <dd><p>网站重在运营，网站建设完毕并不意味着工作的结束，而是才开始！</p>
+            <p>电子商务是个系统工程，只有全面的统筹和认真的实施，您的网站才能产生效益。</p>
+            <p>我们拥有各类企业开展网络营销及电子商务应用的数据，包括大量成功的网络营销实施经验，</p>
+            <p>我们结合这些数据以及长期以来各方面专业人士的共同的、持续的研究成果，能够快速的为客户提供一条捷径。</p></dd>
+        <dd><p>低劣的网站设计和模板程序很便宜，但其并不能产生效益，对您来说也是巨大的浪费甚至是负面效果！</p>
+            <p>品质创造价值，在网站建设已经呈泛滥趋势的今天，环创能够一直坚持定制开发和设计是难得的。</p>
+            <p>不管是网站策划、设计、开发、推广，还是售后，您得到的都是更专业和更优秀的服务，哪怕是SEO优化细节我们也力求做到更好！</p>
+            <p>我们坚持原创，我们分工明确，我们拥有各类高级人才，我们确保他们都是拥有长期从业经验、并经过重重考核才进入我们开发团队。</p></dd>
+        <dd><p>每天都有大量的网络公司倒闭，客户权益几乎一夜之间被蒸发，在投诉无门的情况下只能换域名重做网站，原来的心血和成本全白花了！</p>
+            <p>环创的收费确实不低，因为企业必须有合理的利润才能存活下去，这样才是对客户负责的态度。</p>
+            <p>作为看重可持续发展的企业，我们坚信您一定不会为了节约少量成本而冒损失全局的风险吧？</p>
+            <p>把网站建设交给环创，让您永无后顾之忧，您就可以把精力完全投入到网站运营和企业经营上。</p></dd>
+    </dl>
+
+</section><!--build_model-->
+<section class="build_plan">
+    <div class="build_planbox" id="build_four">
+        <span class="bg-image"><img src="__FRONTEND__/website/images/static/build_bg07.jpg" width="1903" /></span>
+        <h2>网页设计</h2>
+        <h3>采用新一代HTML5+CSS3构架和响应式布局</h3>
+        <h4>环创强大的专业网站设计团队，为您提供更流行的扁平化网页设计和网站品牌创意设计，并兼容所有主流浏览器</h4>
+        <h4><img src="__FRONTEND__/website/images/static/build_ie.png" /></h4>
+        <p class="p1"><img src="__FRONTEND__/website/images/static/build_plan01.png" /><span><img src="__FRONTEND__/website/images/static/build_bg08.png" /></span></p>
+        <p class="p2"><img src="__FRONTEND__/website/images/static/build_plan02.png" /><span><img src="__FRONTEND__/website/images/static/build_bg08.png" /></span></p>
+        <p class="p3"><img src="__FRONTEND__/website/images/static/build_plan03.png" /><span><img src="__FRONTEND__/website/images/static/build_bg08.png" /></span></p>
+    </div>
+</section><!--build_plan-->
+<section class="build_pro">
+    <h2>程序开发</h2>
+    <h3>完全定制开发模式，让您的网站与众不同</h3>
+    <h4>环创超大规模的JAVA技术研发团队，基于N层结构体系和云计算平台，为您的网站提供超强引擎</h4>
+
+    <div class="build_probox" id="build_five">
+        <span class="sp1"><img src="__FRONTEND__/website/images/static/build_pro01.png" /></span>
+        <span class="sp2"><img src="__FRONTEND__/website/images/static/build_pro02.png" /></span>
+        <span class="sp3"><img src="__FRONTEND__/website/images/static/build_pro03.png" /></span>
+        <span class="sp4"><img src="__FRONTEND__/website/images/static/build_pro04.png" /></span>
+        <span class="sp5"><img src="__FRONTEND__/website/images/static/build_pro05.png" /></span>
+        <span class="sp6"><img src="__FRONTEND__/website/images/static/build_pro06.png" /></span>
+    </div><!--build_probox END-->
+
+    <h3>完全定制开发模式，让您的网站与众不同</h3>
+    <h4>环创超大规模的JAVA技术研发团队，基于N层结构体系和云计算平台，为您的网站提供超强引擎</h4>
+</section><!--build_pro END-->
+
+<!--contact-box _start-->
+{include file="frontend/website/_contact_info" /}
+<!--contact-box _end-->
+
+<!--内容 _end-->
+
+<!-- 底部 _star-->
+
+<!-- 右侧边栏 _start -->
+{include file="common/sidebar"}
+<!-- 右侧边栏 _end -->
+
+<!-- 底部 _start-->
+{include file="common/footer"}
+<!-- 底部 _end-->
+<script type="text/javascript" src="__FRONTEND__/hctech/js/common.js"></script>
+<!-- 底部 _end-->
+
+
+
+<script type="text/javascript">
+    $().ready(function(){
+        // 缓载图片
+        $("img").lazyload({
+            skip_invisible: false,
+            effect:'fadeIn',
+            failure_limit: 20,
+            threshold: 200
+        });
+    });
+</script>
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        //imgShowName("office_show",-200,300);
+        moreCartoon("content_more",-200,200);
+        //hoverCartoon("content_hover",-200,200);
+        cartoonNav("mainnav","navsel",90,6);
+        navScroll("navbox","go_topnav");
+        buildFloat();
+        buildBoxOne();
+        buildBoxTwo();
+        buildBoxThree();
+        buildBoxFive();
+    });
+</script>
+
+{/block}
+
+{block name="js-foot"}
+
+{/block}

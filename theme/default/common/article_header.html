@@ -1,0 +1,45 @@
+{include file="common/site_nav"}
+
+<div class="article-header">
+    <div class="header">
+        <div class="w1210">
+            <div class="logo-info">
+                <a href="/" class="logo">
+                    <img src="{:sysconf('site_logo')}">
+                </a>
+            </div>
+            <div class="article-nav fl">
+
+                <ul>
+
+                    <!-- 底部导航 -->
+                    {volist name="newsTopMenu" id="menu" key="k"}
+                    <li>
+                        <a class="" href="{$menu.url}" target="{$menu.target}" title="{$menu.title}">{$menu.title}</a>
+                    </li>
+                    {/volist}
+
+                </ul>
+            </div>
+            <div class="article-search-box fr">
+                <form class="article-search" id="articleSearchForm" method="get" action="{:url('frontend/News/lists')}" onkeydown="if(event.keyCode==13)return false;">
+                    <input class="keywords" name="keyword" type="text" value="{:I('get.keyword')}" placeholder="请输入关键字搜索">
+                    <input class="search-btn " type="button">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $('#articleSearchForm').find('.search-btn').click(function(){
+        if($(this).hasClass('disabled')){
+            return false;
+        }
+        if($.trim($('#articleSearchForm').find('.keywords').val())==''){
+            $.msg("请输入关键字");
+            $('#articleSearchForm').find('.keywords').focus();
+            return false;
+        }
+        $('#articleSearchForm').submit();
+    });
+</script>

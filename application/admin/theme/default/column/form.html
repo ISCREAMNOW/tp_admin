@@ -1,0 +1,91 @@
+<form class="layui-form layui-box" style='padding:25px 30px 20px 0' action="__SELF__" data-auto="true" method="post">
+    <div class="layui-form-item">
+        <label class="layui-form-label">上级栏目</label>
+        <div class="layui-inline">
+            <select name='pid' class='layui-select full-width'>
+                <option value="">请选择分类</option>
+                {foreach $menus as $menu}
+                {eq name='menu.id' value='$vo.pid|default=0'}
+                <option selected  value='{$menu.id}'>{$menu.spl}{$menu.title}</option>
+                {else/}
+                <option  value='{$menu.id}'>{$menu.spl}{$menu.title}</option>
+                {/eq}
+                {/foreach}
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">栏目地址</label>
+            <div class="layui-inline">
+                <select name='url_id' class='layui-select full-width'>
+                    <option value="">请选择栏目地址</option>
+                    <option value="/">首页</option>
+                    <optgroup label="分类列表">
+                        {foreach $cateList as $cate}
+                        {eq name='cate.class_id' value='$vo.category_id|default=0'}
+                        <option selected  value='category_{$cate.class_id}'>{$cate.spl}{$cate.class_name}</option>
+                        {else/}
+                        <option  value='category_{$cate.class_id}'>{$cate.spl}{$cate.class_name}</option>
+                        {/eq}
+                        {/foreach}
+                    </optgroup>
+                    <optgroup label="单页列表">
+                        {foreach $pageList as $pageItem}
+                        {eq name='pageItem.article_id' value='$vo.page_id|default=0'}
+                        <option selected  value='page_{$pageItem.article_id}'>{$pageItem.article_title}</option>
+                        {else/}
+                        <option  value='page_{$pageItem.article_id}'>{$pageItem.article_title}</option>
+                        {/eq}
+                        {/foreach}
+                    </optgroup>
+                </select>
+            </div>
+
+            <div class="layui-inline">
+                <input type="text" name="url" value='{$vo.url|default=""}' title="请输入栏目URL" placeholder="请输入栏目URL" class="layui-input">
+            </div>
+
+            <div class="layui-input-block">
+                <p class="help-block"><span style="color: red;">注：优先取文本框里的值</span> 访问地址可从下拉框中选一个或直接填URL地址</p>
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">栏目标识</label>
+        <div class="layui-input-block">
+            <input type="text" name="name" value='{$vo.name|default=""}' title="请输入栏目标识" placeholder="请输入栏目标识" class="layui-input">
+            <p class="help-block">由字母和下划线组成，如：main_nav</p>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">栏目名称</label>
+        <div class="layui-input-block">
+            <input type="text" name="title" value='{$vo.title|default=""}' required="required" title="请输入栏目名称" placeholder="请输入栏目名称" class="layui-input">
+        </div>
+    </div>
+    <!--<div class="layui-form-item">
+        <label class="layui-form-label">栏目链接</label>
+        <div class="layui-input-block">
+            <input type="text" onblur="(this.value === '') && (this.value = '#')" name="url" autocomplete="off" required="required" title="请输入栏目链接" placeholder="请输入栏目链接" value="{$vo.url|default='#'}" class="layui-input typeahead">
+        </div>
+    </div>-->
+    <div class="layui-form-item">
+        <label class="layui-form-label">栏目图标</label>
+        <div class="layui-input-inline" style='width:300px'>
+            <input placeholder="请输入或选择图标" onchange="$('#icon-preview').get(0).className = this.value" type="text" name="icon" value='{$vo.icon|default=""}' class="layui-input">
+        </div>
+        <span class='layui-btn layui-btn-primary' style='padding:0 12px;min-width:45.2px'>
+            <i id='icon-preview' style='font-size:1.2em' class='{$vo.icon|default=""}'></i>
+        </span>
+        <button data-icon='icon' type='button' class='layui-btn layui-btn-primary'>选择图标</button>
+    </div>
+    <div class="hr-line-dashed"></div>
+    <div class="layui-form-item text-center">
+        {if isset($vo['id'])}<input type='hidden' value='{$vo.id}' name='id'/>{/if}
+        <button class="layui-btn" type='submit'>保存数据</button>
+        <button class="layui-btn layui-btn-danger" type='button' data-confirm="确定要取消编辑吗？" data-close>取消编辑</button>
+    </div>
+
+</form>
+<script>window.form.render();</script>

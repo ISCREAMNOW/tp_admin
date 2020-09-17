@@ -1,0 +1,24 @@
+@charset "utf-8"; 
+/*头部*/
+.login-header { width: 1100px; height: auto; min-width: 1100px; padding: 0; overflow: hidden;}
+.login-header .logo-info { height: auto; padding: 5px 0 15px;}
+.logo-info a.logo { float: left; padding: 8px 0 0 0; margin-right: 25px;}
+.logo-info a.logo img { vertical-align: top !important;}
+.logo-info span.findpw { border-left: 1px #eee solid; width: auto; height: 44px; line-height: 44px; font-size: 28px; margin: 38px 0 0 15px; float: left; padding: 0px 15px; color: #333;}
+.header .header-phone { padding-top: 35px; font-size: 16px; line-height: 50px; color: #333;}
+.header .header-phone .iconfont { font-size: 40px; vertical-align: middle;}
+
+
+/*****登录页面*****/
+/*登录表单*/
+.login-content{ position: relative; z-index: 1;}
+.login-content .login-form{ position: relative; z-index: 2; width: 400px; overflow: visible; background: #fff; border-radius: 10px;}
+.login-content .login-form .login-con{ width: auto; padding: 20px 40px; }
+.login-wrap .form-group .text { width: 278px; height: 38px;}
+.login-wrap .form-group-spe .form-control-box .text { width: 126px;}
+.login-wrap .form-group-spe .phonecode { color: #fff; background: #00b3f2; border-color: #00b3f2; border-radius: 2px;}
+.login-wrap .login-btn .btn-img { width: 308px; height: 38px; border-radius: 2px;}
+
+/*登录广告图*/
+.login-banner{ padding: 50px 0; background: url(../images/reg-bg.png) center;}
+.login-banner .login-img { position: absolute; top: 50%; left: 0; z-index: 1; display: block; width: 100%; margin-top: -160px;}

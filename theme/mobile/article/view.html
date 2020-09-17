@@ -1,0 +1,17 @@
+{extend name='mobile/common/layout' /}
+
+{block name="header"}
+{include file="mobile/common/hospital_header"}
+{/block}
+
+<!-- content -->
+{block name="content"}
+<div class="articleBox">
+    <img src="__MOBILE__/test/img1.jpg"/>
+
+    <!--编辑器上传 begin-->
+    {$info.article_title}
+    <!--编辑器上传 end-->
+</div>
+<!--内容 end-->
+{/block}

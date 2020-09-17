@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>{$seo_title}</title>
+    <meta name="description" content="{$seo_description}">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name='apple-touch-fullscreen' content='yes'>
+    <meta name="full-screen" content="yes">
+    <link type="text/css" rel="stylesheet" href="/static_passport/dist/v1.0.28403/touch/login_series/css/login_registered_h5.css?v=6" media="screen"  charset="utf-8" />
+    <script src="/static_passport/dist/v1.0.28403/touch/login_series/js/zepto.js?v=6"></script>
+    <script src="/static_passport/dist/v1.0.28403/touch/login_series/js/jmtouch_login.js?v=6"></script>
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta name="full-screen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="address=no"/>
+</head>
+<body>
+<div class="warper">
+    <section class="views">
+        <a id="back" href="javascript:void(0);">
+            <img src="/static_passport/dist/v1.0.28403/touch/login_series/images/NavButtonBack_new.png" class = "return"/></a>
+        <h1 class = "theme">注册</h1>
+        <a class="top_right" href="/mobile/Login/index?redirect={:url('/mobile/Member/index')}">登录</a>
+    </section>
+    <form action="" autocomplete="off">
+        <div class="other-login-outer">
+            <div class="other-login">
+                <span class="other-title">使用手机注册</span>
+            </div>
+        </div>
+        <input type="hidden" id="focus" name="focus" />
+        <div class="jm_row icon_phone">
+            <div class="jm_col">
+                <input type="text" class="register_input"  name="mobile" placeholder="请输入11位手机号" alertname="请输入手机号码" maxlength="11"  id="account" value="">
+            </div>
+        </div>
+        <div class="jm_row">
+            <div class="jm_col">
+                <input type="tel" class="register_input"   placeholder="请输入短信验证码" id="mobileVerify" alertname="请输入短信验证码" name="mobileVerify">
+            </div>
+            <div class="jm_col jm_col_90px">
+                <a   class="register_yzm"  href="javascript:;">验证</a>
+            </div>
+        </div>
+        <div id="mobile_verify_code"style="display: none;">
+            <div class="jm_row " >
+                <div class="jm_col"><input type="text" maxlength="4" name="hash_code" class="register_input" id="yanzheng_code" placeholder="请按右图输入" alertname="请输入验证码"></div>
+                <div class="jm_col jm_col_90px"> <img id="img_dynamic_hash_code" src="/mobile/Login/verify_code?from=signup&1509626150" class="check_code" onclick="change_code()"></div>
+            </div>
+        </div>
+        <div class="jm_row">
+            <div class="jm_col">
+                <input type="text" style="display: none;">
+                <input type="password" class="register_input" name="password" placeholder="6-16位登录密码" alertname="请设置密码" maxlength="16" autocomplete="new-password">
+            </div>
+        </div>
+        <input type="submit" value="注册" class="register_button" id="tele_register">
+    </form>
+    <div class="register_agreement jm_center">点击注册，表示同意 <a href="{:url('/mobile/Article/view', ['aid' => 9])}">《万意来用户协议》</a></div>
+</div>
+
+<script type="text/javascript" charset="utf-8" src="/static_passport/dist/v1.0.28403/js/sea.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/static_passport/dist/v1.0.28403/js/boot.js"></script>
+
+<script type="text/javascript">
+
+    var is_show_code = false;
+    window.redirect = "/mobile/Member/index";
+    seajs.use('touch/login/register');
+</script>
+</body>
+</html>

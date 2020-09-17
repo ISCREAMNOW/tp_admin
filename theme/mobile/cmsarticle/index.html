@@ -1,0 +1,85 @@
+{extend name='mobile/common/layout' /}
+
+{block name="header"}
+{include file="mobile/common/hospital_header"}
+{/block}
+
+<!-- content -->
+{block name="content"}
+
+<div class="subbanenr"><a href=""><img src="__MOBILE__/test/img1.jpg"/></a></div>
+<div class="h10"></div>
+<dl class="newsTextImg2">
+    <dt>
+        <i></i>
+        <a href="/mobile/Cmsarticle/lists/ac_id/1.html">
+            <span>健康学院</span>
+            <span class="more fr">MORE+</span>
+        </a>
+    </dt>
+    {foreach $jkxyList as $article}
+    <dd>
+        <a href="{:url('/mobile/Cmsarticle/show', ['article_id' => $article['article_id']])}">
+            <div class="pic fl"><img class="lazy" src="{$article.article_image|quick_pic_thumb='@300w_200h'}" data-original="{$article.article_image|quick_pic_thumb='@300w_200h'}"></div>
+            <div class="divText">
+                <span>{$article.article_title}</span>
+                <em>{$article.article_abstract|msubstr=0,100}</em>
+            </div>
+        </a>
+    </dd>
+    {/foreach}
+</dl>
+<dl class="newsTextImg2">
+    <dt>
+        <i></i>
+        <a href="/mobile/Cmsarticle/lists/type/doctor.html">
+            <span>名医动态</span>
+            <span class="more fr">MORE+</span>
+        </a>
+    </dt>
+    {foreach $mydtList as $article}
+    <dd>
+        <a href="{:url('/mobile/Cmsarticle/show', ['aid' => $article['article_id']])}">
+            <div class="pic fl"><img class="lazy" src="{$article.article_image|quick_pic_thumb='@300w_200h'}" data-original="{$article.article_image|quick_pic_thumb='@300w_200h'}"></div>
+            <div class="divText">
+                <span>{$article.article_title}</span>
+                <em>{$article.article_abstract|msubstr=0,100}</em>
+            </div>
+        </a>
+    </dd>
+    {/foreach}
+</dl>
+<dl class="newsTextImg2">
+    <dt>
+        <i></i>
+        <a href="/mobile/Cmsarticle/lists.html">
+            <span>新闻中心</span>
+            <span class="more fr">MORE+</span>
+        </a>
+    </dt>
+    {foreach $newsList as $article}
+    <dd>
+        <a href="{:url('/mobile/Cmsarticle/show', ['aid' => $article['article_id']])}">
+            <div class="pic fl"><img class="lazy" src="{$article.article_image|quick_pic_thumb='@300w_200h'}" data-original="{$article.article_image|quick_pic_thumb='@300w_200h'}"></div>
+            <div class="divText">
+                <span>{$article.article_title}</span>
+                <em>{$article.article_abstract|msubstr=0,100}</em>
+            </div>
+        </a>
+    </dd>
+    {/foreach}
+</dl>
+
+<script type="text/javascript">
+    /* 这里是对图片进行懒加载 */
+    $(function() {
+        $("img.lazy").lazyload({
+            effect: "show",
+            placeholder: "__MOBILE__/images/loading.gif", //占位符，注意路径
+            threshold :200
+        });
+    });
+</script>
+
+{/block}
+

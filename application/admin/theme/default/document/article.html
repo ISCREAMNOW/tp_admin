@@ -1,0 +1,165 @@
+{extend name='common/content' /}
+
+{block name="button"}
+<div class="nowrap pull-right" style="margin-top:10px">
+    {if auth("$classuri/add")}
+    <button data-open='{:url("$classuri/add")}' data-title="添加文章" class='layui-btn layui-btn-small'><i
+            class='fa fa-plus'></i> 添加文章
+    </button>
+    {/if}
+    {if auth("$classuri/del")}
+    <button data-update data-field='delete' data-action='{:url("$classuri/del")}'
+            class='layui-btn layui-btn-small layui-btn-danger'><i class='fa fa-remove'></i> 删除文章
+    </button>
+    {/if}
+</div>
+{/block}
+
+{block name="content"}
+
+<!-- 表单搜索 开始 -->
+<form class="layui-form layui-form-pane form-search" action="__SELF__" onsubmit="return false" method="get">
+
+    <div class="layui-form-item layui-inline">
+        <!--<label class="layui-form-label" style="width:auto">文章标题</label>-->
+        <div class="layui-input-inline">
+            <input name="article_title" value="{$Think.get.article_title|default=''}" placeholder="文章标题" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item layui-inline">
+        <!--<label class="layui-form-label" style="width:auto">是否推荐</label>-->
+        <div class="layui-input-inline">
+            <select name='article_commend_flag' class='layui-select'>
+                <option value="">文章推荐标志</option>
+                <option value='0'>未推荐</option>
+                <option value='1'>已推荐</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item layui-inline">
+        <!--<label class="layui-form-label" style="width:auto">审核状态</label>-->
+        <div class="layui-input-inline">
+            <select name='article_state' class='layui-select'>
+                <option  value="">根据审核状态搜索</option>
+                <option  value='2'>待审核</option>
+                <option  value='3'>已发布</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item layui-inline">
+        <!--<label class="layui-form-label" style="width:auto">按分类搜索</label>-->
+        <div class="layui-input-inline">
+            <select name='class_id' class='layui-select'>
+                <option value="-1">请选择分类搜索</option>
+                {foreach $menus as $menu}
+                {eq name='menu.class_id' value='$Think.get.class_id|default=0'}
+                <option selected  value='{$menu.class_id}'>{$menu.spl}{$menu.class_name}</option>
+                {else/}
+                <option  value='{$menu.class_id}'>{$menu.spl}{$menu.class_name}</option>
+                {/eq}
+                {/foreach}
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item layui-inline">
+        <div class="layui-input-inline">
+            <button type="submit" class="btn btn-sm btn-white"><i class="fa fa-search"></i> 搜索</button>
+        </div>
+    </div>
+
+</form>
+<!-- 表单搜索 结束 -->
+
+<form onsubmit="return false;" data-auto="" method="POST">
+    <input type="hidden" value="resort" name="action"/>
+    <div class="layui-form">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>
+                    <input data-none-auto="" data-check-target='.list-check-box' lay-skin="primary" lay-filter="allChoose" type="checkbox">
+                </th>
+                <th class='text-center'>文章标题</th>
+                <th class='text-center'>所属分类</th>
+                <th class='text-center'>是否推荐</th>
+                <th class='text-center'>状态</th>
+                <th class='text-center'>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            {foreach $list as $key=>$vo}
+            <tr>
+                <td>
+                    <input class="list-check-box" value='{$vo.article_id}' lay-skin="primary" type="checkbox">
+                </td>
+                <td class='text-center'>{$vo.article_title}</td>
+                <td class='text-center'>{$vo.cname}</td>
+                <td class='text-center'>
+                    {if $vo.article_commend_flag eq 0}
+                    <span>未推荐</span>
+                    {elseif $vo.article_commend_flag eq 1}
+                    <span style="color:#090">已推荐</span>
+                    {/if}
+                </td>
+                <td class='text-center'>
+                    {if $vo.article_state eq 2}
+                    <span>待审核</span>
+                    {elseif $vo.article_state eq 3}
+                    <span style="color:#090">已发布</span>
+                    {elseif $vo.article_state eq 4}
+                    <span style="color:#090">回收站</span>
+                    {/if}
+                </td>
+                <td class='text-center nowrap'>
+                    <div class="layui-btn-group">
+                        {if $vo.article_commend_flag eq 0 and auth("$classuri/recommend")}
+                        <button type="button" data-update="{$vo.article_id}" data-field='article_commend_flag' data-value='1' data-action='{:url("$classuri/recommend")}' class="layui-btn layui-btn-primary layui-btn-small">推荐</button>
+                        {elseif $vo.article_commend_flag eq 1 and auth("$classuri/unRecommend")}
+                        <button type="button" data-update="{$vo.article_id}" data-field='article_commend_flag' data-value='0' data-action='{:url("$classuri/unRecommend")}' class="layui-btn layui-btn-primary layui-btn-small">取消推荐</button>
+                        {/if}
+
+                        {if $vo.article_state eq 3 and auth("$classuri/forbid")}
+                        <button type="button" data-update="{$vo.article_id}" data-field='article_state' data-value='2' data-action='{:url("$classuri/forbid")}' class="layui-btn layui-btn-primary layui-btn-small">收回</button>
+                        {elseif $vo.article_state eq 2 and auth("$classuri/resume")}
+                        <button type="button" data-update="{$vo.article_id}" data-field='article_state' data-value='3' data-action='{:url("$classuri/resume")}' class="layui-btn layui-btn-primary layui-btn-small">发布</button>
+                        {/if}
+
+                        {if auth("$classuri/add")}
+                        <button type="button" data-open='{:url("$classuri/add")}?article_id={$vo.article_id}' class="layui-btn layui-btn-primary layui-btn-small"><i class="layui-icon"></i></button>
+                        {/if}
+
+                        {if auth("$classuri/del")}
+                        <button type="button" data-update="{$vo.article_id}" data-field='delete' data-action='{:url("$classuri/del")}' class="layui-btn layui-btn-primary layui-btn-small"><i class="layui-icon"></i></button>
+                        {/if}
+                    </div>
+                </td>
+            </tr>
+            {/foreach}
+            </tbody>
+        </table>
+    </div>
+    {if isset($page)}<p>{$page}</p>{/if}
+</form>
+
+<script>window.form.render();</script>
+<script>
+    layui.use('form', function(){
+        var $ = layui.jquery, form = layui.form;
+
+        //全选
+        form.on('checkbox(allChoose)', function(data){
+            var child = $(data.elem).parents('table').find('tbody input[type="checkbox"]');
+            child.each(function(index, item){
+                item.checked = data.elem.checked;
+            });
+            form.render('checkbox');
+        });
+
+    });
+</script>
+
+{/block}

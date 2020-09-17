@@ -1,0 +1,46 @@
+<div class="case-list">
+    <ul class="case-group clearfix">
+
+        {foreach $caseList as $case}
+        <div class="case-item">
+            <i class="iconfont icon-code1"></i>
+            <a href="{$case.site_url}" target="_blank">
+                {if $case.is_recommend eq 1}
+                <!--是否优秀标签-->
+                <span class="case-tag"></span>
+                {/if}
+                <div class="case-logo"><img src="{$case.site_logo}" alt=""></div>
+                <h3 class="case-name">{$case.site_name}</h3>
+                <p class="case-desc">{$case.description|msubstr=0,60}</p>
+                <p class="use-product">所属行业：<span>{$case.industry_name}</span></p>
+                <p class="clearfix"><span class="fl address">所在地区：深圳市</span><span class="fr"></span></p>
+                <div class="other-info">
+                    <dl class="qrcode-list">
+                        {notempty name="case.mobile_qrcode"}
+                        <dd>
+                            <p>微商城</p>
+                            <img src="{$case.mobile_qrcode}">
+                        </dd>
+                        {/notempty}
+                        {notempty name="case.app_qrcode"}
+                        <dd>
+                            <p>APP</p>
+                            <img src="{$case.app_qrcode}">
+                        </dd>
+                        {/notempty}
+                    </dl>
+                    <span class="case-btn">了解更多</span>
+                </div>
+            </a>
+        </div>
+        {/foreach}
+
+    </ul>
+
+    <div class="page">
+        <!--分页 _start-->
+        {$pageHtml}
+        <!--分页 _end-->
+    </div>
+
+</div>

@@ -1,0 +1,94 @@
+{extend name='common/base_layout' /}
+
+{block name="lib-head"}
+<script type="text/javascript" src="__FRONTEND__/assets/js/jquery.js"></script>
+<script type="text/javascript" src="__FRONTEND__/assets/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="__FRONTEND__/assets/js/layer/layer.js"></script>
+<script type="text/javascript" src="__FRONTEND__/assets/js/jquery.method.js"></script>
+<script type="text/javascript" src="__FRONTEND__/assets/js/jquery.modal.js"></script>
+<script type="text/javascript" src="__FRONTEND__/js/common.js"></script>
+{/block}
+
+{block name="css-head"}
+
+<!-- 单页文章 css-->
+<link rel="stylesheet" href="__FRONTEND__/css/article/portal.base.css">
+<link rel="stylesheet" href="__FRONTEND__/css/article/portal.content.css">
+<link rel="stylesheet" href="__FRONTEND__/css/article/about-us.css">
+
+{/block}
+
+<!-- content -->
+{block name="content"}
+
+<!-- 引入头部文件 _start -->
+{include file="common/header"}
+<!-- 引入头部文件 _end -->
+
+<style>
+    .list-right-content img {
+        width: 100%!important;
+        height: auto!important;
+    }
+
+
+    a:hover{text-decoration:none!important;}
+
+</style>
+
+<div id="gc" class="g-1200px g-page-1200" style="min-height: 471px;">
+
+    <div id="gp-respoonsible" class="g-container gp-help-center">
+        <div id="g-breadcrumb">
+            <a href="/">首页</a>&gt;
+            <span>{$info.article_title}</span>
+        </div>
+        <div class="list-content">
+            <div class="left-nav">
+                <ul class="nav-list J_Menu">
+                    {foreach $articleList as $article}
+                    <li {if $info.article_id eq $article.article_id}class="selected"{/if}>
+                        <a href="{:url('frontend/Article/show', ['article_id' => $article['article_id']])}"><span class="left-icon us7"></span>{$article.article_title}</a>
+                    </li>
+                    {/foreach}
+                </ul>
+
+                <!--左侧广告位-->
+                <div class="g-box g-tg-box g-ads-box">
+                    {:get_ad_html(6)}
+                   <!-- <a class="g-tg"  href="" target="_blank" onmousedown="return _smartlog(this,'ADV')">
+                        <img src="__STATIC__/home/temp/article_left_adv.png" alt="免费咨询">
+                    </a>-->
+                </div>
+            </div>
+
+            <!-- 右侧内容-->
+            <div class="list-right">
+                <div class="list-right-content">
+                    <div class="right-title">{$info.article_title}</div>
+                    <div class="agreementCenter">
+                        {$info.article_content}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 右侧边栏 _start -->
+{include file="common/sidebar"}
+<!-- 右侧边栏 _end -->
+
+<!-- 底部 _start-->
+{include file="common/footer"}
+<!-- 底部 _end-->
+<!-- 底部 _end-->
+<script type="text/javascript" src="__FRONTEND__/hctech/js/common.js"></script>
+<!-- 底部 _end-->
+{/block}
+
+
+
+{block name="js-foot"}
+
+{/block}

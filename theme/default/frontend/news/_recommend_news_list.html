@@ -1,0 +1,20 @@
+{foreach $recArticleList as $key=>$recArticle}
+<div class="content {if $key eq 0}first{/if}">
+
+    <a class="pic" href="{:url('frontend/News/show', ['article_id' => $recArticle['article_id']])}">
+        <img src="{$recArticle.article_image|quick_pic_thumb='@288w_192h'}" alt="{$recArticle.article_title}" />
+    </a>
+
+    <h3>
+        <a href="{:url('frontend/News/show', ['article_id' => $recArticle['article_id']])}" target="_blank">{$recArticle.article_title|msubstr=0,20}</a>
+    </h3>
+
+    <p>
+        <a href="{:url('frontend/News/show', ['article_id' => $recArticle['article_id']])}" target="_blank">
+            {$recArticle.article_abstract|msubstr=0,150}
+        </a>
+    </p>
+
+</div>
+
+{/foreach}

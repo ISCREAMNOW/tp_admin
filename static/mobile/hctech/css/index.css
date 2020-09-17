@@ -1,0 +1,104 @@
+@charset "utf-8";
+/* CSS Document */
+/*头部*/
+.header { height: 55px; background: rgba(0,0,0,.15);}
+
+/*内容*/
+.wrapper { position: relative; z-index: 1; background: #f3f5f7;}
+.content-wrap { padding: .7rem 0;}
+
+/*标题*/
+.title { height: auto; padding: 25px 15px 5px; font-size: 1.1rem; font-weight: 300; line-height: 2.4rem; color: #222; text-align: center; border: 0;}
+.title-desc { padding: 0 15px; margin-bottom: 15px; font-size: 15px; line-height: 18px; color: #888; text-align: center;}
+
+/*按钮*/
+.btn-more a { display: block; width: 5.5rem; height: 1.5rem; margin: 0 auto; line-height: 1.6rem; color: #51adf8; text-align: center; border: 1px solid; border-radius: 3px;}
+
+/*轮播图*/
+.swiper-banner .swiper-wrapper .swiper-slide { overflow: hidden;}
+.swiper-banner .swiper-wrapper .swiper-slide a { display: block; padding: 50px 0 .5rem; color: #fff; text-align: center;}
+.swiper-banner .swiper-wrapper .swiper-slide .swiper-title { padding: 1rem 0 .5rem; font-size: 1rem; color: #fff;}
+.swiper-banner .swiper-wrapper .swiper-slide p { padding-bottom: 15px; font-size: .7rem;}
+.swiper-banner .swiper-wrapper .swiper-slide p span { padding: 0 .1rem; font-size: 1.1rem; font-weight: 700; color: #ffba15;}
+.swiper-banner .swiper-wrapper .swiper-slide a img { display: block; width: 75% !important; margin: 0 auto;}
+.swiper-banner .swiper-wrapper .banner0 a img { width: 80%!important; margin-top: -5%;}
+.banner0 { background: #d91314;}
+.banner1,.banner3 { background: #4fabf6;}
+.banner2 { background: #f29803;}
+.banner4 { background: #1bd661;}
+.banner5 { background: #ad4ff6;}
+
+/*视频介绍*/
+.video-wrap { padding-bottom: 0; background: #fff;}
+.video-wrap .video-title { padding-bottom: .8rem; line-height: 1.4rem;}
+.video-wrap .video { width: 100%; height: 10rem; margin: 0 auto; overflow: hidden;}
+.video-wrap .video video { width: 100%; height: inherit; margin: 0 auto;}
+
+/*产品介绍*/
+.product li { padding-bottom: .5rem;}
+.product h2 { padding-top: 2.5rem; padding-bottom: 10px; font-size: 1rem; font-weight: 300; line-height: 1.8rem; color: #333; text-align: center; border: 0;}
+.product .desc { padding: 0 1rem; margin-bottom: 1rem; font-size: .7rem; color: #666; text-align: center;}
+.product .detail-btn { display: block; width: 5rem; height: 1.5rem; margin: 1.3rem auto .3rem; line-height: 1.6rem; text-align: center; border-width: 1px; border-style: solid; border-radius: 2px;}
+.product .product-img { text-align: center;}
+.product .product-img img { width: 90%;}
+.operate .product-img { padding: 1rem 0 .5rem;}
+.operate .product-img img { width: 40%;}
+.product1 { background: #f3ffec;}
+.product1 .detail-btn { color: #4b0;}
+.product2 { background: #ecfdff;}
+.product2 .detail-btn { color: #338ee2;}
+.product3 { background: #faffec;}
+.product3 .detail-btn { color: #fea127;}
+.product4 { background: #ffeced;}
+.product4 .detail-btn { color: #ef3a2d;}
+.product5 { background: #ebfcff;}
+.product5 .detail-btn { color: #44bacc;}
+
+/*应用场景*/
+.apply-box .apply-list { padding: 2px; overflow: hidden; box-sizing: border-box;}
+.apply-box .apply-list li { float: left; width: 33.33%; text-align: center; overflow: hidden;}
+.apply-box .apply-list li a { display: block; padding: 1rem 0 .5rem; margin: 3px 2px;}
+.apply-box .apply-list li .iconfont { font-size: 2rem; color: #fff;}
+.apply-box .apply-list li span { display: block; padding-top: .3rem; color: #fff;}
+.apply-box .apply-list li.apply1 a { background: #3eb9f5;}
+.apply-box .apply-list li.apply2 a { background: #fc546b;}
+.apply-box .apply-list li.apply3 a { background: #33d5bd;}
+.apply-box .apply-list li.apply4 a { background: #b871f4;}
+.apply-box .apply-list li.apply5 a { background: #7594fd;}
+.apply-box .apply-list li.apply6 a { background: #f7b532;}
+
+/*客户案例*/
+.case-box { padding-bottom: 1.3rem; background: #fff;}
+.case-list { padding: 1rem 3% 0; overflow: hidden;}
+.case-list li { float: left; width: 33.3%; height: 3rem; text-align: center; overflow: hidden;}
+.case-list li a img { display: inline-block; width: 75%; margin: -1rem auto 0;}
+
+/*新闻动态*/
+.news-box { padding: .5rem 4% 0;}
+.news-title { position: relative; font-size: .8rem; font-weight: 300; line-height: 2rem; color: #666; text-indent: .5rem;}
+.news-title:before { content: ''; position: absolute; top: .6rem; left: 0; display: block; width: 3px; height: .7rem; background: #51adf8;}
+.news-list li { height: 24px; margin-bottom: .3rem; font-size: 12px; color: #555; line-height: 24px; overflow: hidden; /*list-style-type: disc; list-style-position: inside;*/}
+.news-list li a { display: block; width: 65%; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;}
+.news-list li a, .news-list li a:hover { font-size: 14px; color: #333;}
+.news-list li span { float: right; font-size: 12px; color: #666;}
+.news-box .btn-more { padding: .8rem 0 1rem;}
+
+/*微信二维码弹框*/
+.wx-code-layer { position: fixed; top: 0; right: 0; bottom: 0; left: 0; z-index: 999999; background: rgba(0,0,0,.3);}
+.wx-code-content { position: absolute; top: 45%; left: 50%; width: 70%; padding: .8rem .5rem !important; text-align: center; background: #fff !important; border-radius: 10px !important; box-sizing: border-box; -webkit-transform: translate(-50%,-50%); transform: translate(-50%,-50%);}
+.wx-code-content h3 { font-size: .8rem; font-weight: 300; color: #333;}
+.wx-code-content img { display: block; width: 100%; margin: 0 auto;}
+.wx-code-content p { font-size: 12px; line-height: 1.5;}
+.wx-code-layer .wx-code-layer-close { position: absolute; bottom: 3rem; left: 50%; display: block !important; width: 1.7rem; height: 1.7rem; margin-left: -.8rem; text-align: center; background: rgba(255,255,255,.2); border: 1px solid #fff; border-radius: 50%;}
+.wx-code-layer .wx-code-layer-close .iconfont { font-size: 1.4rem; line-height: 1.8rem; color: #fff;}
+
+/*提示去PC端体验产品*/
+.index-footer-tip { position: fixed; bottom: 0; left: 0; z-index: 9999; width: 100%; padding: .5rem .5rem .2rem 1.5rem; line-height: 1rem; background: #dfdfdf; box-sizing: border-box;}
+.index-footer-tip .iconfont { position: absolute; top: 50%; left: .3rem; margin-top: -.5rem; font-size: 1rem; color: #666;}
+.index-footer-tip h3 { font-size: .65rem; font-weight: 300; color: #333;}
+.index-footer-tip .link { display: inline-block; font-size: .6rem; color: #666;}
+.index-footer-tip .btn { position: absolute; right: .5rem; bottom: .5rem; display: inline-block; padding: 0 .3rem; font-size: .6rem; line-height: 1.2rem; color: #fff; background: #4fabf6; border-radius: .2rem;}
+
+/*百度商桥位置*/
+#newBridge { z-index: 99999 !important;}
+#nb_icon_wrap { top: 70% !important; right: 5px !important; left: auto !important;}

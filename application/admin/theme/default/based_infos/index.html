@@ -1,0 +1,155 @@
+
+<form class="layui-form layui-box" style='padding:25px 30px 20px 0' action="__SELF__" data-auto="true" method="post">
+    <div class="layui-tab layui-tab-card">
+        <ul class="layui-tab-title">
+           
+            <li class="layui-this">基本信息设置</li>
+           
+        </ul>
+        <div class="layui-tab-content" style="height: auto;">
+              <div class="layui-tab-item layui-show">
+
+
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label">项目简介：</label>
+                    <div class="layui-input-block">
+                           
+                        {foreach $datalist as $key=>$data}
+                           
+                        <div class="form-group">
+                          
+                            <div class='col-sm-8'>
+                                <!-- <input type="text" name="site_copy" required="required" title="请输入版权信息" placeholder="请输入版权信息"
+                                       value="{:sysconf('site_copy')}" class="layui-input"> -->
+                                <textarea name="info_data"  rows="10" cols="80" value="{:sysconf('info_data')}">{$data['contents']}</textarea>
+                            </div>
+                        </div>
+
+                        {/foreach}
+
+
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label">示意图：</label>
+                    <div class="layui-input-block">
+                           
+
+                        {foreach $picurl as $key=>$url}
+                        <div class="form-group">
+                            <div class='col-sm-8'>
+                                <img data-tips-image style="height:auto;max-width: 500px;max-height: 500px;" src="{$url['contents']}"/>
+                                <input type="hidden" name="info_url" onchange="$(this).prev('img').attr('src', this.value)"
+                                       value="{:sysconf('info_url')}" class="layui-input">
+                                <a class="btn btn-link" data-file="one" data-field="info_url">上传图片</a>
+                            </div>
+                        </div>
+
+                             <!-- todo 默认图片设置 -->
+            <!-- <img data-tips-image style="height:auto;max-height:32px;min-width:32px" src="{$url['contents']|default='static/admin/theme/default/img/image.png'}"/>
+            <input type="hidden" name="path" onchange="$(this).prev('img').attr('src', this.value)" value="{$url['contents']|default=''}" class="layui-input">
+            <a class="btn btn-link" data-file="one" data-type="png,jpg,jpeg" data-field="path">上传图片</a> -->
+                        {/foreach}
+
+
+
+                    </div>
+                </div>
+
+
+
+              </div>
+            </div>
+        </div>
+    </div>
+
+    <!--<div class="form-group">
+        <label class="col-sm-2 control-label">SiteName <span class="nowrap">(网站名称)</span></label>
+        <div class='col-sm-8'>
+            <input type="text" name="site_name" required="required" title="请输入网站名称" placeholder="请输入网站名称"
+                   value="{:sysconf('site_name')}" class="layui-input">
+            <p class="help-block">网站名称，显示在浏览器标签上，调用方式：<code>sysconfig(site_name')</code></p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Copyright <span class="nowrap">(版权信息)</span></label>
+        <div class='col-sm-8'>
+            <input type="text" name="site_copy" required="required" title="请输入版权信息" placeholder="请输入版权信息"
+                   value="{:sysconf('site_copy')}" class="layui-input">
+            <p class="help-block">程序的版权信息设置，在后台登录页面显示</p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-2 control-label">AppName <span class="nowrap">(程序名称)</span></label>
+        <div class='col-sm-8'>
+            <input type="text" name="app_name" required="required" title="请输入程序名称" placeholder="请输入程序名称"
+                   value="{:sysconf('app_name')}" class="layui-input">
+            <p class="help-block">当前程序名称，在后台主标题上显示</p>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label class="col-sm-2 control-label">AppVersion <span class="nowrap">(程序版本)</span></label>
+        <div class='col-sm-8'>
+            <input type="text" name="app_version" required="required" title="请输入程序版本" placeholder="请输入程序版本"
+                   value="{:sysconf('app_version')}" class="layui-input">
+            <p class="help-block">当前程序版本号，在后台主标题上标显示</p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-2 control-label">BrowserIcon <span class="nowrap">(浏览器图标)</span></label>
+        <div class='col-sm-8'>
+            <img data-tips-image style="height:auto;max-height:32px;min-width:32px" src="{:sysconf('browser_icon')}"/>
+            <input type="hidden" name="browser_icon" onchange="$(this).prev('img').attr('src', this.value)"
+                   value="{:sysconf('browser_icon')}" class="layui-input">
+            <a class="btn btn-link" data-file="one" data-type="ico,png" data-field="browser_icon">上传图片</a>
+            <p>建议上传ICO图标的尺寸为128x128px，此图标用于网站标题前，ICON在线制作。</p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-2 control-label">SiteLogo <span class="nowrap">(网站LOGO)</span></label>
+        <div class='col-sm-8'>
+            <img data-tips-image style="height:auto;max-height:32px;min-width:32px" src="{:sysconf('site_logo')}"/>
+            <input type="hidden" name="site_logo" onchange="$(this).prev('img').attr('src', this.value)"
+                   value="{:sysconf('site_logo')}" class="layui-input">
+            <a class="btn btn-link" data-file="one" data-type="ico,png,jpg" data-field="site_logo">上传图片</a>
+            <p>建议上传LOGO的尺寸为128x128px。</p>
+        </div>
+    </div>-->
+
+    <div class="hr-line-dashed"></div>
+
+    <div class="col-sm-4 col-sm-offset-2">
+        <div class="layui-form-item text-center">
+            <button class="layui-btn" type="submit">保存配置</button>
+        </div>
+    </div>
+
+</form>
+<script>window.form.render();</script>
+<script>
+    layui.use('form', function(){
+        var $ = layui.jquery, form = layui.form;
+
+        //全选
+        form.on('checkbox(allChoose)', function(data){
+            var child = $(data.elem).parents('table').find('tbody input[type="checkbox"]');
+            child.each(function(index, item){
+                item.checked = data.elem.checked;
+            });
+            form.render('checkbox');
+        });
+    });
+
+    layui.use('element', function(){
+        var $ = layui.jquery
+            ,element = layui.element; //Tab的切换功能，切换事件监听等，需要依赖element模块
+    });
+</script>

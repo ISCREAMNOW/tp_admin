@@ -1,0 +1,135 @@
+{extend name='common/content' /}
+{block name="content"}
+
+<!-- 表单搜索 开始 -->
+<form class="layui-form layui-form-pane form-search" action="__SELF__" onsubmit="return false" method="get">
+
+    <div class="layui-form-item layui-inline">
+        <!--<label class="layui-form-label" style="width:auto">文章标题</label>-->
+        <div class="layui-input-inline">
+            <input name="t_code" value="{$Think.get.t_code|default=''}" placeholder="根据设备编号搜索" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item layui-inline">
+        <!--<label class="layui-form-label" style="width:auto">是否推荐</label>-->
+        <div class="layui-input-inline">
+            <select name='water_quality' class='layui-select'>
+                <option value="">根据水质分析仪的状态搜索</option>
+                <option value='0'>异常或关闭状态</option>
+                <option value='1'>正常</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item layui-inline">
+        <!--<label class="layui-form-label" style="width:auto">审核状态</label>-->
+        <div class="layui-input-inline">
+            <select name='water_level' class='layui-select'>
+                <option  value="">根据水位计状态搜索</option>
+                <option  value='0'>异常或关闭状态</option>
+                <option  value='1'>正常</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item layui-inline">
+        <!--<label class="layui-form-label" style="width:auto">审核状态</label>-->
+        <div class="layui-input-inline">
+            <select name='type' class='layui-select'>
+                <option  value="">根据设备类型搜索</option>
+                <option  value='1'>入口</option>
+                <option  value='2'>出口</option>
+            </select>
+        </div>
+    </div>
+
+
+    <div class="layui-form-item layui-inline">
+        <div class="layui-input-inline">
+            <button type="submit" class="btn btn-sm btn-white"><i class="fa fa-search"></i> 搜索</button>
+        </div>
+    </div>
+
+</form>
+
+<!--结束-->
+
+<form onsubmit="return false;" data-auto="" method="POST">
+    <input type="hidden" value="resort" name="action"/>
+    <div class="layui-form">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th class='text-center'>设备编号</th>
+                <th class='text-center'>通讯状态</th>
+                <th class='text-center'>电压</th>
+                <th class='text-center'>水质分析仪状态</th>
+                <th class='text-center'>水位分析仪状态</th>
+                <th class='text-center'>所属类型</th>
+                <th class='text-center'>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            {foreach $list as $key=>$vo}
+            <tr>
+                <td class='text-center'>{$vo.t_code}</td>
+
+                <td class='text-center'>
+                    {if $vo.status eq 1}<span>正常</span>
+                    {elseif $vo.status eq 0}<span style="color: red;">异常或关闭</span>
+                    {/if}
+                </td>
+
+                <td class='text-center'>{$vo.voltage}</td>
+
+                <td class='text-center'>
+                    {if $vo.water_quality eq 1}<span>正常</span>
+                    {elseif $vo.water_quality eq 0}<span style="color: red;">异常或关闭</span>
+                    {/if}
+                </td>
+
+                <td class='text-center'>
+                    {if $vo.water_level eq 1}<span>正常</span>
+                    {elseif $vo.water_level eq 0}<span style="color: red;">异常或关闭</span>
+                    {/if}
+                </td>
+
+                <td class='text-center'>
+                    {if $vo.type eq 1}<span>入口</span>
+                    {elseif $vo.type eq 2}<span>出口</span>
+                    {/if}
+                </td>
+
+                <td class='text-center nowrap'>
+                    <div class="layui-btn-group">
+
+                        <button type="button" data-open='{:url("$classuri/datalist")}?id={$vo.id}' class="layui-btn layui-btn-primary layui-btn-small"><i class="layui-icon">详细数据</i></button>
+
+                    </div>
+                </td>
+            </tr>
+            {/foreach}
+            </tbody>
+        </table>
+    </div>
+    {if isset($page)}<p>{$page}</p>{/if}
+</form>
+<script>window.form.render();</script>
+<script>
+    layui.use('form', function(){
+        var $ = layui.jquery, form = layui.form;
+
+        //全选
+        form.on('checkbox(allChoose)', function(data){
+            var child = $(data.elem).parents('table').find('tbody input[type="checkbox"]');
+            child.each(function(index, item){
+                item.checked = data.elem.checked;
+            });
+            form.render('checkbox');
+        });
+
+    });
+</script>
+
+{/block}

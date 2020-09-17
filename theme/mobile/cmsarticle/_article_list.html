@@ -1,0 +1,14 @@
+{foreach $articleList as $article}
+<dd>
+    <a href="{:url('/mobile/Cmsarticle/show', ['article_id' => $article['article_id']])}">
+        <div class="pic fl"><img class="lazy" src="{$article.article_image|quick_pic_thumb='@300w_200h'}" data-original="{$article.article_image|quick_pic_thumb='@300w_200h'}"></div>
+        <div class="divText">
+            <p>{$article.article_title}</p>
+            <div class="text">
+                {$article.article_abstract|msubstr=0,100}
+            </div>
+            <em>{$article.article_publish_time|format_time} 发布 &nbsp;&nbsp;{$article.article_click|default=0} 浏览</em>
+        </div>
+    </a>
+</dd>
+{/foreach}

@@ -1,0 +1,53 @@
+<form class="layui-form layui-box" style='padding:25px 30px 20px 0' action="__SELF__" data-auto="true" method="post">
+    <div class="layui-form-item">
+        <label class="layui-form-label">上级分类</label>
+        <div class="layui-input-block">
+            <select name='pid' class='layui-select full-width'>
+                <option value="">请选择分类</option>
+                {foreach $menus as $menu}
+                {eq name='menu.class_id' value='$vo.pid|default=0'}
+                <option selected  value='{$menu.class_id}'>{$menu.spl}{$menu.class_name}</option>
+                {else/}
+                <option  value='{$menu.class_id}'>{$menu.spl}{$menu.class_name}</option>
+                {/eq}
+                {/foreach}
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">分类名称</label>
+        <div class="layui-input-block">
+            <input type="text" name="class_name" value='{$vo.class_name|default=""}' required="required" title="请输入分类名称" placeholder="请输入分类名称" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">分类图标</label>
+        <div class='layui-input-block'>
+
+            <!-- todo 默认图片设置 -->
+            <img data-tips-image style="height:auto;max-height:32px;min-width:32px" src="{$vo.class_icon|default='static/admin/theme/default/img/image.png'}"/>
+            <input type="hidden" name="class_icon" onchange="$(this).prev('img').attr('src', this.value)" value="{$vo.class_icon|default=''}" class="layui-input">
+            <a class="btn btn-link" data-file="one" data-type="png,jpg,jpeg" data-field="class_icon" data-path="cms/articleclass">上传图片</a>
+            <p>建议上传图片的尺寸为 30*30 px 以上。</p>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">排序</label>
+        <div class="layui-input-block">
+            <input type="text" name="class_sort" value='{$vo.class_sort|default="255"}' title="排序" placeholder="排序" class="layui-input">
+        </div>
+    </div>
+
+    <div class="hr-line-dashed"></div>
+    <div class="layui-form-item text-center">
+        {if isset($vo['class_id'])}<input type='hidden' value='{$vo.class_id}' name='class_id'/>{/if}
+        <button class="layui-btn" type='submit'>保存数据</button>
+        <button class="layui-btn layui-btn-danger" type='button' data-confirm="确定要取消编辑吗？" data-close>取消编辑</button>
+    </div>
+
+</form>
+
+<script>window.form.render();</script>

@@ -1,0 +1,367 @@
+{extend name='common/base_layout' /}
+
+{block name="lib-head"}
+<script type="text/javascript" src="__FRONTEND__/assets/js/jquery.js"></script>
+<script type="text/javascript" src="__FRONTEND__/assets/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="__FRONTEND__/assets/js/layer/layer.js"></script>
+<script type="text/javascript" src="__FRONTEND__/assets/js/jquery.method.js"></script>
+<script type="text/javascript" src="__FRONTEND__/assets/js/jquery.modal.js"></script>
+<script type="text/javascript" src="__FRONTEND__/js/common.js"></script>
+{/block}
+
+
+{block name="css-head"}
+
+<link type="text/css" rel="stylesheet" href="__FRONTEND__/css/index.css"/>
+
+<script type="text/javascript" src="__FRONTEND__/assets/js/table/jquery.tablelist.js"></script>
+<!-- 资讯频道CSS -->
+<link type="text/css" rel="stylesheet" href="__FRONTEND__/css/news.css"/>
+
+{/block}
+
+<!-- content -->
+{block name="content"}
+
+<!-- 引入头部文件 _start -->
+{include file="common/article_header"}
+<!-- 引入头部文件 _end -->
+
+<!--内容 _start-->
+<div class="w1210">
+	<!-- 当前位置 -->
+	<div class="content clearfix">
+		<!--顶部topbar-->
+
+		<!--模块内容-->
+		<!-- #tpl_region_start -->
+		<!-- 默认缓载图片 -->
+		<!-- 内容开始 -->
+		<!--banner-->
+		<div class="w1210 clearfix">
+			<div class="main-left fl">
+
+				<!--轮播广告-->
+				<div class="scroll-box">
+
+					<div class="scroll-pic">
+						<ul>
+							{foreach :get_banner(3, 5) as $key=>$banner}
+							<li {if $key eq 0}style="display: block;"{/if}>
+								<a href="{$banner.url}" target="_blank" style="background: url(http://) no-repeat center center">
+									<img class="lazy" src="__FRONTEND__/assets/images/common/blank.png" data-original="{$banner.image|quick_pic_thumb='@570w_345h'}" width="570" height="345" />
+								</a>
+							</li>
+							{/foreach}
+						</ul>
+					</div>
+					<div class="scroll-num">
+						{foreach :get_banner(3, 5) as $key=>$banner}
+						<span {if $key eq 0}class="on"{/if}></span>
+						{/foreach}
+					</div>
+					<div class="scroll-btn">
+						<span class="btn-left">&lt;</span>
+						<span class="btn-right">&gt;</span>
+					</div>
+
+				</div>
+
+				<!--图片新闻-->
+				<div class="pic-group">
+
+					{foreach $pictureNews as $key=>$article}
+					<div class="pic {if $key eq 0}first{/if}">
+						<a href="{:url('frontend/News/show', ['article_id' => $article['article_id']])}" target="_blank" style="background: url(http://) no-repeat center center">
+							<img class="lazy" src="__FRONTEND__/assets/images/common/blank.png" data-original="{$article.article_image|quick_pic_thumb='@275w_165h'}" width="275" height="165" />
+						</a>
+					</div>
+					{/foreach}
+
+				</div>
+			</div>
+			<div class="main-right fr">
+				<div class="industry article">
+					<h2 class="article-title">
+
+						<a href="{:url('frontend/News/lists', ['ac_id' => 22])}" class="title" target="_blank">
+							<i class="title-icon"></i>
+							<span>公司动态</span>
+						</a>
+
+					</h2>
+					<ul class="industry-content article-list">
+
+						{foreach $companyNews as $article}
+						<li>
+							<i class="circle-icon"></i>
+							<a href="{:url('frontend/News/show', ['article_id' => $article['article_id']])}" target="_blank" title="{$article.article_title}">{$article.article_title}</a>
+						</li>
+						{/foreach}
+
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- 内容结束 -->
+
+
+		<!-- 调用需要的JS -->
+
+		<!-- 默认缓载图片 -->
+		<!-- 内容开始 -->
+		<div class="w1210 clearfix">
+			<div class="main-left fl">
+
+				<!--行业聚焦-->
+				<div class="industry story clearfix">
+					<h2 class="article-title">
+
+						<a href="{:url('frontend/News/lists', ['ac_id' => 3])}" class="title" target="_blank">
+							<i class="title-icon"></i>
+							<span>行业聚焦</span>
+						</a>
+
+					</h2>
+					<div class="industry-content  industry-story">
+
+						<div class="story-top clearfix">
+
+							{foreach $pictureIndustryNews as $article}
+							<div class="story-pic fl">
+								<a href="{:url('frontend/News/show', ['article_id' => $article['article_id']])}" target="_blank" style="background: url(http://) no-repeat center center">
+									<img class="lazy" src="__FRONTEND__/assets/images/common/blank.png" data-original="{$article.article_image|quick_pic_thumb='@200w_120h'}" />
+								</a>
+							</div>
+
+							<div class="story-detail fr">
+								<h3>
+									<a href="{:url('frontend/News/show', ['article_id' => $article['article_id']])}" target="_blank">{$article.article_title}</a>
+								</h3>
+								<p class="detail">
+									{$article.article_abstract|msubstr=0,150}
+								</p>
+								<p class="story-time">
+									<span class="time fl">{$article.article_publish_time|format_time}</span>
+									<span class="address fr">
+									栏目：
+									<a href="{:url('frontend/News/lists', ['ac_id' => $article['article_class_id']])}">{$article.article_class_name}</a>
+								</span>
+								</p>
+							</div>
+							{/foreach}
+						</div>
+
+						<div class="story-list">
+							<ul>
+
+								{foreach $industryNews as $article}
+								<li class="left">
+									<a href="{:url('frontend/News/show', ['article_id' => $article['article_id']])}" target="_blank" title="{$article.article_title}">
+										<i class="icon"></i>
+										{$article.article_title}
+									</a>
+								</li>
+								{/foreach}
+
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="main-right fr">
+				<!--电商资讯-->
+				<div class="people industry">
+					<h2 class="article-title">
+
+						<a href="{:url('frontend/News/lists', ['ac_id' => 5])}" class="title" target="_blank">
+							<i class="title-icon"></i>
+							<span>电商资讯</span>
+						</a>
+
+					</h2>
+					<div class="industry-content article-list">
+
+						{foreach $dsNews as $article}
+						<dl>
+							<dt class="article-title fr">
+								<p class="title">
+									<a href="{:url('frontend/News/show', ['article_id' => $article['article_id']])}" target="_blank" title="{$article.article_title}">
+										{$article.article_title}
+										<span class="grade-icon total-icon"></span>
+									</a>
+								</p>
+
+
+								<p class="detail">
+									<a href="{:url('frontend/News/show', ['article_id' => $article['article_id']])}" target="_blank" title="{$article.article_title}">
+										{$article.article_abstract|msubstr=0,150}
+									</a>
+								</p>
+							</dt>
+
+							<dd class="article-img fl">
+								<a href="{:url('frontend/News/show', ['article_id' => $article['article_id']])}" target="_blank">
+									<img class="lazy" src="__FRONTEND__/assets/images/common/blank.png" data-original="{$article.article_image|quick_pic_thumb='@75w_75h'}" />
+								</a>
+							</dd>
+						</dl>
+						{/foreach}
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 内容结束 -->
+
+
+		<!-- 调用需要的JS -->
+
+		<!-- 默认缓载图片 -->
+		<!-- 内容开始 -->
+		<div class="w1210 clearfix">
+			<div class="main-left fl">
+				<div class="industry clearfix">
+					<h2 class="article-title">
+
+						<a href="{:url('frontend/News/lists', ['ac_id' => 4])}" class="title" target="_blank">
+							<i class="title-icon"></i>
+							<span>电商营销</span>
+						</a>
+
+					</h2>
+					<div class="industry-content industry-content-small">
+
+						<ul class="industry-hot">
+							{foreach $pictureDsyxNews as $key=>$article}
+							<li {if $key eq 0}class="first"{/if}>
+								<a href="{:url('frontend/News/show', ['article_id' => $article['article_id']])}" target="_blank" style="background: url(http://) no-repeat center center">
+									<img class="lazy" src="__FRONTEND__/assets/images/common/blank.png" data-original="{$article.article_image|quick_pic_thumb='@260w_165h'}" width="260" height="165" />
+								</a>
+							</li>
+							{/foreach}
+						</ul>
+
+						<div class="clearfix">
+							<div class="industry-text first">
+								<h3>
+									<a href="{:url('frontend/News/lists', ['ac_id' => 15])}" class="title" target="_blank">移动营销</a>
+								</h3>
+								<ul>
+									{foreach $mobileNews as $key=>$article}
+									<li>
+										<a href="{:url('frontend/News/show', ['article_id' => $article['article_id']])}" target="_blank" title="{$article.article_title}">
+											<i class="square-icon"></i>
+											{$article.article_abstract|msubstr=0,150}
+										</a>
+									</li>
+									{/foreach}
+								</ul>
+								<div class="more">
+									<a href="{:url('frontend/News/lists', ['ac_id' => 15])}" target="_blank">更多></a>
+								</div>
+							</div>
+
+							<div class="industry-text ">
+								<h3>
+									<a href="{:url('frontend/News/lists', ['ac_id' => 16])}" class="title" target="_blank">网络营销</a>
+								</h3>
+								<ul>
+									{foreach $wlyxNews as $key=>$article}
+									<li>
+										<a href="{:url('frontend/News/show', ['article_id' => $article['article_id']])}" target="_blank" title="{$article.article_title}">
+											<i class="square-icon"></i>
+											{$article.article_abstract|msubstr=0,150}
+										</a>
+									</li>
+									{/foreach}
+								</ul>
+								<div class="more">
+									<a href="{:url('frontend/News/lists', ['ac_id' => 16])}" target="_blank">更多></a>
+								</div>
+							</div>
+
+							<div class="industry-text ">
+								<h3>
+									<a href="{:url('frontend/News/lists', ['ac_id' => 14])}" class="title" target="_blank">微信营销</a>
+								</h3>
+								<ul>
+									{foreach $wxNews as $key=>$article}
+									<li>
+										<a href="{:url('frontend/News/show', ['article_id' => $article['article_id']])}" target="_blank" title="{$article.article_title}">
+											<i class="square-icon"></i>
+											{$article.article_abstract|msubstr=0,150}
+										</a>
+									</li>
+									{/foreach}
+								</ul>
+								<div class="more">
+									<a href="{:url('frontend/News/lists', ['ac_id' => 14])}" target="_blank">更多></a>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="main-right fr">
+				<div class="right-pic">
+
+
+					<!--   -->
+					<!--<div class="pic first">-->
+						<!--<a href="/68mall_topic/YiMall/xjdjia.html" target="_blank" style="background: url(https://szy-68mall.oss-cn-qingdao.aliyuncs.com/images/) no-repeat center center">-->
+							<!--<img class="lazy" src="__FRONTEND__/assets/images/common/blank.png" data-original="https://szy-68mall.oss-cn-qingdao.aliyuncs.com/images/backend/gallery/2017/01/23/14851393744511.jpg" width="330" height="230" />-->
+						<!--</a>-->
+					<!--</div>-->
+					<!--&lt;!&ndash;   &ndash;&gt;-->
+					<!--<div class="pic ">-->
+						<!--<a href="/68mall_topic/YiMall/" target="_blank" style="background: url(https://szy-68mall.oss-cn-qingdao.aliyuncs.com/images/) no-repeat center center">-->
+							<!--<img class="lazy" src="__FRONTEND__/assets/images/common/blank.png" data-original="https://szy-68mall.oss-cn-qingdao.aliyuncs.com/images/backend/gallery/2017/01/23/14851394125504.jpg" width="330" height="230" />-->
+						<!--</a>-->
+					<!--</div>-->
+
+
+				</div>
+			</div>
+		</div>
+		<!-- 内容结束 -->
+
+
+		<!-- 调用需要的JS -->
+
+		<!-- #tpl_region_end -->
+
+
+	</div>
+</div>
+<!--内容 _end-->
+
+<!-- 底部 _star-->
+
+<!-- 右侧边栏 _start -->
+{include file="common/sidebar"}
+<!-- 右侧边栏 _end -->
+
+<!-- 底部 _start-->
+{include file="common/footer"}
+<!-- 底部 _end-->
+<script type="text/javascript" src="__FRONTEND__/hctech/js/common.js"></script>
+<!-- 底部 _end-->
+
+<script type="text/javascript" src="__FRONTEND__/js/jquery.fly.min.js"></script>
+<script type="text/javascript" src="__FRONTEND__/assets/js/szy.cart.js"></script>
+<script type="text/javascript" src="__FRONTEND__/js/news.js"></script>
+<script type="text/javascript">
+    $().ready(function(){
+        //图片缓载
+        $.imgloading.loading();
+
+    });
+</script>
+
+{/block}
+
+{block name="js-foot"}
+
+{/block}

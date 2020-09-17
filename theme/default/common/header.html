@@ -1,0 +1,169 @@
+{include file="common/site_nav"}
+
+<div class="header">
+    <div class="w1210 clearfix">
+        <div class="logo fl">
+            <a href="/">
+                <img src="{:sysconf('site_logo')}" alt="{:sysconf('site_name')}"/>
+                <img src="{:sysconf('site_logo')}" alt="{:sysconf('site_name')}" class="logo-small">
+            </a>
+        </div>
+        <!--年会活动-->
+        <!--<div class="logo-right fl hide">
+            <ul>
+                <li><a href="#" target="_blank"><img src="__FRONTEND__/hctech/images/nianhui.gif" alt="{:sysconf('site_name')}"></a></li>
+                <li><a href="#" target="_blank"><img src="__FRONTEND__/hctech/images/slogan.gif" alt="{:sysconf('site_name')}"></a></li>
+            </ul>
+            <div class="num"><span class="on"></span><span></span></div>
+        </div>-->
+        <ul class="header-nav show-nav clearfix">
+            <li class="header-nav-item">
+                <a href="/" class="header-nav-item-link">首&nbsp;&nbsp;页</a>
+            </li>
+            <li class="header-nav-item up-icon">
+                <a href="{:url('frontend/Website/index')}" class="header-nav-item-link">网站建设<!--<i class="iconfont icon-arrow-down"></i>--></a>
+                <!--<div class="clear"></div>
+                <div class="nav-show-div">
+                    <ul class="middle clearfix">
+                        <li class="first">
+                            <a href="#" target="_blank">
+                                <div><img src="__FRONTEND__/hctech/images/header/nav-1.png" alt="网络营销型网站建设"> </div>
+                                <p>网络营销型</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" target="_blank">
+                                <div><img src="__FRONTEND__/hctech/images/header/nav-2.png" alt="品牌创意型网站建设"></div>
+                                <p>品牌创意型</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" target="_blank">
+                                <div><img src="__FRONTEND__/hctech/images/header/nav-3.png" alt="电子商务型网站建设"></div>
+                                <p>电子商务型</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" target="_blank">
+                                <div><img src="__FRONTEND__/hctech/images/header/nav-4.png" alt="昆明小程序开发"></div>
+                                <p>小程序开发</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" target="_blank">
+                                <div><img src="__FRONTEND__/hctech/images/header/nav-7.png" alt="电商ERP系统"></div>
+                                <p>电商ERP系统</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" target="_blank">
+                                <div><img src="__FRONTEND__/hctech/images/header/nav-5.png" alt="全网营销型网站建设"></div>
+                                <p>全网营销型</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                    <div class="nav-contact">客服热线：{:sysconf('hc_phone')}<i class="dividing-line">|</i>工作日 9:00 ~ 18:00</div>
+                </div>-->
+            </li>
+            <li class="header-nav-item up-icon space">
+                <a href="{:url('frontend/App/index')}" class="header-nav-item-link" title="APP开发">APP开发<!--<i class="iconfont icon-arrow-down"></i>--></a>
+                <!--<div class="clear"></div>
+                <div class="nav-show-div">
+                    <ul class="middle clearfix">
+                        <li class="first">
+                            <a href="#" target="_blank">
+                                <div><img src="__FRONTEND__/hctech/images/header/space-3.png" alt="IOS APP开发"></div>
+                                <p>IOS开发</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" target="_blank">
+                                <div><img src="__FRONTEND__/hctech/images/header/space-7.png" alt="Android APP开发"></div>
+                                <p>Android开发</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" target="_blank">
+                                <div><img src="__FRONTEND__/hctech/images/header/space-6.png" alt="WEB APP开发"></div>
+                                <p>WEB APP开发</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" target="_blank">
+                                <div><img src="__FRONTEND__/hctech/images/header/space-1.png" alt="微信小程序开发"> </div>
+                                <p>微信平台开发</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" target="_blank">
+                                <div><img src="__FRONTEND__/hctech/images/header/space-2.png" alt="APP定制开发"></div>
+                                <p>行业应用开发</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                    <div class="nav-contact">客服热线：{:sysconf('hc_phone')}<i class="dividing-line">|</i>工作日 9:00 ~ 18:00</div>
+                </div>-->
+            </li>
+            <li class="header-nav-item">
+                <a href="{:url('frontend/News/lists', ['ac_id' => 16])}" class="header-nav-item-link">网络营销</a>
+            </li>
+            <li class="header-nav-item">
+                <a href="{:url('frontend/Sitecase/index')}" class="header-nav-item-link">客户案例</a>
+            </li>
+            <li class="header-nav-item">
+                <a href="{:url('frontend/News/index')}" class="header-nav-item-link">新闻动态</a>
+            </li>
+            <li class="header-nav-item header-nav-item-user">
+                <div class="SZY-USER-NOT-LOGIN">
+                    <a class="btn m-r-15" href="{:url('frontend/Login/index')}" target="_top">登录</a>
+                    <a class="btn btn-blue" href="{:url('frontend/Login/register')}" target="_top">注册</a>
+                </div>
+                <div class="login-info SZY-USER-ALREADY-LOGIN" style="display: none;">
+                    <a href="{:url('frontend/Member/index')}" target="_blank"><img src="" class="SZY-USER-PIC"><span class="SZY-USER-NAME user-name"></span></a>
+                    <a href="{:url('frontend/Login/logout')}" data-method="post" class="logout">退出</a>
+                </div>
+                <script>
+                    if ($(".SZY-USER-NAME").size() > 0) {
+                        $.get('/frontend/Site/user', {}, function(result) {
+                            if (result.code == 0 && result.data != null) {
+
+                                var user = result.data;
+
+                                if (user && user.cart) {
+                                    $(".SZY-CART-COUNT").html(user.cart.goods_count);
+                                }
+                                if (user && user.user_name) {
+
+                                    var target = $(".SZY-USER-ALREADY-LOGIN");
+
+                                    $(target).find(".SZY-USER-NAME").html(user.user_name);
+
+                                    $(target).find(".SZY-USER-PIC").attr("src", user.headimg);
+
+                                    if (user.user_rank) {
+
+                                        $(target).find(".SZY-USER-RANK-IMG").attr("src", user.user_rank.rank_img);
+
+                                        $(target).find(".SZY-USER-RANK-NAME").html(user.user_rank.rank_name);
+
+                                    }
+
+                                    $(target).find(".SZY-USER-LAST-LOGIN").html(user.last_time_format);
+
+                                    $(".SZY-USER-NOT-LOGIN").hide();
+                                    $(".SZY-USER-ALREADY-LOGIN").show();
+                                } else {
+                                    $(".SZY-USER-NOT-LOGIN").show();
+                                    $(".SZY-USER-ALREADY-LOGIN").hide();
+                                }
+
+                            }
+                        }, "json");
+                    }
+                </script>
+            </li>
+        </ul>
+    </div>
+</div>

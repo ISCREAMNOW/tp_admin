@@ -1,0 +1,135 @@
+{extend name='common/content' /}
+
+{block name="content"}
+
+<form name="article" class="layui-form layui-box" style='padding:25px 30px 20px 0' action="__SELF__" data-auto="true" method="post">
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">网站案例名称</label>
+        <div class="layui-input-block">
+            <input type="text" name="site_name" value='{$vo.site_name|default=""}' required="required" lay-verify="title" title="请输入网站案例名称" placeholder="请输入网站案例名称" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">所属行业</label>
+        <div class="layui-input-block">
+            <select name='industry_id' class='layui-select full-width'>
+                <option value="">请选择行业</option>
+                {foreach $menus as $menu}
+                {eq name='menu.id' value='$vo.industry_id|default=0'}
+                <option selected  value='{$menu.id}'>{$menu.spl}{$menu.industry_name}</option>
+                {else/}
+                <option  value='{$menu.id}'>{$menu.spl}{$menu.industry_name}</option>
+                {/eq}
+                {/foreach}
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">网站案例描述</label>
+        <div class="layui-input-block">
+            <textarea placeholder="请输入网站案例描述" title="请输入网站案例描述" class="layui-textarea" name="description">{$vo.description|default=""}</textarea>
+        </div>
+    </div>
+    
+    <div class="layui-form-item">
+        <label class="layui-form-label">封面图片</label>
+        <div class='layui-input-block'>
+
+            <!-- todo 默认图片设置 -->
+            <img data-tips-image style="height:auto;max-height:32px;min-width:32px" src="{$vo.site_logo|default='static/admin/theme/default/img/image.png'}"/>
+            <input type="hidden" name="site_logo" onchange="$(this).prev('img').attr('src', this.value)" value="{$vo.site_logo|default=''}" class="layui-input">
+            <a class="btn btn-link" data-file="one" data-type="png,jpg,jpeg" data-field="site_logo" data-path="sitecase">上传图片</a>
+            <p>建议上传图片的尺寸为106*106 px。</p>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">网站LOGO</label>
+        <div class='layui-input-block'>
+
+            <!-- todo 默认图片设置 -->
+            <img data-tips-image style="height:auto;max-height:32px;min-width:32px" src="{$vo.site_image|default='static/admin/theme/default/img/image.png'}"/>
+            <input type="hidden" name="site_image" onchange="$(this).prev('img').attr('src', this.value)" value="{$vo.site_image|default=''}" class="layui-input">
+            <a class="btn btn-link" data-file="one" data-type="png,jpg,jpeg" data-field="site_image" data-path="sitecase">上传图片</a>
+            <p>建议上传图片的尺寸为135*60 px。</p>
+        </div>
+    </div>
+    
+    <div class="layui-form-item">
+        <label class="layui-form-label">是否显示</label>
+        <div class="layui-input-block">
+            <input name="status" value="0" title="不显示" {eq name='0' value='$vo.status|default=0'}checked=""{/eq} type="radio">
+            <input name="status" value="1" title="显示" {eq name='1' value='$vo.status|default=1'}checked=""{/eq} type="radio">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">是否推荐</label>
+        <div class="layui-input-block">
+            <input name="is_recommend" value="1" title="推荐" {eq name='1' value='$vo.is_recommend|default=1'}checked=""{/eq} type="radio">
+            <input name="is_recommend" value="0" title="不推荐" {eq name='0' value='$vo.is_recommend|default=0'}checked=""{/eq} type="radio">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">排序</label>
+        <div class="layui-input-block">
+            <input type="text" name="sort" value='{$vo.sort|default="255"}' lay-verify="sort" title="排序(0-255)" placeholder="排序(0-255)" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item layui-form-text">
+        <label class="layui-form-label">网站案例内容</label>
+        <div class="layui-input-block">
+            <textarea name='content'>{$vo.content|default=''}</textarea>
+        </div>
+    </div>
+
+    <div class="hr-line-dashed"></div>
+    <div class="layui-form-item text-center">
+        {if isset($vo['id'])}<input type='hidden' value='{$vo.id}' name='id'/>{/if}
+        <button class="layui-btn" lay-submit="" lay-filter="submit">保存数据</button>
+        <button type='button' data-open='{:url("$classuri/index")}' class="layui-btn layui-btn-danger">返回列表</button>
+    </div>
+
+</form>
+
+<script>window.form.render();</script>
+
+<script>
+    layui.use(['form', 'laydate', 'element'], function(){
+        var form = layui.form
+            ,layer = layui.layer
+            ,laydate = layui.laydate
+            ,element = layui.element; //选项卡 依赖element 模块
+
+
+        //自定义验证规则
+      form.verify({
+          title: function(value){
+              if(value.length < 3){
+                  return '标题至少得3个字符啊';
+              }
+          }
+      });
+
+    });
+</script>
+
+{/block}
+
+{block name='script'}
+<script>
+
+    require(['ckeditor'], function () {
+        var editor = window.createEditor('[name="content"]');
+
+    });
+
+</script>
+
+{/block}
+

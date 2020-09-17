@@ -1,0 +1,43 @@
+<div class="ibox-title">
+    <h5>接口参数</h5>
+</div>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th class='text-center'>参数名称</th>
+        <th class='text-center'>参数类型</th>
+        <th class='text-center'>参数描述</th>
+    </tr>
+    </thead>
+    <tbody>
+    {foreach $data['parameter'] as $key=>$vo}
+    <tr>
+        <td class='text-center'>{$vo.name}</td>
+        <td class='text-center'>{$vo.type}</td>
+        <td class='text-center'>{$vo.info}</td>
+    </tr>
+    {/foreach}
+    </tbody>
+</table>
+
+<div class="ibox-title">
+    <h5>返回数据</h5>
+</div>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th class='text-center'>参数名称</th>
+        <th class='text-center'>参数类型</th>
+        <th class='text-center'>参数描述</th>
+    </tr>
+    </thead>
+    <tbody>
+    {foreach $data['response'] as $key=>$vo}
+    <tr>
+        <td class='text-center'>{$vo.name}</td>
+        <td class='text-center'>{$vo.type}</td>
+        <td class='text-center'>{$vo.info}</td>
+    </tr>
+    {/foreach}
+    </tbody>
+</table>

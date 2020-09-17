@@ -1,0 +1,1077 @@
+{extend name='common/base_layout' /}
+
+{block name="lib-head"}
+<script type="text/javascript" src="__FRONTEND__/assets/js/jquery.js"></script>
+<script type="text/javascript" src="__FRONTEND__/assets/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="__FRONTEND__/assets/js/layer/layer.js"></script>
+<script type="text/javascript" src="__FRONTEND__/assets/js/jquery.method.js"></script>
+<script type="text/javascript" src="__FRONTEND__/assets/js/jquery.modal.js"></script>
+<script type="text/javascript" src="__FRONTEND__/js/common.js"></script>
+{/block}
+
+{block name="css-head"}
+<style>
+    /*幻灯片 零时style 做好后删除*/
+    .banner .slides li .slide-desc {padding: 115px 0 0 0px!important;}
+</style>
+
+{/block}
+
+<!-- content -->
+{block name="content"}
+
+<!--  前台首页主体  -->
+<!-- 首页主体 _star -->
+<link type="text/css" rel="stylesheet" href="__FRONTEND__/hctech/css/index.css"/>
+<link type="text/css" rel="stylesheet" href="__FRONTEND__/hctech/css/animate.css"/>
+<script type="text/javascript" src="__FRONTEND__/hctech/js/jquery.flexslider-min.js"></script>
+<script type="text/javascript" src="__FRONTEND__/szy_player/jwplayer.js"></script>
+<!--手机端访问跳转-->
+<script type="text/javascript">
+    function browserRedirect() {
+        var sUserAgent = navigator.userAgent.toLowerCase();
+        var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+        var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+        var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+        var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+        var bIsAndroid = sUserAgent.match(/android/i) == "android";
+        var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+        var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+        if ((bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) ){
+            window.location.href="http://m.apprh.com";
+        }
+    }
+
+    function getarg(url){
+        arg=url.split("#");
+        return arg[1];
+    }
+    var url = getarg(window.location.href);
+    if ($.cookie('is_c'))
+    {
+    }
+    else
+    {
+        if (url == "m")
+        {
+            $.cookie('is_c', 'm');
+        }
+        else{
+            browserRedirect();
+        }
+    }
+</script>
+<div class="advbox hide">
+    <a href="#/" style="background: url(__FRONTEND__/hctech/images/top_ad/ecosystem.jpg) no-repeat center top;" target="_blank"></a>
+    <span class="btn-close iconfont icon-close"></span>
+</div>
+<!-- 判断url链接 -->
+
+<!-- 引入头部文件 _start -->
+{include file="common/header"}
+<!-- 引入头部文件 _end -->
+
+<!--内容 _start-->
+<div class="banner flexslider clear">
+    <div class="flex-viewport">
+        <ul class="slides">
+            <!--创云商城-->
+            <li style="background: url('__FRONTEND__/hctech/images/index/banner0.jpg') no-repeat center bottom;">
+                <div class="w1210">
+                    <div class="slide-desc">
+                        <h2 class="slide-title">创云商城（独立版）</h2>
+                        <div class="slide-detail">
+                            <p>独立部署版B2B2B2C商城系统</p>
+                            <p>平台+站点+店铺入驻+供货商+网点多角色运营模式</p>
+                            <p>Thinkphp5.0框架、组件式开发模式，高性能、高可用</p>
+                        </div>
+                        <div class="slide-action m-t-30">
+                            <a href="" target="_blank" class="slide-btn btn-white c-red">了解详情</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <!--云商城-->
+            <li style="background: url('__FRONTEND__/hctech/images/index/banner1.jpg') no-repeat center bottom;">
+                <div class="w1210">
+                    <div class="slide-desc">
+                        <h2 class="slide-title">云商城（SAAS版）</h2>
+                        <div class="slide-detail">
+                            <p>支持独立域名、独立品牌</p>
+                            <p>批发+供货+零售+分销+拼团+砍价一体化</p>
+                            <p>对接收银、物流系统，线上线下数据无缝打通</p>
+                        </div>
+                        <div class="slide-action m-t-30">
+                            <a href="" target="_blank" class="slide-btn btn-white c-blue slide-btn1">立即体验</a>
+                            <a href="" target="_blank" class="slide-btn">了解详情</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <!--ERP-->
+            <li style="background: url('__FRONTEND__/hctech/images/index/banner2.jpg') no-repeat center bottom;">
+                <div class="w1210">
+                    <div class="slide-desc">
+                        <h2 class="slide-title">ERP系统 为效率而生</h2>
+                        <div class="slide-detail">
+                            <p>无缝对接线上商城，线下门店收银 库存、价格统一管理</p>
+                            <p>流畅的用户体验，轻盈不简单、轻松上手</p>
+                        </div>
+                        <div class="slide-action">
+                            <a href="#" target="_blank" class="slide-btn btn-white c-yellow">立即体验</a>
+                            <a href="#" target="_blank" class="slide-btn">了解详情</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <!--同城物流-->
+            <li style="background: url('__FRONTEND__/hctech/images/index/banner3.jpg') no-repeat center bottom;">
+                <div class="w1210">
+                    <div class="slide-desc">
+                        <h2 class="slide-title">同城物流配送系统</h2>
+                        <div class="slide-detail">
+                            <p>单商户+多商户版</p>
+                            <p>众包+指派，可实现像某某打车一样就近抢单</p>
+                            <p>无缝对接线上商城，商城订单进入物流系统</p>
+                        </div>
+                        <div class="slide-action">
+                            <a href="" target="_blank" class="slide-btn btn-white c-blue">立即体验</a>
+                            <a href="" target="_blank" class="slide-btn">了解详情</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <!--收银狗-->
+            <li style="background: url('__FRONTEND__/hctech/images/index/banner4.gif') no-repeat center bottom;">
+                <div class="w1210">
+                    <div class="slide-desc">
+                        <h2 class="slide-title">收银狗</h2>
+                        <div class="slide-detail">
+                            <p>线上线下统一结算的云端收银系统</p>
+                            <p>无缝对接线上商城，线下门店收银 库存、价格统一管理</p>
+                            <p>流畅的用户体验，轻盈不简单、轻松上手</p>
+                        </div>
+                        <div class="slide-action">
+                            <a href="#" target="_blank" class="slide-btn btn-white c-blue">立即体验</a>
+                            <a href="#" target="_blank" class="slide-btn">了解详情</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <!--神码收银-->
+            <li style="background: url('__FRONTEND__/hctech/images/index/banner5.jpg') no-repeat center bottom;">
+                <div class="w1210">
+                    <div class="slide-desc">
+                        <h2 class="slide-title">神码收银</h2>
+                        <div class="slide-detail">
+                            <p>一个强大的二维码</p>
+                            <p>同一个二维码同时支持支付宝和微信扫码支付</p>
+                            <p>实体店扫码收银优选方案</p>
+                        </div>
+                        <div class="slide-action">
+                            <a href="" target="_blank" class="slide-btn btn-white c-green">了解详情</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <!--云产品库-->
+            <li style="background: url('__FRONTEND__/hctech/images/index/banner6.jpg') no-repeat center ;">
+                <div class="w1210">
+                    <div class="slide-desc">
+                        <h2 class="slide-title">云产品库</h2>
+                        <div class="slide-detail">
+                            <p>智能云端版商品维护系统</p>
+                            <p>云产品库可一次性轻松上线几万件商品</p>
+                            <p>帮您节省3-5个维护人员、10-15万维护成本</p>
+                        </div>
+                        <div class="slide-action">
+                            <a href="#" target="_blank" class="slide-btn btn-white c-blue">了解详情</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <!--视觉设计外包-->
+            <li style="background: url('__FRONTEND__/hctech/images/index/banner7.jpg') no-repeat center ;">
+                <div class="w1210">
+                    <div class="slide-desc">
+                        <h2 class="slide-title">视觉设计外包</h2>
+                        <div class="slide-detail">
+                            <p>懂电商，更懂视觉体验</p>
+                            <p>严谨的视觉形象团队、成熟的技术实力</p>
+                            <p>赋予美的更高诠释，设计·不将就！</p>
+                        </div>
+                        <div class="slide-action">
+                            <a href="" target="_blank" class="slide-btn btn-white c-red">了解详情</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!-- todo -->
+    <!--<div class="slide-nav">
+        <ul>
+            <li class="active" data-num="0">
+                <a href="#" target="_blank"><i class="iconfont icon-cloud"></i>云商城<span>（SAAS版）</span></a>
+            </li>
+            <li data-num="1">
+                <a href="#" target="_blank"><i class="iconfont icon-shop"></i>创云商城<span>（独立版）</span></a>
+            </li>
+            <li data-num="2">
+                <a href="#" target="_blank"><i class="iconfont icon-erp"></i>云ERP</a>
+            </li>
+            <li data-num="3">
+                <a href="#" target="_blank"><i class="iconfont icon-logistic"></i>同城物流</a>
+            </li>
+            <li data-num="4">
+                <a href="#" target="_blank"><i class="iconfont icon-cash"></i>线下收银</a>
+            </li>
+            <li data-num="5">
+                <a href="#" target="_blank"><i class="iconfont icon-code"></i>神码收银</a>
+            </li>
+            <li data-num="6">
+                <a href="#" target="_blank"><i class="iconfont icon-product"></i>云产品库</a>
+            </li>
+            <li data-num="7">
+                <a href="#" target="_blank"><i class="iconfont icon-design"></i>视觉设计外包</a>
+            </li>
+        </ul>
+    </div>-->
+</div>
+<div class="clear"></div>
+<!--电商营销-->
+<div class="width100 operate-box">
+    <div class="w1210">
+        <div class="operate">
+            <ul>
+                <li class="operate1">
+                    <a href="#" target="_blank">
+                        <h3 class="title">运维服务</h3>
+                        <p class="desc">为云用户解决使用各类云系统过程中出现的系统、软件应用、服务、安全等相关故障及疑难问题。</p>
+                        <span class="btn">了解详情</span>
+                    </a>
+                </li>
+                <li class="operate2">
+                    <a href="#" target="_blank">
+                        <h3 class="title">运营外包</h3>
+                        <p class="desc">致力于为企业提供站内优化和站外推广等实效落地的运营服务。免管理，更专业。</p>
+                        <span class="btn">了解详情</span>
+                    </a>
+                </li>
+                <li class="operate3">
+                    <a href="#" target="_blank">
+                        <h3 class="title">视觉设计外包</h3>
+                        <p class="desc">运用灵活的策略，有感染力的创意，丰富的媒介组合，为您在电商大战中脱颖而出。</p>
+                        <span class="btn">了解详情</span>
+                    </a>
+                </li>
+                <li class="operate4">
+                    <a href="#" target="_blank">
+                        <h3 class="title">SEO优化外包</h3>
+                        <p class="desc">对网站进行内部及外部的调整优化，改进网站在搜索引擎中关键词的自然排名。</p>
+                        <span class="btn">了解详情</span>
+                    </a>
+                </li>
+                <li class="operate5">
+                    <a href="#" target="_blank">
+                        <h3 class="title">HTTPS</h3>
+                        <p class="desc">HTTPS对整个网站的任何页面都进行加密保护，让访问者全程都在HTTPS协议的保护下进行浏览。</p>
+                        <span class="btn">了解详情</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="operate-arrow">
+            <i class="iconfont icon-aleft disabled"></i>
+            <i class="iconfont icon-aright"></i>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<!--视频-->
+<div class="width100 floor-div-5  hide">
+    <div class="clear"></div>
+    <div class="w1210 floor floor5">
+        <div class="floor-title">
+            <h2>观看视频，全方面了解创云电商生态系统</h2>
+            <span>创云商城电商生态系统历时一年多研发，匠心精神打造</span>
+        </div>
+        <div class="floor5-bg">
+            <div class="video">
+                <div style="position: relative; display: block; width: 594px; margin-left: 203px; height: 374px; top: 34px;" id="szyplayer_wrapper">
+                    <div id="szyplayer"></div>
+                    <script type="text/javascript">
+                        jwplayer('szyplayer').setup({
+                            flashplayer: './szy_player/jwplayer.flash.swf',
+                            file: 'https://video68.oss-cn-beijing.aliyuncs.com/68mall.mp4',
+                            image: './szy_player/fm_68mall_flash.jpg',
+                            width: '594',
+                            height: '374',
+                        });
+                    </script>
+                </div>
+            </div>
+            <div class="floor5-download">
+                <span>如果您播放过程中视频过于卡，您还可以进行下载观看哦！！</span>
+                <a id="video-index" href="" download="http://7qnbf2.com1.z0.glb.clouddn.com/68mall_FLA.mp4" class="btn">
+                    <i class="iconfont icon-download"></i>
+                    下载视频
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--电商生态系统&nbsp;&nbsp;能为你做什么？-->
+<div class="width100">
+    <div class="w1210 floor">
+        <div class="floor-title">
+            <h2>电商生态系统&nbsp;&nbsp;能为你做什么？</h2>
+            <span>理想的合作伙伴</span>
+        </div>
+        <ul class="product-list">
+            <li class="active">
+                <div class="product-title">
+                    <i class="iconfont icon-cloud"></i>
+                    <h2 class="product-name">云商城</h2>
+                </div>
+                <div class="product-content-simple">
+                    <p>1分钟快速开店</p>
+                    <p>维护方便、省心省力</p>
+                    <p>系统免费升级</p>
+                    <p>线下网点加盟</p>
+                </div>
+                <div class="product-content">
+                    <p>三步即可开店，快速方便。</p>
+                    <p>无需购买服务器、维护方便。</p>
+                    <p>升级快速、独立域名。</p>
+                    <p>区域网点加盟快速配送。</p>
+                </div>
+                <a class="btn" href="#" target="_blank">立即体验</a>
+            </li>
+            <li>
+                <div class="product-title">
+                    <i class="iconfont icon-shop"></i>
+                    <h2 class="product-name">创云商城</h2>
+                </div>
+                <div class="product-content-simple">
+                    <p>城市区域加盟连锁</p>
+                    <p>全新批发市场平台</p>
+                    <p>线下网点加盟</p>
+                    <p>高性能、高可用框架</p>
+                </div>
+                <div class="product-content">
+                    <p>多站点、区域加盟。</p>
+                    <p>打通供应链，支持供货商入驻。</p>
+                    <p>区域网点加盟快速配送。</p>
+                    <p>Thinkphp5.0，高性能、高可用。</p>
+                </div>
+                <a class="btn" href="#" target="_blank">了解详情</a>
+            </li>
+            <li>
+                <div class="product-title">
+                    <i class="iconfont icon-logistic"></i>
+                    <h2 class="product-name">云物流</h2>
+                </div>
+                <div class="product-content-simple">
+                    <p>订单支持 众包+指派</p>
+                    <p>APP就近定定位</p>
+                    <p>整合配送公司入驻</p>
+                    <p>无缝对接商城</p>
+                </div>
+                <div class="product-content">
+                    <p>众包+指派：双重模式优势互补。</p>
+                    <p>实时定位货物、人员位置。</p>
+                    <p>配送公司公众号对接系统，自助接单。</p>
+                    <p>无缝对接商城、及外卖平台。</p>
+                </div>
+                <a class="btn" href="#" target="_blank">立即体验</a>
+            </li>
+            <li>
+                <div class="product-title">
+                    <i class="iconfont icon-cash"></i>
+                    <h2 class="product-name">收银狗</h2>
+                </div>
+                <div class="product-content-simple">
+                    <p>全新支持OEM</p>
+                    <p>支持断网销售</p>
+                    <p>对接条码库</p>
+                    <p>连锁管理</p>
+                </div>
+                <div class="product-content">
+                    <p>无需自主研发 ,轻松打造自己的品牌。</p>
+                    <p>商品保存本地，断网收银使用安心。</p>
+                    <p>扫描条码商品数据自动填充。</p>
+                    <p>连锁经营模式，各门店数据统一管理。</p>
+                </div>
+                <a class="btn" href="#" target="_blank">立即体验</a>
+            </li>
+            <li class="last">
+                <div class="product-title">
+                    <i class="iconfont icon-erp"></i>
+                    <h2 class="product-name">云ERP</h2>
+                </div>
+                <div class="product-content-simple">
+                    <p>线上线下贯通</p>
+                    <p>多商家入驻模式</p>
+                    <p>采购预警</p>
+                    <p>批次管理</p>
+                </div>
+                <div class="product-content">
+                    <p>线上商城线下收银各数据一体化管理。</p>
+                    <p>平台方可查看各商家进销存数据情况。</p>
+                    <p>商家一键生成采购单，平台方统一供货。</p>
+                    <p>系统依据批号先进先出，避免商品过期。</p>
+                </div>
+                <a class="btn" href="#" target="_blank">立即体验</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--楼层1-->
+<div class="width100  hide">
+    <div class="w1210 floor floor1">
+        <div class="floor-title">
+            <h2>创云电商生态系统&nbsp;&nbsp;能为你做什么？</h2>
+            <span>理想的合作伙伴</span>
+        </div>
+        <div class="floor1-content">
+            <div class="floor1-btn">
+                <span class="btn-prev btn-disabled"><i class="iconfont icon-aleft"></i></span>
+                <span class="btn-next"><i class="iconfont icon-aright"></i></span>
+            </div>
+            <div class="floor1-body">
+                <ul id="floor1-list">
+                    <li style="width: 467px;" class="bor-red first" id="saas">
+                        <p class="floor1-title">SaaS版商城系统</p>
+                        <div class="floor1-div-fl">
+                            <h2>云商城</h2>
+                            <a href="#" target="_blank">
+                                <div class="floor1-icon floor1-logo-5"></div>
+                            </a>
+                            <p>
+                                三步即可开店
+                                <br>
+                                快速建立自己的移动商城
+                            </p>
+                        </div>
+                        <div style="display: block;" class=" floor1-div-fr appear-animation fadeInDown appear-animation-visible">
+                            <h3 class="floor1-div-desc">云商城优势功能简介：</h3>
+                            <p class="floor1-div-title">
+                                <i class="iconfont icon-arrow-right"></i>
+                                一分钟建站：
+                            </p>
+                            <p class="floor1-div-txt ">只需点击下一步，一分钟完成建站，自动导入基础数据，即刻上线使用</p>
+                            <p class="floor1-div-title">
+                                <i class="iconfont icon-arrow-right"></i>
+
+                                服务器性能强悍：
+                            </p>
+                            <p class="floor1-div-txt ">采用阿里云SLB服务器，多组服务器形成集群实现负载均衡，程序与图片附件分离式部署</p>
+                            <p class="floor1-div-title">
+                                <i class="iconfont icon-arrow-right"></i>
+                                无需后期维护：
+                            </p>
+                            <p class="floor1-div-txt ">运维、更新、基础数据我们帮您解决！您需要的就是精心打理自己的商城。</p>
+                        </div>
+                        <div style="display: block;" class="floor1-btn-blue mt-xlg">
+                            <a href="#" target="_blank" class="btn btn-blue fl">了解详情</a>
+                            <a class="btn btn-red fr" href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&amp;key=XzgwMDAwNzM5Nl80NjYxMl84MDAwMDczOTZfMl8" rel="nofollow" target="_blank">在线咨询</a>
+                        </div>
+                    </li>
+                    <li class="bor-g" id="shop">
+                        <p class="floor1-title">商城系统</p>
+                        <div class="floor1-div-fl">
+                            <h2>创云商城</h2>
+                            <a href="#" target="_blank">
+                                <div class="floor1-icon floor1-logo-1"></div>
+                            </a>
+                            <p>
+                                区域电商新模式
+                                <br>
+                                B2B2B2C
+                            </p>
+                        </div>
+                        <div class="floor1-div-fr appear-animation fadeInDown appear-animation-visible">
+                            <h3 class="floor1-div-desc">创云商城优势功能简介：</h3>
+                            <p class="floor1-div-title">
+                                <i class="iconfont icon-arrow-right"></i>
+                                站点加盟：
+                            </p>
+                            <p class="floor1-div-txt ">可创建多个站点，为站点设置经营区域，通过城市加盟的方式拓展业务</p>
+                            <p class="floor1-div-title">
+                                <i class="iconfont icon-arrow-right"></i>
+                                线下连锁加盟门店：
+                            </p>
+                            <p class="floor1-div-txt ">新增线下连锁加盟门店功能，店铺下单，门店配送，不同区域快速配送。</p>
+                            <p class="floor1-div-title">
+                                <i class="iconfont icon-arrow-right"></i>
+                                自营店铺与入驻店铺：
+                            </p>
+                            <p class="floor1-div-txt ">平台可拥有多个店铺，分为自营店铺和入驻店铺。</p>
+                        </div>
+                        <div id="accountantFunction" class="floor1-btn-blue mt-xlg">
+                            <a href="#" target="_blank" class="btn btn-blue fl">了解详情</a>
+                            <a href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&amp;key=XzgwMDAwNzM5Nl80NjYxMl84MDAwMDczOTZfMl8" rel="nofollow" target="_blank" class="btn btn-red fr">在线咨询</a>
+                        </div>
+                    </li>
+                    <li class="bor-g" id="ship">
+                        <p class="floor1-title">物流系统</p>
+                        <div class="floor1-div-fl">
+                            <h2>云物流</h2>
+                            <a href="#" target="_blank">
+                                <div class="floor1-icon floor1-logo-2"></div>
+                            </a>
+                            <p>
+                                抢单接活，养家助手
+                                <br>
+                                随时随地，自由灵活
+                            </p>
+                        </div>
+                        <div class="floor1-div-fr appear-animation fadeInDown appear-animation-visible">
+                            <h3 class="floor1-div-desc">云物流优势功能简介：</h3>
+                            <p class="floor1-div-title">
+                                <i class="iconfont icon-arrow-right"></i>
+                                自建、众包物流：
+                            </p>
+                            <p class="floor1-div-txt ">以众包物流为主，自建物流为辅，品质和低成本的优势互补</p>
+                            <p class="floor1-div-title">
+                                <i class="iconfont icon-arrow-right"></i>
+                                准确定位：
+                            </p>
+                            <p class="floor1-div-txt ">实时查询货物、配送人员位置的准确定位</p>
+                            <p class="floor1-div-title">
+                                <i class="iconfont icon-arrow-right"></i>
+                                无缝对接网上商城：
+                            </p>
+                            <p class="floor1-div-txt ">提供API开发接口，可实现商城与物流的无缝对接</p>
+                        </div>
+                        <div class="floor1-btn-blue mt-xlg">
+                            <a href="#" target="_blank" class="btn btn-blue fl">了解详情</a>
+                            <a class="btn  btn-red fr" href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&amp;key=XzgwMDAwNzM5Nl80NjYxMl84MDAwMDczOTZfMl8" rel="nofollow" target="_blank">在线咨询</a>
+                        </div>
+                    </li>
+                    <li class="bor-g" id="erp">
+                        <p class="floor1-title">ERP系统</p>
+                        <div class="floor1-div-fl">
+                            <h2>云ERP</h2>
+                            <a href="#" target="_blank">
+                                <div class="floor1-icon floor1-logo-4"></div>
+                            </a>
+                            <p>
+                                包涵采购、销售、仓储
+                                <br>
+                                CRM、账款、售后服务等
+                            </p>
+                        </div>
+                        <div class=" floor1-div-fr appear-animation fadeInDown appear-animation-visible">
+                            <h3 class="floor1-div-desc">云ERP优势功能简介：</h3>
+                            <p class="floor1-div-title">
+                                <i class="iconfont icon-arrow-right"></i>
+                                线上下线贯通
+                            </p>
+                            <p class="floor1-div-txt ">真正轻交付的SaaS型ERP,线上线下全渠道快速贯通</p>
+                            <p class="floor1-div-title">
+                                <i class="iconfont icon-arrow-right"></i>
+                                无缝对接商城、物流系统
+                            </p>
+                            <p class="floor1-div-txt ">
+                                轻松对接主流网络销售平台、无缝对接嗖嗖快送系统
+                                <br>
+                            </p>
+                            <p class="floor1-div-title">
+                                <i class="iconfont icon-arrow-right"></i>
+                                进销存零售一体化
+                            </p>
+                            <p class="floor1-div-txt ">功能完备，连锁经营，进销存零售一体化</p>
+                        </div>
+                        <div class="floor1-btn-blue ">
+                            <a href="#" target="_blank" class="btn btn-blue fl">了解详情</a>
+                            <a class="btn  btn-red fr" href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&amp;key=XzgwMDAwNzM5Nl80NjYxMl84MDAwMDczOTZfMl8" rel="nofollow" target="_blank">在线咨询</a>
+                        </div>
+                    </li>
+                    <li class="bor-g" id="chanpinku">
+                        <p class="floor1-title">创云·云产品库</p>
+                        <div class="floor1-div-fl">
+                            <h2>云产品库</h2>
+                            <a href="#" target="_blank">
+                                <div class="floor1-icon floor1-logo-6"></div>
+                            </a>
+                            <p>
+                                可提供API接口
+                                <br />
+                                自主调取云产品库商品
+                            </p>
+                        </div>
+                        <div class="floor1-div-fr appear-animation fadeInDown appear-animation-visible">
+                            <h3 class="floor1-div-desc">云产品库优势功能简介：</h3>
+                            <p class="floor1-div-title">
+                                <i class="iconfont icon-arrow-right"></i>
+                                品牌、分类管理
+                            </p>
+                            <p class="floor1-div-txt">品牌、商品分类一键导入</p>
+                            <p class="floor1-div-title">
+                                <i class="iconfont icon-arrow-right"></i>
+                                商品维护
+                            </p>
+                            <p class="floor1-div-txt ">
+                                支持商品同步功能，一键同步
+                                <br>
+                            </p>
+                            <p class="floor1-div-title">
+                                <i class="iconfont icon-arrow-right"></i>
+                                数据采集
+                            </p>
+                            <p class="floor1-div-txt ">提供多种数据采集方式</p>
+                        </div>
+                        <div class="floor1-btn-blue">
+                            <a href="#" target="_blank" class="btn  btn-blue fl">了解详情</a>
+                            <a class="btn btn-red fr" href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&amp;key=XzgwMDAwNzM5Nl80NjYxMl84MDAwMDczOTZfMl8" rel="nofollow" target="_blank">在线咨询</a>
+                        </div>
+                    </li>
+                    <li class="bor-g" id="shouyintai">
+                        <p class="floor1-title">创云·收银狗</p>
+                        <div class="floor1-div-fl">
+                            <h2>收银狗</h2>
+                            <a href="#" target="_blank">
+                                <div class="floor1-icon floor1-logo-7"></div>
+                            </a>
+                            <p>
+                                商品数据、库存、订单等数据
+                                <br />
+                                线上线下一体化管理
+                            </p>
+                        </div>
+                        <div class="floor1-div-fr appear-animation fadeInDown appear-animation-visible">
+                            <h3 class="floor1-div-desc">收银狗优势功能简介：</h3>
+                            <p class="floor1-div-title">
+                                <i class="iconfont icon-arrow-right"></i>
+                                线上线下一体化管理
+                            </p>
+                            <p class="floor1-div-txt ">商品数据、库存、订单一体化管理，线上线下整合营销。</p>
+                            <p class="floor1-div-title">
+                                <i class="iconfont icon-arrow-right"></i>
+                                完善的功能系统
+                            </p>
+                            <p class="floor1-div-txt">
+                                支持收银、商品管理、订单处理、会员注册等操作，打理门店轻松自在。
+                                <br>
+                            </p>
+                            <p class="floor1-div-title">
+                                <i class="iconfont icon-arrow-right"></i>
+                                提供O2O解决方案
+                            </p>
+                            <p class="floor1-div-txt">满足多行业、多场景的收银需求，帮您实现业绩翻倍涨，成本直线降。</p>
+                        </div>
+                        <div class="floor1-btn-blue">
+                            <a href="http://www.shouyingou.com/" target="_blank" class="btn btn-blue fl">了解详情</a>
+                            <a class="btn btn-red fr" href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&amp;key=XzgwMDAwNzM5Nl80NjYxMl84MDAwMDczOTZfMl8" rel="nofollow" target="_blank">在线咨询</a>
+                        </div>
+                    </li>
+                    <li class="bor-g" id="shenma">
+                        <p class="floor1-title">创云·神码收银</p>
+                        <div class="floor1-div-fl">
+                            <h2>神码收银</h2>
+                            <a href="#" target="_blank">
+                                <div class="floor1-icon floor1-logo-8"></div>
+                            </a>
+                            <p>
+                                一个二维码整合微信、支付宝
+                                <br>
+                                两种支付方式，支持同时扫码支付
+                            </p>
+                        </div>
+                        <div class="floor1-div-fr appear-animation fadeInDown appear-animation-visible">
+                            <h3 class="floor1-div-desc">神码收银优势功能简介：</h3>
+                            <p class="floor1-div-title">
+                                <i class="iconfont icon-arrow-right"></i>
+                                指定、自助金额两种支付类型
+                            </p>
+                            <p class="floor1-div-txt ">店铺商家可在后台设置收款二维码类型及支付金额，买家扫码即可快速付款。</p>
+                            <p class="floor1-div-title">
+                                <i class="iconfont icon-arrow-right"></i>
+                                供多人扫码支付
+                            </p>
+                            <p class="floor1-div-txt">
+                                一个收款二维码支持多人及多次扫码，满足店内复杂收款场景。
+                                <br>
+                            </p>
+                            <p class="floor1-div-title">
+                                <i class="iconfont icon-arrow-right"></i>
+                                满足多行业收银需求
+                            </p>
+                            <p class="floor1-div-txt ">适合商超、生鲜水果、咖啡厅等线下门店商家日常使用。</p>
+                        </div>
+                        <div class="floor1-btn-blue ">
+                            <a href="#" target="_blank" class="btn btn-blue fl">了解详情</a>
+                            <a class="btn  btn-red fr" href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&amp;key=XzgwMDAwNzM5Nl80NjYxMl84MDAwMDczOTZfMl8" rel="nofollow" target="_blank">在线咨询</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<!--楼层2-->
+<div class="width100 floor-div-2  hide">
+    <div class="clear"></div>
+    <div class="w1210 floor floor2">
+        <div class="banner flexslider-floor2 clear">
+            <div class="flex-viewport">
+                <ul class="slides">
+                    <li>
+                        <a href="#/" target="_blank">
+                            <div class="fadedown mall">
+                                <div class="floor-title">
+                                    <h2>创云商城 · 完善的电商生态系统</h2>
+                                    <span>丰富的移动应用 六端合一 商机在指尖活跃</span>
+                                </div>
+                                <div class="con-img"></div>
+                                <p class="con-item1">APP Android端</p>
+                                <p class="con-item2">微信商城</p>
+                                <p class="con-item3">PC端</p>
+                                <p class="con-item4">商家版APP</p>
+                                <p class="con-item5">APP IOS端</p>
+                                <p class="con-item6">门店抢单APP</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank">
+                            <div class="fadedown ship ">
+                                <div class="floor-title">
+                                    <h2>云物流 · 同城物流系统</h2>
+                                    <span>完整的区域物流生态系统模式</span>
+                                </div>
+                                <div class="con-img"></div>
+                                <p class="con-item1">快递员APP</p>
+                                <p class="con-item2">电脑端（平台+商家）</p>
+                                <p class="con-item3">跑腿公司APP</p>
+                                <p class="con-item4">商家版APP</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="floor2-btn">
+                            <a href="/user/product/create.html?product_code=szy_erp" target="_blank">一分钟注册，你会深爱上我</a>
+                        </div>
+                        <a href="http://www.shouyingou.com/" target="_blank">
+                            <div class="fadedown checkout">
+                                <div class="floor-title">
+                                    <h2>收银狗 · 线上线下一体化管理</h2>
+                                    <span>无需建档即可销售，带您玩转电商</span>
+                                </div>
+                                <div class="con-img"></div>
+                                <p class="con-item1">收银机A</p>
+                                <p class="con-item2">收银机B</p>
+                                <p class="con-item3">PC端</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="floor2-btn">
+                            <a href="#" target="_blank">一分钟注册，你会深爱上我</a>
+                        </div>
+                        <a href="#" target="_blank">
+                            <div class="fadedown erp">
+                                <div class="floor-title">
+                                    <h2>云ERP · 多方面管理功能的ERP系统</h2>
+                                    <span>更快更准更稳的企业级电商ERP管理软件</span>
+                                </div>
+                                <div class="con-img"></div>
+                                <p class="con-item1">APP 客户端</p>
+                                <p class="con-item2">手机网页端</p>
+                                <p class="con-item3">PC端</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="floor2-btn">
+                            <a href="#" target="_blank">一分钟注册，你会深爱上我</a>
+                        </div>
+                        <a href="#" target="_blank">
+                            <div class="fadedown saas">
+                                <div class="floor-title">
+                                    <h2>云商城 · SaaS版商城系统</h2>
+                                    <span>省心省力 三步即可开店 快速建立自己的移动商城</span>
+                                </div>
+                                <div class="con-img"></div>
+                                <p class="con-item1">消费者APP</p>
+                                <p class="con-item2">商家版APP</p>
+                                <p class="con-item3">门店抢单APP</p>
+                                <p class="con-item4">PC</p>
+                                <p class="con-item5">微信商城</p>
+                                <p class="con-item6">手机网页端</p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <ol class="flex-control-nav flex-control-paging">
+            </ol>
+            <ul class="flex-direction-nav">
+                <li>
+                    <a class="flex-prev" href="javascript:;"></a>
+                </li>
+                <li>
+                    <a class="flex-next" href="javascript:;"></a>
+                </li>
+            </ul>
+        </div>
+        <script type="text/javascript">
+            $(function() {
+                $('.flexslider-floor2').flexslider({
+                    animation: "slide",
+                    slideshowSpeed: 4000
+                });
+            })
+        </script>
+    </div>
+</div>
+<!--楼层3-->
+<div class="width100 floor-div-3">
+    <div class="clear"></div>
+    <div class="w1210 floor floor3">
+        <div class="floor-title">
+            <h2>应用场景</h2>
+            <span>为企业匹配适应整条业务链的解决方案，合理应用于业态、行业及热门电商形态</span>
+        </div>
+        <ul class="live-app clearfix">
+            <li class="first">
+                <img src="__FRONTEND__/hctech/images/index/scene-4.png" alt="连锁超市">
+                <div class="live-info">
+                    <h3>连锁超市</h3>
+                    <p>创云商城区域加盟连锁改变传统连锁企业品牌扩张遇到的瓶颈，快速布局商品管理和门店销售管理。</p>
+                    <a class="live-btn" href="#" target="_blank">查看详情</a>
+                </div>
+            </li>
+            <li>
+                <img src="__FRONTEND__/hctech/images/index/scene-3.png" alt="智慧社区">
+                <div class="live-info">
+                    <h3>百货商场</h3>
+                    <p>创云商城满足消费者任何时候、任何地点、任何方式购买的需求，采取实体门店、线上商城相结合的方式销售商品或服务，提供给顾客无差别的购买体验。</p>
+                    <a class="live-btn" href="#" target="_blank">查看详情</a>
+                </div>
+            </li>
+            <li>
+                <img src="__FRONTEND__/hctech/images/index/scene-6.png" alt="厂商/经销商">
+                <div class="live-info">
+                    <h3>厂商/经销商</h3>
+                    <p>创云商城适合传统各行业如手机行业的厂商及其代理商、食品行业的经销商及代理商等</p>
+                    <a class="live-btn" href="#" target="_blank">查看详情</a>
+                </div>
+            </li>
+            <li>
+                <img src="__FRONTEND__/hctech/images/index/scene-2.png" alt="农村电商">
+                <div class="live-info">
+                    <h3>农村电商</h3>
+                    <p>创云商城5级地区管理，解决农村电商地域、营销等难题，商城系统更符合区域农村的运营模式。</p>
+                    <a class="live-btn" href="#" target="_blank">查看详情</a>
+                </div>
+            </li>
+            <li>
+                <img src="__FRONTEND__/hctech/images/index/scene-8.png" alt="生鲜电商">
+                <div class="live-info">
+                    <h3>生鲜电商</h3>
+                    <p>创云商城帮助生鲜商家、企业快速布局线上销售渠道，实现全渠道数据融合，依靠线下实体门店，增强顾客信任感，升级顾客消费体验。</p>
+                    <a class="live-btn" href="#" target="_blank">查看详情</a>
+                </div>
+            </li>
+            <li>
+                <img src="__FRONTEND__/hctech/images/index/scene-7.png" alt="母婴电商">
+                <div class="live-info">
+                    <h3>母婴电商</h3>
+                    <p>创云商城立足于妈妈跨渠道的深度社交喜好，帮助商企深入连通母婴社群，打通全渠道多元化的母婴新零售场景，以差异营销带动业绩增长。</p>
+                    <a class="live-btn" href="#" target="_blank">查看详情</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function() {
+        $('.live-app li').hover(function() {
+            $('.live-info', this).stop(true, false).animate({
+                bottom: '0px'
+            });
+
+            $('img', this).stop(true, false).animate({
+                margin: '-10px'
+            });
+        }, function() {
+            $('.live-info', this).stop(true, false).animate({
+                bottom: '-190px'
+            });
+
+            $('img', this).stop(true, false).animate({
+                margin: '0px'
+            });
+        });
+    });
+</script>
+<!--楼层4-->
+<div class="width100 floor-div-4">
+    <div class="clear"></div>
+    <div class="w1210 floor floor4">
+        <div class="floor-title">
+            <h2>因为信任，他们选择了环创科技</h2>
+            <span>专注网站开发多年，百万用户的选择，做网站开发我们更深入</span>
+        </div>
+        <div class="case">
+            <ul>
+                {foreach $caseList as $case}
+                <li>
+                    <a href="{$case.site_url}" target="_blank" rel="nofollow">
+                        <img src="{$case.site_image|quick_pic_thumb='@135w_60h'}" alt="{$case.site_name}">
+                    </a>
+                </li>
+                {/foreach}
+            </ul>
+            <div class="clear"></div>
+            <a href="{:url('frontend/Sitecase/index')}" class="more-case" target="_blank">更多案例</a>
+        </div>
+    </div>
+</div>
+<!--楼层6-->
+<div class="width100 floor-div-6">
+    <div class="clear"></div>
+    <div class="w1210 floor floor6">
+        <div class="news-box">
+
+            <!--大事记-->
+            <div class="news-scroll fl">
+                <h3>
+                    <a href="{:url('frontend/News/lists', ['ac_id' => 32])}" target="_blank" class="news-more">MORE <i>&gt;</i></a>
+                    <i class="iconfont icon-fire"></i>大事记
+                </h3>
+                <ul>
+                    {foreach $dsjNews as $article}
+                    <li>
+                        <a href="{:url('frontend/News/show', ['article_id' => $article['article_id']])}" target="_blank">
+                            <img src="{$article.article_image|quick_pic_thumb='@380w_220h'}">
+                        </a>
+                    </li>
+                    {/foreach}
+                </ul>
+                <div class="news-control">
+                    {foreach $dsjNews as $key=>$article}
+                    <span {if $key eq 0}class="active"{/if}></span>
+                    {/foreach}
+                </div>
+                <a href="javascript:;" class="news-scroll-btn btn-left"><i class="iconfont iconfont icon-aleft"></i></a>
+                <a href="javascript:;" class="news-scroll-btn btn-right"><i class="iconfont icon-aright"></i></a>
+            </div>
+
+            <!--公司动态-->
+            <div class="news-list fl news-list1">
+                <h3>
+                    <a href="{:url('frontend/News/lists', ['ac_id' => 22])}" target="_blank" class="news-more">MORE <i>&gt;</i></a>
+                    <i class="iconfont icon-dynamic"></i>公司动态
+                </h3>
+                <ul>
+                    {foreach $companyNews as $article}
+                    <li>
+                        <span>{$article.article_publish_time|format_time='Y-m-d'}</span>
+                        <a href="{:url('frontend/News/show', ['article_id' => $article['article_id']])}" target="_blank" title="{$article.article_title}">{$article.article_title}</a>
+                    </li>
+                    {/foreach}
+                </ul>
+            </div>
+
+            <!--电商资讯-->
+            <div class="news-list fl news-list2">
+                <h3>
+                    <a href="{:url('frontend/News/lists', ['ac_id' => 22])}" target="_blank" class="news-more">MORE <i>&gt;</i></a>
+                    <i class="iconfont icon-industry"></i>电商资讯
+                </h3>
+                <ul>
+                    {foreach $dsNews as $article}
+                    <li>
+                        <span>{$article.article_publish_time|format_time='Y-m-d'}</span>
+                        <a href="{:url('frontend/News/show', ['article_id' => $article['article_id']])}" target="_blank" title="{$article.article_title}">{$article.article_title}</a>
+                    </li>
+                    {/foreach}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!--内容 _end-->
+
+<!--网页底部-->
+<!-- 右侧边栏 _start -->
+{include file="common/sidebar"}
+<!-- 右侧边栏 _end -->
+
+<!-- 底部 _start-->
+{include file="common/footer"}
+<!-- 底部 _end-->
+<script type="text/javascript" src="__FRONTEND__/hctech/js/common.js"></script>
+
+<!--收集客户信息-->
+
+<div class="get-userinfo">
+    <!--提交成功后 userinfo-inner添加 class “success”-->
+    <div class="userinfo-inner">
+        <!--提交成功按钮-->
+        <i class="iconfont icon-success success-info"></i>
+        <p class="userinfo-title default-info">现在填写联系方式，即可获得一对一客服服务</p>
+        <p class="userinfo-title success-info">您的信息已提交成功！</p>
+        <form class="userinfo-form clearfix">
+            <!--提交信息 _start-->
+            <input type="text" id="mobile" class="fl input-text default-info" placeholder="请输入手机号码">
+            <input type="button" class="fl btn bg-orange default-info" id="submit" value="给我回电">
+            <!--提交信息 _end-->
+            <span class="fl text first success-info">客户经理会在24小时内与您联系。先看下我们的网站服务吧！</span>
+            <a href="{:url('frontend/Website/index')}" target="_blank" class="fl btn bg-orange success-info">立即了解</a>
+
+            <span class="fl dividing-line"></span>
+            <a href="http://wpa.qq.com/msgrd?v=3&uin={:sysconf('hc_qq')}&site=qq&menu=yes" target="_blank" class="fl btn">立即咨询</a>
+            <span class="fl dividing-line"></span>
+            <span class="fl text">咨询电话： {:sysconf('hc_phone')}</span>
+        </form>
+        <i class="iconfont icon-close1 userinfo-close"></i>
+    </div>
+</div>
+<script type="text/javascript">
+
+    $("#submit").click(function(){
+        var mobile = $.trim($("#mobile").val());
+        if(mobile.length <= 0){
+            $.msg('手机号不能为空!');
+            return;
+        }
+
+        $.post('/frontend/Site/service_mobile', {
+            'mobile': mobile
+        }, function (result) {
+            if(result.code == 0){
+                $('.userinfo-inner').addClass('success');
+            }
+            $.msg(result.message);
+        }, "json");
+    })
+
+</script>
+<script type="text/javascript" src="__FRONTEND__/hctech/js/index.js"></script>
+<!-- 首页主体 _end -->
+
+<script type="text/javascript">
+    $().ready(function(){
+        // 缓载图片
+        $("img").lazyload({
+            skip_invisible: false,
+            effect:'fadeIn',
+            failure_limit: 20,
+            threshold: 200
+        });
+    });
+</script>
+{/block}
+
+
+{block name="js-foot"}
+
+{/block}

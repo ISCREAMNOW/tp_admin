@@ -1,0 +1,81 @@
+<form class="layui-form layui-box" style='padding:25px 30px 20px 0' action="__SELF__" data-auto="true" method="post">
+    <div class="layui-form-item">
+        <label class="layui-form-label">广告名称</label>
+        <div class="layui-input-block">
+            <input type="text" name="name" value='{$vo.name|default=""}' required="required" title="请输入广告名称" placeholder="请输入广告名称" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">选择广告位</label>
+        <div class="layui-input-block">
+            <select name='position_id' class='layui-select full-width'>
+                <option value="">选择广告位</option>
+                {foreach $positionList as $position}
+                {if $vo.position_id eq $position.id}
+                <option selected  value='{$position.id}'>{$position.position}</option>
+                {else/}
+                <option  value='{$position.id}'>{$position.position}</option>
+                {/if}
+                {/foreach}
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-form-item">
+            <label class="layui-form-label">广告有效期</label>
+            <div class="layui-input-inline">
+                <input name="start_time" class="layui-input" value="{$vo.start_time|default=''}" placeholder="开始时间" id="LAY_demorange_s">
+            </div>
+            <div class="layui-input-inline">
+                <input name="end_time" class="layui-input" value="{$vo.end_time|default=''}" placeholder="截止时间" id="LAY_demorange_e">
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">URL 地址</label>
+        <div class="layui-input-block">
+            <input type="text" name="url" value='{$vo.url|default="javascript:;"}' title="请输入广告URL 地址" placeholder="请输入广告URL 地址" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">广告图片</label>
+        <div class='layui-input-block'>
+
+            <!-- todo 默认图片设置 -->
+            <img data-tips-image style="height:auto;max-height:32px;min-width:32px" src="{$vo.path|default='static/admin/theme/default/img/image.png'}"/>
+            <input type="hidden" name="path" onchange="$(this).prev('img').attr('src', this.value)" value="{$vo.path|default=''}" class="layui-input">
+            <a class="btn btn-link" data-file="one" data-type="png,jpg,jpeg" data-field="path">上传图片</a>
+            <p>建议上传广告图片的尺寸为：{$positionData.width}*{$positionData.height} (px)。</p>
+        </div>
+    </div>
+
+    <div class="hr-line-dashed"></div>
+    <div class="layui-form-item text-center">
+        {if isset($vo['id'])}<input type='hidden' value='{$vo.id}' name='id'/>{/if}
+        <button class="layui-btn" type='submit'>保存数据</button>
+        <button class="layui-btn layui-btn-danger" type='button' data-confirm="确定要取消编辑吗？" data-close>取消编辑</button>
+    </div>
+
+</form>
+
+<script>window.form.render();</script>
+
+<script>
+    layui.use(['laydate'], function() {
+        var laydate = layui.laydate;
+
+        //日期
+        laydate.render({
+            elem: '#LAY_demorange_s'
+            , max: '2099-06-16 23:59:59'
+        });
+        laydate.render({
+            elem: '#LAY_demorange_e'
+            , max: '2099-06-16 23:59:59'
+        });
+    });
+</script>

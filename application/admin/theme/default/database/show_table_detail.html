@@ -1,0 +1,48 @@
+<form id="export-form" onsubmit="return false;" data-auto="" method="POST">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>主键</th>
+            <th>字段名称</th>
+            <th>字段说明</th>
+            <th>类型（长度）</th>
+            <th>默认</th>
+            <th>必填</th>
+        </tr>
+        </thead>
+        <tbody>
+        {foreach $tableDetail as $key=>$vo}
+        <tr>
+            <td>{$vo.Key}</td>
+            <td>{$vo.Field}</td>
+            <td>{$vo.Comment}</td>
+            <td>{$vo.Type}</td>
+            <td>{$vo.Default}</td>
+            <td>{$vo.Null}</td>
+
+
+        </tr>
+        {/foreach}
+        </tbody>
+    </table>
+</form>
+
+
+<script>window.form.render();</script>
+
+<script>
+    layui.use('form', function(){
+        var $ = layui.jquery
+            , form = layui.form;
+
+        //全选
+        form.on('checkbox(allChoose)', function(data){
+            var child = $(data.elem).parents('table').find('tbody input[type="checkbox"]');
+            child.each(function(index, item){
+                item.checked = data.elem.checked;
+            });
+            form.render('checkbox');
+        });
+
+    });
+</script>

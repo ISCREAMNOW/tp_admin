@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>{$seo_title}</title>
+    <meta name="description" content="{$seo_description}">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name='apple-touch-fullscreen' content='yes'>
+    <meta name="full-screen" content="yes">
+    <link type="text/css" rel="stylesheet" href="/static_passport/dist/v1.0.28403/touch/login_series/css/login_registered_h5.css?v=6" media="screen"  charset="utf-8" />
+    <script src="/static_passport/dist/v1.0.28403/touch/login_series/js/zepto.js?v=6"></script>
+    <script src="/static_passport/dist/v1.0.28403/touch/login_series/js/jmtouch_login.js?v=6"></script>
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta name="full-screen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="address=no"/>
+</head>
+<body>
+<style>
+    .gt_ads_holder_top {
+        display: none;
+    }
+    .gt_ads_holder {
+        border: 0;
+        background: none;
+        padding: 0 15px 2px 18px;
+    }
+    .gt_ajax_tip {
+        display: none;
+    }
+    .gt_bottom {
+        background: none;
+    }
+    .gt_holder {
+        padding: 5px 0;
+    }
+    .gt_ads_box {
+        top: 1px;
+    }
+</style>
+<script>
+    (function (para) {
+        window['sensorsDataAnalytic201505'] = para.name;
+        window[para.name] = {
+            para: para
+        };
+    })({
+        name: 'sa',
+        server_url: 'http://www.dev/',
+        show_log: false
+    });
+
+
+</script>
+<script src="/static_passport/dist/v1.0.28403/js/library/sensorsdata.min.js"></script>
+<script>
+    //  获取 用户 uid
+//    function getUID(){
+//        var  cookie=document.cookie.split('; ');
+//        for(var i=0;i<cookie.length;i++){
+//            var user_id=cookie[i].split('=');
+//            if(user_id[0]=='uid'){
+//                return user_id[1]
+//            }
+//        }
+//    }
+    /*
+     *神测 URL
+     *
+     * */
+//    function pageview() {
+//        sa.track('$pageview', {
+//            '$url': window.location.href,
+//            'uid':getUID(),
+//            'time':new Date()
+//        });
+//    }
+//    if(window.sa){
+//        sa.login(getUID())
+//        sa.quick('autoTrack');
+//        pageview()
+//    }
+
+</script>
+<script>
+    var NC_SCENE = "login_h5";
+    var NC_APPKEY = "P1WM";
+</script>
+<script type="text/javascript" charset="utf‐8" src="//g.alicdn.com/sd/nch5/index.js?t=1509626422311"></script>
+<div id="_umfp" style="display:inline;width:1px;height:1px;overflow:hidden"></div>
+<div class="warper">
+    <section class="views">
+        <a id = "back" href="javascript:void(0);"><img src = "/static_passport/dist/v1.0.28403/touch/login_series/images/NavButtonBack_new.png" class = "return"/></a>
+        <h1 class = "theme">登录</h1>
+        <a class="top_right" href="/mobile/Login/register?redirect={:url('/mobile/Member/index')}">注册</a>
+    </section>
+    <form action="" autocomplete="off">
+    </form>
+    <form id="login-dynamic-form">
+        <div id="iphone_login">
+            <div class="other-login-outer">
+                <div class="other-login">
+                    <span class="other-title">使用手机登录</span>
+                </div>
+            </div>
+            <div class="jm_row icon_phone">
+                <div class="jm_col">
+                    <input type="text" class="register_input"  name="dynamic_mobile" value="" id="dynamic_mobile" placeholder="请输入11位手机号" alertname="手机号">
+                </div>
+
+            </div>
+            <div class="jm_row">
+                <div class="jm_col">
+                    <input type="tel" class="register_input"  name="telephoneN" placeholder="请输入短信验证码" id="dynamic_password" alertname="短信验证码" maxlength="6">
+                </div>
+                <div class="jm_col jm_col_90px">
+                    <a   class="register_yzm"  href="javascript:;">验证</a>
+                </div>
+            </div>
+            <div class="jm_row " id="dynamic_verify_code" style="display: none;">
+                <div class="jm_col"><input type="text" maxlength="4" name="dynamic_hash_code" class="register_input" id="dynamic_hash_code" placeholder="请按右图输入"></div>
+                <div class="jm_col jm_col_90px"> <img id="img_dynamic_hash_code" src="/mobile/Login/verify_code?from=dynamic_login&{:time()}" class="check_code"></div>
+            </div>
+            <div class="jm_row " id="dynamic-geetest-wrap" style="display: none;">
+                <div class="jm_col">
+                    <script async="" type="text/javascript" src="https://api.geetest.com/get.php?gt=064db254049f316e75b404fd9bb4f54e&product=embed&random=2"></script>
+                </div>
+            </div>
+            <div class="jm_row register_jumei_account">
+                <a class="jm_col jm_left" id="use_jumei_account">使用帐号登录</a>
+                <div class="jm_col jm_right">30天内自动登录</div>
+            </div>
+        </div>
+        <input type="submit" value="登录" class="register_button" id="ga_dynamic_login">
+    </form>
+    <!-- 普通登录 -->
+    <form accept-charset="utf-8" method="post" action="/mobile/Login/index?redirect={:url('/mobile/Member/index')}" id="login" style="display: none" autocomplete="off">
+        <div class="other-login-outer">
+            <div class="other-login">
+                <span class="other-title">使用帐号登录</span>
+            </div>
+        </div>
+        <div class="jm_row icon_phone">
+            <div class="jm_col">
+                <input type="text" class="register_input"  name="email"  id="account" placeholder="已注册的手机号/邮箱／用户名" alertname="用户名" />
+            </div>
+        </div>
+        <input type="text" style="display: none;">
+        <input type="password" class="register_input"  name="password" placeholder="6-16位登陆密码" alertname="6-16位登陆密码" autocomplete="new-password">
+        <div id="aliyun_verify" style="margin-top: 10px;"></div>
+        <div class="jm_row register_jumei_account">
+            <a class="jm_col jm_left" id="use_iphone_login" >使用手机短信码登录</a>
+            <a class="jm_col jm_right" href="/mobile/Login/reset?redirect={:url('/mobile/Index/index')}">忘记密码？</a>
+        </div>
+        <input type="submit" value="登录" class="register_button" id="ga_login">
+    </form>
+
+    <script type="text/javascript" charset="utf-8" src="/static_passport/dist/v1.0.28403/js/sea.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/static_passport/dist/v1.0.28403/js/boot.js"></script>
+
+    <script type="text/javascript">
+        var GT_VERIFY = false;
+        var QCLOUD_VERIFY = false;
+        var ALIYUN_VERIFY = true;
+        var has_hash = false;
+        var REDIRECT = 'http://www.apprh.com/mobile/Member/index';
+        var DYNAMIC_SHOW_VERIFY_CODE = '';
+        var DYNAMIC_VERIFY_URL = '/mobile/Login/verify_code?from=dynamic_login_touch';
+        if (QCLOUD_VERIFY || ALIYUN_VERIFY || GT_VERIFY) {
+            has_hash = false;
+        }
+        var dynamicSmsExpireTime = 1;
+
+
+        seajs.use('touch/login/index');
+
+    </script>
+</div>
+</body>
+</html>

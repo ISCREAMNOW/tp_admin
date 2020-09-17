@@ -1,0 +1,63 @@
+{extend name='mobile/common/layout' /}
+
+{block name="header"}
+{include file="mobile/common/hospital_header"}
+{/block}
+
+<!-- content -->
+{block name="content"}
+<div id="mobileConH">
+    <!--内容 begin-->
+    <div class="h5"></div>
+    <dl class="newsTextImg white">
+
+        <!--文章列表-->
+        {include file="mobile/cmsarticle/_article_list"}
+
+    </dl>
+    <div class="ajaxLoad">
+        <!--<span>数据正在加载中...</span>-->
+        <a href="javascript:;" pagenum="2" loadmore="true" value="{:U('ajax_get_articles')}" class="more_grey">点击加载更多....</a>
+
+    </div>
+    <!--内容 end-->
+</div>
+
+{/block}
+
+
+{block name="ajax-content"}
+
+<script type="text/javascript">
+    $(function() {
+        $("img.lazy").lazyload({
+            effect: "show",
+            placeholder: "__MOBILE__/images/loading.gif", //占位符，注意路径
+            threshold :200
+        });
+    });
+    $(function(){
+
+        $('.more_grey').click(function () {
+            loadmore = $(this).attr('loadmore');
+            if (loadmore == 'false') return false;
+            pagenum = $(this).attr('pagenum');
+            object = $(this);
+            $(this).attr('pagenum', parseInt(pagenum) + 1);
+            var uri = $(this).attr('value');
+
+            $.post(uri,{mod:"ajax", curpage:pagenum, 'ac_id' : "{:I('ac_id', 0)}"},
+                function(data) {
+                    if (data.content == 'norecord')
+                    {
+                        object.attr('loadmore', 'false');
+                        $(".more_grey").html('无更多数据了');
+                    } else {
+                        $('.newsTextImg').append(data.content);
+                    }
+                },"json");
+        });
+    });
+</script>
+{/block}
+

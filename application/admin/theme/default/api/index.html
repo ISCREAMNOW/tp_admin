@@ -1,0 +1,134 @@
+{extend name='common/content' /}
+
+<div class="alert alert-info">
+    <p>
+        <strong>类注释标识：</strong><br />
+        1. @desc ; 2. @package ; <br/>
+    </p>
+    <p>
+        <strong>接口注释标识：</strong><br />
+        1. @desc ; 2. @method ; 3. @parameter ; 4. @response<br/>
+    </p>
+</div>
+
+{block name="content"}
+
+<!-- 表单搜索 开始 -->
+<form class="animated form-search" action="__SELF__" onsubmit="return false" method="get">
+
+    <div class="row">
+        <div class="col-xs-3">
+            <div class="form-group">
+                <input type="text" name="title" value="{$Think.get.title|default=''}" placeholder="接口名称"
+                       class="input-sm form-control">
+            </div>
+        </div>
+
+        <div class="col-xs-3">
+            <div class="form-group">
+                <input type="text" name="desc" value="{$Think.get.desc|default=''}" placeholder="接口描述"
+                       class="input-sm form-control">
+            </div>
+        </div>
+
+        <div class="col-xs-1">
+            <div class="form-group">
+                <button type="submit" class="btn btn-sm btn-white"><i class="fa fa-search"></i> 搜索</button>
+            </div>
+        </div>
+    </div>
+</form>
+<!-- 表单搜索 结束 -->
+
+<legend>常用API</legend>
+
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th class="text-center">操作</th>
+        <th class="text-center">序号</th>
+        <th>接口名称</th>
+        <th>接口描述</th>
+        <th class="text-center">登录验证</th>
+        <th>访问地址</th>
+        <th class="text-center">请求方式</th>
+    </tr>
+    </thead>
+    <tbody>
+    {php}$n=1;{/php}
+    {foreach $list as $vo}
+    {foreach $vo.methods as $m}
+    <tr>
+        <td class="text-center">
+            <button type="button" data-open='{:url("$classuri/debug")}?class={$vo.name}&method={$m.name}' data-title="调试" class="layui-btn layui-btn-primary layui-btn-small">调试</button>
+        </td>
+        <td class="text-center">{$n++}</td>
+        <td>
+            <a href="javascript:void(0)" title="{$m['title']}" data-open='{:url("$classuri/debug")}?class={$vo.name}&method={$m.name}'>
+                {$m['title']}
+            </a>
+        </td>
+        <td style="max-width: 200px;">{$m['desc']}</td>
+        <td class='text-center'>
+            {if $vo.token_auth eq 1}
+            <span style="color:#090">是</span>
+            {else/}
+            <span>否</span>
+            {/if}
+        </td>
+        <td>
+            {php}$url = empty($m['route'])?$m['path']:$m['route'];$url = $domain.$url; echo $url;{/php}
+        </td>
+        <td class="text-center">
+            {$m['method']}
+        </td>
+
+    </tr>
+    {/foreach}
+    {/foreach}
+    </tbody>
+</table>
+
+<legend>工具类API</legend>
+
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>操作</th>
+        <th>序号</th>
+        <th>接口名称</th>
+        <th>接口描述</th>
+        <th>登录验证</th>
+        <th>访问地址</th>
+        <th>请求方式</th>
+    </tr>
+    </thead>
+    <tbody>
+    {php}$n=1;{/php}
+
+    {foreach $toolsApi['methods'] as $m}
+    <tr>
+        <td>
+            <button type="button" data-open='{:url("$classuri/debug")}?class={$toolsApi.name}&method={$m.name}' data-title="调试" class="layui-btn layui-btn-primary layui-btn-small">调试</button>
+        </td>
+        <td class="hidden-xs">{$n++}</td>
+        <td>
+            <a href="javascript:void(0)" title="{$m['title']}" data-open='{:url("$classuri/debug")}?class={$toolsApi.name}&method={$m.name}'>
+                {$m['title']}
+            </a>
+        </td>
+        <td style="max-width: 200px;">{$m['desc']}</td>
+        <td>{$m['token_auth']}</td>
+        <td>
+            {php}$url = empty($m['route'])?$m['path']:$m['route'];$url = $domain.$url; echo $url;{/php}
+        </td>
+        <td>
+            {$m['method']}
+        </td>
+
+    </tr>
+    {/foreach}
+
+    </tbody>
+</table>
+{/block}

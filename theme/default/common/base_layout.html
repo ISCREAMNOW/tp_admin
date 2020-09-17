@@ -1,0 +1,59 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if IE 8]> <html lang="zh-CN" class="ie8"> <![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <title>{$seo_title}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="Keywords" content="{$seo_keywords}" />
+    <meta name="Description" content="{$seo_description}" />
+    <meta name="copyright" content="深圳网站建设专业品牌-深圳环创科技有限公司" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+    <meta property="wb:webmaster" content="4b770c0d16ebec87" />
+
+    <!-- 验证header代码 -->
+    {:sysconf('web_header_code')}
+
+    <!-- 网站头像 -->
+    <link rel="icon" type="image/x-icon" href="__PUBLIC__/favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="__PUBLIC__/favicon.ico" />
+    <link type="text/css" rel="stylesheet" href="__FRONTEND__/hctech/iconfont/iconfont.css"/>
+    <link type="text/css" rel="stylesheet" href="__FRONTEND__/css/common.css"/>
+    <link type="text/css" rel="stylesheet" href="__FRONTEND__/hctech/css/common.css"/>
+    <!--整站改色 _start-->
+    <link type="text/css" rel="stylesheet" href="__FRONTEND__/css/custom/color-style-0.css"/>
+    <!--整站改色 _end-->
+
+
+    {block name="lib-head"}{/block} {// 顶部js库}
+
+    <!-- 图片缓载js -->
+    <script type="text/javascript" src="__FRONTEND__/assets/js/jquery.lazyload.js"></script>
+
+    {block name="script-head"}{/block} {// 顶部script}
+
+
+    {block name="css-head"}{/block} {// 顶部css}
+
+
+    {block name="js-head"}{/block} {// 顶部js}
+
+
+
+    <script type="text/javascript">
+        $().ready(function() {
+
+        })
+    </script>
+</head>
+<body>
+
+<!-- 内容区 -->
+{block name="content"}{/block}
+
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<form class="layui-form layui-box" style='padding:25px 30px 20px 0' action="__SELF__" data-auto="true" method="post">
+    <div class="layui-form-item">
+        <label class="layui-form-label">广告位名称</label>
+        <div class="layui-input-block">
+            <input type="text" name="position" value='{$vo.position|default=""}' required="required" title="请输入广告位名称" placeholder="请输入广告位名称" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">宽度（px）</label>
+        <div class="layui-input-block">
+            <input type="text" name="width" value='{$vo.width|default=""}' title="宽度" placeholder="宽度" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">高度（px）</label>
+        <div class="layui-input-block">
+            <input type="text" name="height" value='{$vo.height|default=""}' title="高度" placeholder="高度" class="layui-input">
+        </div>
+    </div>
+
+    <div class="hr-line-dashed"></div>
+    <div class="layui-form-item text-center">
+        {if isset($vo['id'])}<input type='hidden' value='{$vo.id}' name='id'/>{/if}
+        <button class="layui-btn" type='submit'>保存数据</button>
+        <button class="layui-btn layui-btn-danger" type='button' data-confirm="确定要取消编辑吗？" data-close>取消编辑</button>
+    </div>
+
+</form>
+
+<script>window.form.render();</script>

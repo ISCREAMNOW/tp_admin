@@ -1,0 +1,123 @@
+{extend name='common/base_layout' /}
+
+{block name="css-head"}
+<!-- index css-->
+<link rel="stylesheet" href="__STATIC__/home/css/index.css">
+
+<!-- 去除layui媒体查询-->
+<link rel="stylesheet" href="__STATIC__/plugs/layui/css/layui-xixi-edited.css">
+
+<!-- news css-->
+<!--<link rel="stylesheet" href="__STATIC__/home/css/news.css">-->
+<!-- news-detail css-->
+<!--<link rel="stylesheet" href="__STATIC__/home/css/newsdetail.css">-->
+
+
+
+
+<!-- 单页文章 css-->
+<link rel="stylesheet" href="__STATIC__/home/css/portal.base.css">
+<link rel="stylesheet" href="__STATIC__/home/css/portal.content.css">
+<link rel="stylesheet" href="__STATIC__/home/css/about-us.css">
+
+
+<!--<link rel="stylesheet" href="https://h2img.guahao.com/portal/css/portal.base.min.css?v=1509002306852093" type="text/css"/>-->
+<!--<link rel="stylesheet" href="https://h2img.guahao.com/portal/css/portal.basic.min.css?v=1509002306852093" type="text/css"/>-->
+<!--<link rel="stylesheet" href="https://h2img.guahao.com/portal/css/portal.hdd.min.css?v=1509002306852093" type="text/css"/>-->
+<!--<link rel="stylesheet" href="https://h2img.guahao.com/portal/css/portal.content.min.css?v=1509002306852093" type="text/css"/>-->
+<!--<link rel="stylesheet" href="https://h2img.guahao.com/portal/css/style.min.css?v=1509002306852093" type="text/css"/>-->
+<!--<link rel="stylesheet" href="https://h2img.guahao.com/common/css/animate.min.css?v=20141222" type="text/css"/>-->
+
+
+
+{/block}
+
+<!-- content -->
+{block name="content"}
+<!--<link rel="stylesheet" href="https://h2img.guahao.com/portal/css/about-us.css?v=1509002306852093" type="text/css"/>-->
+<style>
+
+
+
+    a:hover{text-decoration:none!important;}
+
+    ul.first, ul.second {float: left;}
+    #gp-friendlyLink .friendly-link .other-content {
+        float: left;
+    }
+    #gp-friendlyLink .friendly-link .set-link a img {
+        border: 1px solid #c9c9c9;
+    }
+    #gp-friendlyLink .friendly-link .set-link a{
+        margin: 18px;
+    }
+</style>
+
+<div id="gc" class="g-1200px g-page-1200" style="min-height: 623px;">
+
+    <div id="gp-friendlyLink" class="g-container gp-help-center">
+        <div id="g-breadcrumb">
+            <a href="/">首页</a>&gt;
+            <span>{$bread_title}</span>
+        </div>
+        <div class="list-content">
+            <div class="left-nav">
+                <ul class="nav-list J_Menu">
+                    {foreach $articleList as $article}
+                    <li>
+                        <a href="{:url('/home/Article/view', ['aid' => $article['article_id']])}"><span class="left-icon us7"></span>{$article.article_title}</a>
+                    </li>
+                    {/foreach}
+                </ul>
+
+                <!--左侧广告位-->
+                <div class="g-box g-tg-box g-ads-box">
+                    {:get_ad_html(6)}
+                   <!-- <a class="g-tg"  href="" target="_blank" onmousedown="return _smartlog(this,'ADV')">
+                        <img src="__STATIC__/home/temp/article_left_adv.png" alt="免费咨询">
+                    </a>-->
+                </div>
+            </div>
+
+            <!-- 右侧内容-->
+            <div class="list-right">
+                <div class="list-right-content">
+                    <div class="right-title">
+					<span class="g-left">友情链接
+						<font style="font-size:13px;color: #cacaca;">(以下排名不分先后)</font>
+					</span>
+                        <!--<span class=" to-right g-right"><a href="/home/Links/applyfriendlylink">申请友情链接</a></span>-->
+                    </div>
+                    <div class="friendly-link">
+
+                        <div class="set-link">
+                            <div class="right-title-s">合作单位</div>
+                            {foreach $hzLinks as $link}
+                            <a class="parner1" href="{$link.url}" target="_blank"><img src="{$link.image}"></a>
+                            {/foreach}
+                        </div>
+
+                        <div class="right-title-s">友情链接</div>
+                        <div class="other-content ">
+                            <ul class="first">
+                                {foreach $yqLinks as $link}
+                                <li> <a href="{$link.url}" target="_blank">{$link.name}</a></li>
+                                {/foreach}
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+{/block}
+
+
+{block name="js-foot"}
+
+{/block}

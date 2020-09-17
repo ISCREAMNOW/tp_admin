@@ -1,0 +1,311 @@
+@charset "utf-8";
+/* CSS Document */
+/*修改前后台冲突样式*/
+.adPicBox { width: 55px; height: 55px; border-radius: 1px; }
+.adPicBox .goods-thumb { background-color: #FFF; vertical-align: middle; display: inline-block; width: 55px; height: 55px; height: auto; }
+.floor-layout .floor-con .floor-title .floor-tabs-nav li h3 { line-height:34px}
+/*按钮的重新定义与前台common.css冲突*/
+.btn { font-size: 12px; border-radius: 0px; padding: 8px 16px; height: 32px; line-height: 14px; border-radius: 2px; }
+.btn.active, .btn:active { box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.10) inset; }
+/*默认按钮*/
+.btn-default { color: #666; border: 1px solid #DDD; background-color: #F7F7F7 !important; }
+.btn-default:hover { color: #666; border: 1px solid #DDD; background-color: #FFF !important; }
+.btn-default.active.focus, .btn-default.active:focus, .btn-default.active:hover, .btn-default:active.focus, .btn-default:active:focus, .btn-default:active:hover, .open>.dropdown-toggle.btn-default.focus, .open>.dropdown-toggle.btn-default:focus, .open>.dropdown-toggle.btn-default:hover { color: #666; background-color: #fff; border-color: #ddd }
+/*蓝色primary按钮*/
+.btn-primary { background: #1B9AF7 !important; border-color: #078AEB !important; }
+.btn-primary:hover { background: #078AEB !important; border-color: #0681DB !important }
+.btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, .btn-primary:active:hover, .open>.dropdown-toggle.btn-primary.focus, .open>.dropdown-toggle.btn-primary:focus, .open>.dropdown-toggle.btn-primary:hover { color: #fff; background-color: #078AEB; border-color: #0681DB }
+.btn-primary.focus, .btn-primary:focus { background-color: #078AEB; border-color: #0681DB }
+/*绿色success按钮*/
+.btn-success.active.focus, .btn-success.active:focus, .btn-success.active:hover, .btn-success:active.focus, .btn-success:active:focus, .btn-success:active:hover, .open>.dropdown-toggle.btn-success.focus, .open>.dropdown-toggle.btn-success:focus, .open>.dropdown-toggle.btn-success:hover { color: #fff; background-color: #449D44; border-color: #398439; }
+/*浅蓝info按钮*/
+.btn-info.active.focus, .btn-info.active:focus, .btn-info.active:hover, .btn-info:active.focus, .btn-info:active:focus, .btn-info:active:hover, .open>.dropdown-toggle.btn-info.focus, .open>.dropdown-toggle.btn-info:focus, .open>.dropdown-toggle.btn-info:hover { color: #fff; background-color: #31B0D5; border-color: #269ABC; }
+/*黄色warning按钮*/
+.btn-warning.active.focus, .btn-warning.active:focus, .btn-warning.active:hover, .btn-warning:active.focus, .btn-warning:active:focus, .btn-warning:active:hover, .open>.dropdown-toggle.btn-warning.focus, .open>.dropdown-toggle.btn-warning:focus, .open>.dropdown-toggle.btn-warning:hover { color: #fff; background-color: #EC971F; border-color: #D58512; }
+/*红色danger按钮*/
+.btn-danger.active.focus, .btn-danger.active:focus, .btn-danger.active:hover, .btn-danger:active.focus, .btn-danger:active:focus, .btn-danger:active:hover, .open>.dropdown-toggle.btn-danger.focus, .open>.dropdown-toggle.btn-danger:focus, .open>.dropdown-toggle.btn-danger:hover { color: #fff; background-color: #C9302C !important; border-color: #AC2925; }
+/*表单冲突*/
+.form-horizontal { width: 100%; padding: 0; }
+.form-horizontal .form-group { margin-right: -15px; margin-left: -15px; }
+.table-content .form-group .form-control-box { display: inline-block; text-align: left; width: auto; float: left; position: relative; line-height: 18px;}
+.table-content .form-group .form-control { width: 300px; }
+.form-horizontal .form-control.ipt { width: 120px !important }
+.form-group .col-sm-3 { width: 20%; }
+.form-group .col-sm-9 { width: 70%; }
+.form-horizontal .form-group .input-file-show span.show i { margin: 0 0 0 5px; }
+.type-file-text { height: 30px !important; }
+.form-horizontal .form-group .input-file-show .type-file-box .type-file-button { float: right !important }
+.page-box .pagination-info select,.page-box .pagination a,input.form-control,select.form-control,.search-term .form-control{ height:18px !important;}
+.table tbody tr td {padding: 4px 8px;}
+.search-condition .chosen-container,.search-condition .form-control{ width:150px !important}
+.table-content .form-group .chosen-container {width:150px !important}
+.table-content .form-group #link_change .chosen-container {width:250px !important}
+.chosen-search input{ width:100% !important; height:30px !important;}
+.table-content .form-group #link_change .chosen-container {width:250px !important}
+
+
+
+/*选择商品冲突*/
+.choose-goods-list .search-condition { width: auto !important }
+.choose-goods-list ul.goods-list li { width: 178px !important; }
+.choose-goods-list ul.goods-list li .picture{ height:120px;}
+.btn.btn-xs { width: auto; min-width: 40px !important; }
+.choose-goods-list ul.goods-list li:nth-child(5n) { border-right: 0px; }
+
+/*重新定义与前台common.css冲突    end*/
+
+/*解决tab与styles样式冲突*/
+.floatPanel .tabmenu { margin-bottom: 0 !important }
+.floatPanel .tabmenu .tab { height: 38px !important; border: 0 !important }
+.floatPanel .tabmenu .tab a { margin: 0 !important; padding: 0px !important }
+.floatPanel .tabmenu .tab li { margin: 0 !important; }
+/*顶部topbar样式*/
+.module-topBar { position: fixed; _position: absolute; width: 100%; top: 0; left: 0; z-index: 99999; background: url("../../images/design/topBarArea.png")/*tpa=http://backend.cp6znq.yunmall.68mall.com/assets/d2eace91/images/design/topBarArea.png*/ repeat-x; }
+.module-topBar-inner { position: relative; padding: 0; margin: 0 auto; width:1210px; height: 50px; line-height: 44px; z-index: 9002; text-align: left; color: #000; }
+.top-set-btn{ display:inline-block; float:left;width:125px;cursor: pointer;text-align: center;font-size: 13px;font-weight: normal;color: #f6fafe; position:relative;}
+.top-set-btn a.set-btn{height: 43px;color: #f6fafe; display:block; width:125px;background: #1E77A3;}
+.top-set-btn .icon { background: url("../../images/design/renovation-bg.png")/*tpa=http://backend.cp6znq.yunmall.68mall.com/assets/d2eace91/images/design/renovation-bg.png*/ -1306px -177px no-repeat; width: 21px; height: 16px; display: inline-block; vertical-align: -3px; margin-right:3px; }
+.top-set-btn .icon.se-btn-pc{margin-left: -1px;background-position: -257px -169px;background-size: 400px;}
+.top-set-btn .icon.se-btn-weixin{background-position: -367px -197px;background-size: 470px;height: 23px;width: 22px;}
+.top-set-btn .icon.se-btn-app{background-position: -338px -203px;background-size: 475px;}
+.set-btn-box{ position:absolute; top:43px; left:0px;}
+.set-btn-box a.set-btn{border-top: 1px solid #2289BB;}
+.set-btn-box a.set-btn:hover{background:#238CBE;}
+
+
+.module-topBar .topBar-navbar { height: 43px; border-left: 1px solid #62a4de; border-right: 1px solid #62a4de; float: left; }
+.module-topBar .topBar-navbar a { color: #f6fafe; text-decoration: underline; }
+.topBar-navbar a .topBar-button { float: left; height: 43px; padding: 0px 15px; cursor: pointer; text-align: center; font-size: 13px; font-weight: normal; border-right: 1px solid #2f86d3; border-left: 1px solid #62a4de; *height: 39px;
+}
+.topBar-navbar a:first-child .topBar-button { border-left: 1px solid rgb(47, 134, 211); }
+.topBar-navbar a:hover .topBar-button, .topBar-navbar a.active .topBar-button { border-right-color: #2f86d3; background-color: #4d9de4; }
+.topBar-navbar .topBar-button .icon { background: url("../../images/design/renovation-bg.png")/*tpa=http://backend.cp6znq.yunmall.68mall.com/assets/d2eace91/images/design/renovation-bg.png*/ -1306px -177px no-repeat; width: 21px; height: 16px; display: inline-block; vertical-align: -3px; margin-right:3px; }
+.topBar-navbar .topBar-button .icon.rapidSite { width: 20px;margin-left: -1px;background-position: -3px -126px;}
+.topBar-navbar .topBar-button .icon.settingDesign { background-position: -2px -171px; height: 18px; }
+.topBar-navbar .topBar-button .icon.settingManage { background-position: -2px -192px }
+.topBar-navbar .topBar-button .icon.settingClassify { background-position: -5px -212px }
+.topBar-navbar .topBar-button .icon.settingPortal { background-position: -5px -146px; }
+a.styleDesignBtn { width: 20px; height: 20px; cursor: pointer; margin-top: -2px; z-index: 9030; background: url("../../images/design/renovation-bg.png")/*tpa=http://backend.cp6znq.yunmall.68mall.com/assets/d2eace91/images/design/renovation-bg.png*/ no-repeat -479px -229px; display: inline-block; vertical-align: middle; margin-left:10px;}
+a.styleDesignBtn.styleDesignArrowUp { background-position: -451px -229px }
+a.styleDesignBtn.styleDesignArrowUp:hover { background-position: -479px -229px }
+a.styleDesignBtn.styleDesignArrowDown { background-position: -451px -205px }
+/*顶部topbar右侧按钮样式*/
+.topBar-navbar-r { float: right; }
+.page-operation-btns a.page-btn { display: inline-block; position: relative; mmargin-right: 10px; text-align: center; color: #666; text-decoration: none; margin-right: 5px; width: 60px; height: 28px; line-height: 28px; background: url("../../images/design/renovation-bg.png")/*tpa=http://backend.cp6znq.yunmall.68mall.com/assets/d2eace91/images/design/renovation-bg.png*/ no-repeat -125px -1px; font-size: 12px; margin-top: -2px; }
+.page-operation-btns a.page-btn:hover { background-position: -125px -88px }
+.page-operation-btns a:last-child { margin-right: 0px; }
+.page-operation-btns a.page-btn.page-publish-btn { width: 102px; font-weight: bold; background-position: -2px -1px; text-align: left; }
+.page-operation-btns a.page-btn.page-publish-btn:hover { background-position: -1px -88px; }
+.page-operation-btns a.page-btn.page-publish-btn i { float: left; display: inline-block; width: 15px; height: 28px; line-height: 28px; margin-left: 21px; background: url("../../images/design/renovation-bg.png")/*tpa=http://backend.cp6znq.yunmall.68mall.com/assets/d2eace91/images/design/renovation-bg.png*/ no-repeat -197px 4px; margin-right: 7px; }
+.page-operation-btns a.styleDesignBtn { width: 20px; height: 20px; cursor: pointer; margin-top: -2px; z-index: 9030; background: url("../../images/design/renovation-bg.png")/*tpa=http://backend.cp6znq.yunmall.68mall.com/assets/d2eace91/images/design/renovation-bg.png*/ no-repeat -479px -229px; display: inline-block; vertical-align: middle; }
+.page-operation-btns a.styleDesignBtn.styleDesignArrowUp { background-position: -451px -229px }
+.page-operation-btns a.styleDesignBtn.styleDesignArrowUp:hover { background-position: -479px -229px }
+.page-operation-btns a.styleDesignBtn.styleDesignArrowDown { background-position: -451px -205px }
+.page-operation-btns a.styleDesignBtn.styleDesignArrowDown:hover { background-position: -479px -205px}
+/*顶部展开内容*/
+.quickDress { background-color: #f7f7f7; width: 100%; overflow: hidden; margin-top: -10px; border-bottom: 2px solid #B7C7D6; height: 110px; transition: all 0.2s ease 0s; }
+.quickDress.hide { transition: all 0.2s ease 0s; height: 0px }
+.quickDress .panel { width: 960px; padding-top: 10px; margin: 0px auto; height:100%; }
+/*左侧浮动模块管理*/
+/*左侧浮动按钮*/
+.panelIconContainer { width: 59px; position: absolute; z-index: 9030; left: 56px; top: 40%; cursor: move; }
+.floatPanelIconBox { width: 100%; height: 64px; }
+.floatPanelIconBox a { display: block; width: 100%; height: 100%; background: url("../../images/design/renovation-bg.png")/*tpa=http://backend.cp6znq.yunmall.68mall.com/assets/d2eace91/images/design/renovation-bg.png*/ no-repeat; }
+.floatPanelIconBox:first-child { padding: 0 0 15px 0; }
+.floatPanelIconBox a.floatPanel-addNewModule { background-position: -29px -126px; }
+.floatPanelIconBox a.floatPanel_setSiteStyle { background-position: -110px -126px; }
+/*左侧浮动面板*/
+.floatPanel { width: 340px; color: #000; font-size: 12px; border: 0; border-right: 1px solid #517aa6; overflow: hidden; background: #fff; position: fixed; _position: absolute; z-index: 99999; opacity: 1; top: 44px; height: 100%; left: -350px; }
+.floatPanelNav ul { float: left; overflow: hidden; }
+.floatPanelNav li {/*width: 101px;*/ width: 152px; color: #000; border-right: 1px solid #7aacd7; float: left; overflow: hidden; }
+.floatPanelNav li a { display: block; height: 38px; line-height: 38px; text-align: center; outline: 0; font-weight: bold; text-decoration: none; background: #4188c6; position: relative; }
+.floatPanelNav li.active a { background: #f7f7f7 }
+.floatPanelNav li a i, .floatPanel_closeBtn a i { background: url("../../images/design/renovation-bg.png")/*tpa=http://backend.cp6znq.yunmall.68mall.com/assets/d2eace91/images/design/renovation-bg.png*/ no-repeat -5px -250px; width: 20px; height: 20px; display: block; margin: 0px; position: absolute; left: 50%; margin-left: -10px; top: 50%; margin-top: -10px; }
+.floatPanelNav li a.addModule i { background-position: -30px -250px }
+.floatPanelNav li a.sectionModule i { background-position: -31px -345px }
+.floatPanelNav li a.setSiteStyle i { background-position: -30px -277px }
+.floatPanelNav li.active a.addModule i { background-position: -5px -250px }
+.floatPanelNav li.active a.sectionModule i { background-position: -7px -345px }
+.floatPanelNav li.active a.setSiteStyle i { background-position: -5px -277px }
+/*关闭按钮*/
+.floatPanel_closeBtn { width: 34px; height: 100%; float: left; position: relative; }
+.floatPanel_closeBtn a { display: block; width: 100%; height: 38px; background: #4188c6; }
+.floatPanel_closeBtn:hover a { background: #3577bb; }
+.floatPanel_closeBtn a i { background: url("../../images/design/renovation-bg.png")/*tpa=http://backend.cp6znq.yunmall.68mall.com/assets/d2eace91/images/design/renovation-bg.png*/ no-repeat -29px -300px }
+/*面板菜单*/
+.panelMenuContainer { background: #f7f7f7; overflow: hidden; padding: 0 0 0 10px; border-bottom: 1px solid #bfbfbf; }
+.panelMenuContainer .nav navbar-nav { background: none; }
+.panelMenuContainer .nav > li > a { position: static }
+.panelMenuContainer .nav > li > a:hover { background: none; }
+.panelMenuList li { float: left; height: 21px; line-height: 21px; white-space: nowrap; padding: 8px 10px 8px 0; position: relative; }
+.panelMenuList li a { display: block; padding: 0 6px 0 10px; outline: 0; color: #000; }
+.panelMenuList li span.panelCorner { display: block; width: 5px; height: 22px; cursor: pointer; position: absolute; top: 7px; right: 5px; }
+.panelMenuList li.active span.panelCorner { background: url("../../images/design/renovation-bg.png")/*tpa=http://backend.cp6znq.yunmall.68mall.com/assets/d2eace91/images/design/renovation-bg.png*/ no-repeat -36px -219px }
+.panelMenuList li span.panelTriangle { display: block; width: 8px; height: 5px; position: absolute; top: 28px; left: 42%; }
+.panelMenuList li.active a, .panelMenuList li.active a:hover { color: #fff; background: url("../../images/design/renovation-bg.png")/*tpa=http://backend.cp6znq.yunmall.68mall.com/assets/d2eace91/images/design/renovation-bg.png*/ no-repeat -30px -196px }
+.panelMenuList li.active span.panelTriangle { background: url("../../images/design/renovation-bg.png")/*tpa=http://backend.cp6znq.yunmall.68mall.com/assets/d2eace91/images/design/renovation-bg.png*/ no-repeat -47px -221px }
+/*左侧浮动内容模块*/
+.panelContentContainer { overflow-y: auto; height: 491px; }
+.panelContentContainer .panelItemContainer { padding: 8px 8px 0 8px; }
+.panelContentContainer .panelItemContainer:last-child { padding-bottom: 10px; }
+.floatPanel p, .floatPanel fieldset, .floatPanel legend, .floatPanel input { margin: 0; padding: 0; }
+.panelContentContainer fieldset { border: 1px solid #dfdfdf; padding: 0 10px 10px 10px; }
+.panelContentContainer legend { color: #1b7ad1; margin-left: -1px; padding: 0 2px 0 2px; font-size: 12px; display: inline; width: auto; border: 0px; }
+.panelContentContainer ul li { float: left; padding: 10px 16px 0 16px;/* background: url(../../images/design/styleModule.png) no-repeat;*/ }
+.panelContentContainer .panelModuleIcon { display: block; width: 63px; height: 59px; cursor: move; opacity: 0.8 }
+.panelContentContainer .panelModuleIcon:hover { background: url("../../images/design/styleModule.png")/*tpa=http://backend.cp6znq.yunmall.68mall.com/assets/d2eace91/images/design/styleModule.png*/ no-repeat 0 0; }
+.panelContentContainer .panelModuleTitle { display: block; width: 63px; height: 14px; line-height: 14px; color: #666; text-align: center; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; cursor: move; margin: 5px 0 0 0; }
+/*基础*/
+.panelContentContainer .panelModuleIcon_rich { background-position: 16px -69px; }
+.panelContentContainer .panelModuleIcon_floatImg { background-position: -399px -336px; }
+.panelContentContainer .panelModuleIcon_photo { background-position: -150px -158px; }
+.panelContentContainer .panelModuleIcon_article { background-position: 16px -158px; }
+.panelContentContainer .panelModuleIcon_notice { background-position: -150px -69px; }
+.panelContentContainer .panelModuleIcon_weather { background-position: -648px -69px; }
+/*排版*/
+.panelContentContainer .panelModuleIcon_tab { background-position: -731px -69px; }
+.panelContentContainer .panelModuleIcon_mulModuleCol-two { background-position: -565px -336px; }
+.panelContentContainer .panelModuleIcon_mulModuleCol-three { background-position: -648px -336px; }
+.panelContentContainer .panelModuleIcon_mulModuleCol-four { background-position: -731px -336px; }
+.panelContentContainer .panelModuleIcon_mulModuleCol-five { background-position: -814px -336px; }
+.panelContentContainer .panelModuleIcon_fullmeasure { background-position: 16px -425px; }
+/*产品*/
+.panelContentContainer .panelModuleIcon_product { background-position: -316px -158px; }
+.panelContentContainer .panelModuleIcon_productGroup { background-position: -399px -158px; }
+.panelContentContainer .panelModuleIcon_productLabel { background-position: -482px -158px; }
+.panelContentContainer .panelModuleIcon_catalog { background-position: -565px -158px; }
+.panelContentContainer .panelModuleIcon_filter { background-position: -648px -158px; }
+.panelContentContainer .panelModuleIcon_productSearch { background-position: -648px -247px; }
+/*互动*/
+.panelContentContainer .panelModuleIcon_serviceOnline { background-position: -316px -69px; }
+.panelContentContainer .panelModuleIcon_siteQrCode { background-position: -814px -247px; }
+.panelContentContainer .panelModuleIcon_shareTo { background-position: -731px -247px; }
+/*高级*/
+.panelContentContainer .panelModuleIcon_banner { background-position: -482px -425px }
+.panelContentContainer .panelModuleIcon_location { background-position: 16px -336px; }
+.panelContentContainer .panelModuleIcon_shop { background-position: -565px -425px; }
+.panelContentContainer .panelModuleIcon_1columnAD { background-position: -648px -425px; }
+.panelContentContainer .panelModuleIcon_2columnAD { background-position: -731px -425px; }
+.panelContentContainer .panelModuleIcon_5columnAD { background-position: -814px -425px; }
+.panelContentContainer .panelModuleIcon_promotion { background-position: -897px -425px; }
+.panelContentContainer .panelModuleIcon_floor { background-position: -897px -336px; }
+.panelContentContainer ul li:hover .panelModuleIcon { /*background: url(../../images/design/styleModule.png) no-repeat 0 0;*/ opacity: 1; }
+/*已选栏目*/
+.panelSectionModuleContent { padding: 12px 0 0 16px; }
+.panelContentContainer > div.fade { display: none }
+.panelContentContainer > div.fade.in { display: block; }
+.panelContentContainer .panelModuleIconContainer { overflow: hidden; }
+.panelContentContainer .panelModuleIconContainer li { float: left; padding: 10px 16px 0 16px; position: relative; margin: 0 0 0 4px; }
+.panelContentContainer .panelModuleIconContainer li .panelCheckTip { display: block; width: 18px; height: 16px; position: absolute; bottom: 20px; right: 16px; background: url("../../images/design/renovation-bg.png")/*tpa=http://backend.cp6znq.yunmall.68mall.com/assets/d2eace91/images/design/renovation-bg.png*/ no-repeat -33px -472px; }
+.moduleButtonDiv { position: absolute; right: 0; top: 10px; display: none }
+.panelContentContainer .panelModuleIconContainer li:hover .moduleButtonDiv { display: block; }
+.moduleButtonDiv a { display: block; width: 15px; height: 15px; margin-bottom: 1px; background: url("../../images/design/renovation-bg.png")/*tpa=http://backend.cp6znq.yunmall.68mall.com/assets/d2eace91/images/design/renovation-bg.png*/ no-repeat -8px -373px; }
+.moduleButtonDiv a.findButton { background-position: -34px -398px }
+.moduleButtonDiv a.findButton:hover { background-position: -34px -373px; }
+.moduleButtonDiv a.setButton { background-position: -8px -398px; }
+.moduleButtonDiv a.setButton:hover { background-position: -8px -373px; }
+.moduleButtonDiv a.delButton { background-position: -34px -449px; }
+.moduleButtonDiv a.delButton:hover { background-position: -34px -424px }
+/*其它栏目*/
+.otherSectionSelecterContainer { height: 24px; line-height: 24px; padding: 10px 0 10px 20px; position: relative; z-index: 9; }
+.otherSectionSelecterContainer label { vertical-align: 1px; }
+.otherSectionSelecterContainer .select { width: 150px; color: #333; line-height: 22px; height: 22px; }
+.otherSectionSelecterContainer .otherSectionSelecterPrompt { position: absolute; top: 42px; left: 86px; border: 1px solid #f4e190; padding: 2px 8px 2px 8px; background: #fff6d0; }
+.otherSectionSelecterContainer .tip { width: 9px; height: 6px; position: absolute; top: -5px; left: 20px; background: url("../../images/design/tip-yellowsimple_arrows.gif")/*tpa=http://backend.cp6znq.yunmall.68mall.com/assets/d2eace91/images/design/tip-yellowsimple_arrows.gif*/ no-repeat 0 0; }
+/*网站样式*/
+.panelContentContainer .panelOptionBox { padding: 8px 0 0 0; background: none; float: none; }
+.panelContentContainer .panelOptionTitle { height: 18px; line-height: 18px; padding: 2px 0 2px 10px; background: #f2f2f2; clear: both; }
+.panelContentContainer .panelOptionContent { padding: 8px 0 0 10px; }
+.panelContentContainer .panelOptionContent > div { padding: 0 0 6px 0; }
+.panelContentContainer .panelOptionContent > div:last-child { padding: 0; }
+.panelContentContainer .panelOptionContent > div label { cursor: pointer; margin-right: 10px; }
+.floatPanel input[type="radio"] { margin: 0 5px 0 3px; cursor: pointer; vertical-align: -2px; }
+.floatPanel .radio { display: inline-block; }
+.panelContentContainer .panelOptionContent .optionRow { clear: both; overflow: hidden; padding: 2px 0 2px 0; }
+.optionRow .labelForLeftTitle { float: left; width: 68px; height: 24px; line-height: 24px; text-align: right; }
+.optionRow .optionRowOfInput { float: left; height: 24px; line-height: 24px; padding: 1px 0 0 0; }
+.optionRow .optionRowOfInput input.form-control { height: 24px; padding: 0 5px; }
+.floatPanel .panelFootBtnBox { width: 100%; height: 34px; border-top: 1px solid #dfdfdf; position: absolute; bottom: 34px; padding: 5px 0px; }
+.floatPanel .panelFootBtnBox .panelBtn { margin-right: 10px; width: 70px; height: 24px; line-height: 24px; border: 1px solid #bfbfbf; padding: 0 6px 0 0; float: right; }
+/*页面内容main样式*/
+.module-main { height: auto; min-height: 0; margin: 50px 0 0; overflow-x: auto;  }
+
+/*.module-main { position: absolute; height: auto; min-height: 0; left: 0; right: 0; bottom: 0; margin: 0; overflow-x: auto; overflow-y: scroll; }*/
+.module-main.unfold { top: 44px; transition: all 0.2s ease 0s; }
+.module-main.fold { top: 154px; transition: all 0.2s ease 0s; }
+/*鼠标放在页面显示的存放位置样式*/
+.position-box {border: 1px dashed #2D96FF; height: 160px; width:1210px; margin:10px auto; background:#CBE3FB url("../../images/design/placeholder_bg.png")/*tpa=http://backend.cp6znq.yunmall.68mall.com/assets/d2eace91/images/design/placeholder_bg.png*/ no-repeat top left; display:block;}
+.position-box span { text-align: center; margin: 45px auto; color: #2D93FF; display: block }
+.nav-position-box {border: 1px dashed #2D96FF; height: 220px; width:220px; margin:10px auto; background:#CBE3FB url("../../images/design/placeholder_bg_nav.png")/*tpa=http://backend.cp6znq.yunmall.68mall.com/assets/d2eace91/images/design/placeholder_bg_nav.png*/ no-repeat top left; display:block;}
+.nav-position-box span { text-align: center; margin: 0px auto; color: #2D93FF; display: block }
+/*模板色彩风格样式*/
+.templates-board-style li { line-height: 24px; width: 24px; height: 24px; padding: 24px 0 0 0; margin-right: 14px; float: left; position: relative; cursor: pointer; }
+.templates-board-style li em { display: block; width: 24px; height: 24px; position: absolute; z-index: 1; top: 0; left: 0; border-radius: 4px; }
+.templates-board-style li i { font-size: 14px; line-height: 24px; color: #FFF; display: none; position: absolute; z-index: 9; top: 0; left: 6px; margin: 0; }
+.templates-board-style li.selected i { display: block; }
+.templates-board-style li.red { color: #C1392B; }
+.templates-board-style li.red em { background-color: #C1392B; }
+.templates-board-style li.pink { color: #FF7373; }
+.templates-board-style li.pink em { background-color: #FF7373; }
+.templates-board-style li.orange { color: #E77E23; }
+.templates-board-style li.orange em { background-color: #E77E23; }
+.templates-board-style li.green { color: #27AE61; }
+.templates-board-style li.green em { background-color: #27AE61; }
+.templates-board-style li.blue { color: #3598DC; }
+.templates-board-style li.blue em { background-color: #3598DC; }
+.templates-board-style li.purple { color: #9C59B8; }
+.templates-board-style li.purple em { background-color: #9C59B8; }
+.templates-board-style li.brown { color: #8C4600; }
+.templates-board-style li.brown em { background-color: #8C4600; }
+.templates-board-style li.default { color: #79796A; }
+.templates-board-style li.default em { background-color: #79796A; }
+
+/*右侧模板设置*/
+.helper-icon{ }
+.helper-icon i.fa{margin: auto auto 5px auto !important;}
+.helper-wrap .panel-body ul li { padding:2px 0px 0px!important;}
+.helper-wrap .panel-body ul li a.title{padding: 2px 10px 2px 25px; width:auto;}
+.helper-wrap .panel-body ul li em { position:absolute; left:90px; color:red; font-size:7pt }
+.helper-wrap .panel-body ul li a.handle { color:#fff; background:#4291D7; width:23.3%; text-align:center; float:left; display:none;border-right: 1px solid #2f86d3; border-left: 1px solid #62a4de;}
+.helper-wrap .panel-body ul li a.handle:hover{border-right-color: #2f86d3;background-color: #4d9de4;}
+.helper-wrap .panel-body ul li a.handle i.fa { color:#fff; margin:0;}
+.helper-wrap .panel-body ul li.selected a.handle{ display:inline-block;}
+
+.modal-body { padding: 15px; }
+.modal-body .btn.btn-primary { line-height: 20px;}
+.modal-body .simple-form-field .btn { line-height: 16px !important; }
+.modal-body .goods-gallery .nav .btn.btn-sm { padding: 5px 9px !important; }
+.modal-body .choose-goods-list .btn.btn-xs { padding: 1px 4px !important; font-size: 11px !important; }
+
+/*登录弹框冲突*/
+.login-wrap .form-group .icon ,.login-wrap .form-group .form-control-error i, .login-content .login-form .msg-wrap .msg-icon, .login-wrap .item-coagent a i, .login-wrap .item-coagent a:hover i, .login-con .login-switch a, .login-mobile .default-state .qrcode-desc i { background:url("../../images/design/login-regiser-icon.png")/*tpa=http://backend.cp6znq.yunmall.68mall.com/assets/d2eace91/images/design/login-regiser-icon.png*/ no-repeat}
+.login-form {width: 346px; background: #fff; overflow: visible;}
+.login-form {width: 346px; background: #fff; overflow: visible;}
+.login-form .login-con { width:auto; padding: 10px 30px;}
+.login-wrap .login-tit {height: 25px; line-height: 25px; color: #999;}
+.login-wrap .login-tit .regist-link { font-size: 12px;}
+.login-wrap .login-radio { height: 35px;line-height: 35px; padding: 5px 0px 0px;  margin: 15px 0px 30px;}
+.login-wrap .login-radio ul {  width: 100%; height: 36px; line-height: 35px; display: inline-block; border-bottom-width: 1px; border-bottom-style: solid;}
+.login-wrap .login-radio ul li { float: left; height: 35px; line-height: 35px;  margin-right: 15px; padding: 0px 15px; background: #fff; font-size: 13px; cursor: pointer;}
+.login-wrap .login-radio ul li.active { border-width: 2px 1px 0px; border-style: solid;}
+.login-wrap .form-group { overflow: hidden; height: 65px; position: relative; margin: 0 0 10px;}
+.login-wrap .form-group .form-control-box { height: 39px; border: 1px solid #ddd; position: relative;}
+.login-wrap .form-group .icon {display: block; width: 20px; height: 20px; position: absolute;left: 10px; top: 9px;}
+.login-wrap .form-group.item-name .icon { background-position: 0 -15px;}
+.login-wrap .form-group .text { line-height: 38px; height: 37px; border: 0; padding: 0px 0 0px 40px; width: 244px; float: none; font-size: 14px; overflow: hidden;}
+.login-wrap .form-group.item-password .icon { background-position: 0 -36px;}
+.login-wrap .form-group .form-control-error i { width: 14px; height: 14px; background-position: 0 0; margin-right: 5px; margin-top: -2px; display: inline-block; text-indent: -999999px;}
+.login-wrap .safety { margin-bottom: 15px; overflow: hidden; height: 18px; line-height: 18px;}
+.login-wrap .safety label { cursor: pointer;}
+.login-wrap .safety label .checkbox { float:left;vertical-align: middle; cursor: pointer; margin:4px 5px 0 0;}
+.login-wrap .safety label span {vertical-align: middle; cursor: pointer;}
+.login-wrap .safety .forget-password { margin-top: 0px; float:right}
+.login-wrap .login-btn { margin-bottom: 20px; overflow: hidden;}
+.login-wrap .login-btn .btn-img { width: 286px;height: 35px; font-size: 14px; color: #FFF; text-align: center; line-height: 35px;text-decoration: none; cursor: pointer; letter-spacing: 2px; border: none;}
+.login-wrap .item-coagent { height: 43px; line-height: 43px;overflow: hidden;}
+
+
+.backend-form-login { width:250px !important;}
+.layer-anim .layui-layer-content .table-content.m-t-10{overflow: hidden;}
+.backend-form-login .form-group .form-control-box input { width:208px !important}
+.backend-form-login .form-group .form-control-box input.form-control.w100{ width:100px !important}

@@ -1,0 +1,222 @@
+<style>
+    /* 更改调试结果代码样式*/
+    .layui-code-notepad {
+        border: 1px solid #0C0C0C;
+        border-left-color: #3F3F3F;
+        background-color: #0C0C0C;
+        color: #C2BE9E;
+    }
+    .layui-code-ol {
+        margin-left: 0 !important;
+    }
+    /*更改调试请求参数样式*/
+    .table .table-hover tbody tr td, td, th{
+        padding: 5px;
+        border: 1px solid #ddd;
+    }
+    #api_request_type {
+        color: #f30;
+    }
+</style>
+
+<form id="debug-form" class="layui-form layui-box" style='padding:25px 30px 20px 0' action="__SELF__" data-auto="true" method="post">
+    <div class="layui-form-item">
+        <label class="layui-form-label">接口名称</label>
+        <div class="layui-input-block">
+            <input type="text" value='{$data.title|default=""}' disabled class="layui-input">
+            <p class="help-block">接口名称</p>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">接口地址</label>
+        <div class="layui-input-block">
+            <input type="text" value='{$data.url|default=""}' class="layui-input">
+            <p class="help-block">接口URL地址</p>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">请求类型</label>
+        <div class="layui-input-block">
+            <input style="color:red;" type="text" value='{$data.method|default="POST"}' disabled class="layui-input">
+            <p class="help-block">接口请求类型</p>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">接口参数</label>
+        <div class="layui-input-block">
+            {if $data.parameter neq null}
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>参数名称</th>
+                    <th>参数描述</th>
+                    <th>参数值</th>
+                </tr>
+                </thead>
+                <tbody>
+                {foreach $data['parameter'] as $key=>$vo}
+                <tr>
+                    <td>{$vo.name} （{$vo.type}）</td>
+                    <td>{$vo.info}</td>
+                    <td>
+                        <input type="text" name="{$vo.name}" placeholder="{$vo.name|default=''}" class="layui-input param-value">
+                    </td>
+                </tr>
+                {/foreach}
+                </tbody>
+            </table>
+            {else/}
+            <input type="text" value='没设置参数' disabled class="layui-input">
+            {/if}
+            <p class="help-block">接口请求参数</p>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">返回参数说明</label>
+        <div class="layui-input-block">
+            {if $data.response neq null}
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>参数名称</th>
+                    <th>参数描述</th>
+                </tr>
+                </thead>
+                <tbody>
+                {foreach $data['response'] as $key=>$vo}
+                <tr>
+                    <td>{$vo.name} （{$vo.type}）</td>
+                    <td>{$vo.info}</td>
+                </tr>
+                {/foreach}
+                </tbody>
+            </table>
+            {else/}
+            <input type="text" value='没设置返回参数' disabled class="layui-input">
+            {/if}
+            <p class="help-block">接口返回参数说明</p>
+        </div>
+    </div>
+
+    <div class="hr-line-dashed"></div>
+    <div class="layui-form-item text-center">
+        <button class="layui-btn send-request" type='submit'>开始调试</button>
+        <button type='button' data-open='{:url("$classuri/index")}' class="layui-btn layui-btn-danger">返回列表</button>
+    </div>
+
+    <div class="hr-line-dashed"></div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">调试返回结果</label>
+        <div class="layui-input-block">
+            <pre id="api-debug-result" class="layui-code">返回结果</pre>
+            <p class="help-block">接口调试结果</p>
+        </div>
+    </div>
+
+</form>
+
+<script>window.form.render();</script>
+
+<script>
+
+    //获取指定form中的所有的<input>对象
+    function getElements(formId) {
+        var form = document.getElementById(formId);
+        var elements = new Array();
+        var tagElements = form.getElementsByTagName('input');
+        for (var j = 0; j < tagElements.length; j++){
+            elements.push(tagElements[j]);
+
+        }
+        return elements;
+    }
+
+    //获取单个input中的【name,value】数组
+    function inputSelector(element) {
+        if (element.checked)
+            return [element.name, element.value];
+    }
+
+    function input(element) {
+        switch (element.type.toLowerCase()) {
+            case 'submit':
+            case 'hidden':
+            case 'password':
+            case 'text':
+                return [element.name, element.value];
+            case 'checkbox':
+            case 'radio':
+                return inputSelector(element);
+        }
+        return false;
+    }
+
+    //组合URL
+    function serializeElement(element) {
+        var method = element.tagName.toLowerCase();
+        var parameter = input(element);
+
+        if (parameter) {
+            var key = encodeURIComponent(parameter[0]);
+            if (key.length == 0) return;
+
+            if (parameter[1].constructor != Array)
+                parameter[1] = [parameter[1]];
+
+            var values = parameter[1];
+            var results = [];
+            for (var i=0; i<values.length; i++) {
+                results.push(key + '=' + encodeURIComponent(values[i]));
+            }
+            return results.join('&');
+        }
+    }
+
+    //调用方法
+    function serializeForm(formId) {
+        var elements = getElements(formId);
+        var queryComponents = new Array();
+
+        for (var i = 0; i < elements.length; i++) {
+            var queryComponent = serializeElement(elements[i]);
+            if (queryComponent)
+                queryComponents.push(queryComponent);
+        }
+
+        return queryComponents.join('&');
+    }
+
+
+    $(".send-request").click(function () {
+
+        var param = $(".param-value").val();
+        var formParams = serializeForm("debug-form");
+
+        $.ajax({
+            url: '{$requestUrl}?' + formParams,
+            dataType: 'json',
+            type: '{$data.method}', // 请求类型 post/get
+            success: function(result) {
+                result = JSON.stringify(result, null, 2);
+                $("#api-debug-result").html(result);
+
+                // 调试代码pre输出显示
+                layui.use('code', function(){ //加载code模块
+                    layui.code({
+                        height: '1000px'
+                        ,title: '调试返回结果代码'
+                        ,encode: true //是否转义html标签。默认不开启
+                        ,skin: 'notepad' //如果要默认风格，不用设定该key。
+                        ,about: false
+                    }); //引用code方法
+                });
+            }
+        });
+        return false;
+    })
+</script>

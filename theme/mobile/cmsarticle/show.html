@@ -1,0 +1,40 @@
+{extend name='mobile/common/layout' /}
+
+{block name="header"}
+{include file="mobile/common/hospital_header"}
+{/block}
+
+<!-- content -->
+{block name="content"}
+<div class="articleBox">
+    <div class="articleTitle">{$articleInfo.article_title}</div>
+    <div class="articleTime">作者：{$articleInfo.article_author}&nbsp;&nbsp;&nbsp;&nbsp;日期：{$articleInfo.article_publish_time|format_time='Y-m-d'}</div>
+    <!--<video src="__MOBILE__/video/movie.mp4" width="100%"  controls></video>-->
+
+    {$articleInfo.article_content}
+
+    <dl class="articlePage">
+        <dd>
+            <span>上一篇：</span>
+            {notempty name="previous"}
+            <a href="{:url('/mobile/Cmsarticle/show', ['article_id' => $previous['article_id']])}">{$previous.article_title|msubstr=0,20}</a>
+            {else /}
+            没有了
+            {/notempty}
+        </dd>
+        <dd>
+            <span>下一篇：</span>
+            {notempty name="next"}
+            <a href="{:url('/mobile/Cmsarticle/show', ['article_id' => $next['article_id']])}">{$next.article_title|msubstr=0,20}</a>
+            {else /}
+            没有了
+            {/notempty}
+        </dd>
+    </dl>
+</div>
+<!--内容 end-->
+{/block}
+
+{block name="short-footer"}
+<!--{include file="mobile/common/short_footer" /}-->
+{/block}

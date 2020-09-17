@@ -1,0 +1,34 @@
+<!--在线客服-->
+<div class="sidebar">
+    <ul>
+        <li>
+            <div class="sidebar-qq">
+                <a href="http://wpa.qq.com/msgrd?v=3&uin={:sysconf('hc_qq')}&site=qq&menu=yes" rel="nofollow" target="_blank">
+                    <i class="iconfont">&#xe69e;</i>
+                    咨询在线客服
+                </a>
+            </div>
+        </li>
+        <li>
+            <div class="sidebar-phone">
+                <a href="javascript:;">
+                    <i class="iconfont">&#xe6e5;</i>
+                    {:sysconf('hc_phone')}
+                </a>
+            </div>
+        </li>
+        <li>
+            <div id="moquu-wxin" class="sidebar-wx">
+                <a href="javascript:;">
+                    <i class="iconfont">&#xe644;</i>
+                </a>
+            </div>
+        </li>
+        <li class="b-b-0">
+            <a href="javascript:goTop();" class="sidebar-top">
+                <i class="iconfont">&#xe72d;</i>
+            </a>
+        </li>
+    </ul>
+    <div style="display: none;" class="weixin"></div>
+</div>

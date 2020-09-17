@@ -1,0 +1,290 @@
+{extend name='common/content' /}
+
+{block name="content"}
+<style>
+    /* 标签添加 搜索建议置顶显示 */
+    .ui-widget-content {
+        z-index: 29891017!important;
+    }
+</style>
+<link rel="stylesheet" href="__STATIC__/plugs/tag/jquery.tag-editor.css?ver={:date('ymd')}"/>
+<!-- tag js引入 -->
+<script src="__STATIC__/plugs/tag/jquery.tag-editor.js?ver={:date('ymd')}"></script>
+
+
+<form name="article" class="layui-form layui-box" style='padding:25px 30px 20px 0' action="__SELF__" data-auto="true" method="post">
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">所属分类</label>
+        <div class="layui-input-block">
+            <select name='article_class_id' class='layui-select full-width'>
+                <option value="">请选择分类</option>
+                {foreach $menus as $menu}
+                {eq name='menu.class_id' value='$vo.article_class_id|default=0'}
+                <option selected  value='{$menu.class_id}'>{$menu.spl}{$menu.class_name}</option>
+                {else/}
+                <option  value='{$menu.class_id}'>{$menu.spl}{$menu.class_name}</option>
+                {/eq}
+                {/foreach}
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">文章标题</label>
+        <div class="layui-input-block">
+            <input type="text" name="article_title" value='{$vo.article_title|default=""}' required="required" lay-verify="article_title" title="请输入文章标题" placeholder="请输入文章标题" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">文章短标题</label>
+        <div class="layui-input-block">
+            <input type="text" name="article_title_short" value='{$vo.article_title_short|default=""}' lay-verify="article_title_short" title="请输入文章短标题" placeholder="请输入文章短标题" class="layui-input">
+        </div>
+    </div>
+
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">文章摘要</label>
+        <div class="layui-input-block">
+            <textarea placeholder="请输入文章摘要" title="请输入文章摘要" class="layui-textarea" name="article_abstract">{$vo.article_abstract|default=""}</textarea>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">封面图片</label>
+        <div class='layui-input-block'>
+
+            <!-- todo 默认图片设置 -->
+            <img data-tips-image style="height:auto;max-height:32px;min-width:32px" src="{$vo.article_image|default='static/admin/theme/default/img/image.png'}"/>
+            <input type="hidden" name="article_image" onchange="$(this).prev('img').attr('src', this.value)" value="{$vo.article_image|default=''}" class="layui-input">
+            <a class="btn btn-link" data-file="one" data-type="png,jpg,jpeg" data-field="article_image" data-path="cms/article">上传图片</a>
+            <p>建议上传图片的尺寸为 600*400 px 以上。</p>
+        </div>
+    </div>
+
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">是否推荐</label>
+        <div class="layui-input-block">
+            <input name="article_commend_flag" value="1" title="推荐" {eq name='1' value='$vo.article_commend_flag|default=1'}checked=""{/eq} type="radio">
+
+            <input name="article_commend_flag" value="0" title="未推荐" {eq name='0' value='$vo.article_commend_flag|default=0'}checked=""{/eq} type="radio">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">审核状态</label>
+        <div class="layui-input-block">
+            <input name="article_state" value="2" title="待审核" {eq name='2' value='$vo.article_state|default=2'}checked=""{/eq} type="radio">
+            <input name="article_state" value="3" title="已发布" {eq name='3' value='$vo.article_state|default=3'}checked=""{/eq} type="radio">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">文章关键字</label>
+        <div class="layui-input-block">
+            <input type="text" name="article_keyword" value='{$vo.article_keyword|default=""}' required="required" lay-verify="article_keyword" title="请输入文章关键字" placeholder="请输入文章关键字" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">文章标签</label>
+        <div class="layui-input-block">
+            <textarea name="article_tag" id="article-tag"></textarea>
+        </div>
+    </div>
+
+    <div class="layui-form-item layui-form-text">
+        <label class="layui-form-label">文章内容</label>
+        <div class="layui-input-block">
+            <textarea name='article_content'>{$vo.article_content|default=''}</textarea>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">文章作者</label>
+        <div class="layui-input-block">
+            <input type="text" name="article_author" value='{$vo.article_author|default=""}' lay-verify="article_author" title="请输入文章作者" placeholder="请输入文章作者" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">文章来源</label>
+        <div class="layui-input-block">
+            <input type="text" name="article_origin" value='{$vo.article_origin|default=""}' lay-verify="article_origin" title="请输入文章来源" placeholder="请输入文章来源" class="layui-input">
+        </div>
+    </div>
+
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">来源地址</label>
+        <div class="layui-input-block">
+            <input type="text" name="article_origin_address" value='{$vo.article_origin_address|default=""}' lay-verify="article_origin_address" title="请输入文章来源地址" placeholder="请输入文章来源地址" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">文章点击量</label>
+        <div class="layui-input-block">
+            <input type="text" name="article_click" value='{$vo.article_click|default="0"}' lay-verify="article_click" title="请输入文章点击量" placeholder="请输入文章点击量" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">文章分享数</label>
+        <div class="layui-input-block">
+            <input type="text" name="article_share_count" value='{$vo.article_share_count|default="0"}' lay-verify="article_share_count" title="请输入文章分享数" placeholder="请输入文章分享数" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">文章排序(0-255)</label>
+        <div class="layui-input-block">
+            <input type="text" name="article_sort" value='{$vo.article_sort|default="0"}' lay-verify="article_sort" title="文章排序(0-255)" placeholder="文章排序(0-255)" class="layui-input">
+        </div>
+    </div>
+
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">文章态度开关</label>
+        <div class="layui-input-block">
+            <input name="article_attitude_flag" value="0" title="不允许" {eq name='0' value='$vo.article_attitude_flag|default=0'}checked=""{/eq} type="radio">
+            <input name="article_attitude_flag" value="1" title="允许" {eq name='1' value='$vo.article_attitude_flag|default=1'}checked=""{/eq} type="radio">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">发布者用户名</label>
+        <div class="layui-input-block">
+            <input type="text" name="article_publisher_name" value='{$vo.article_publisher_name|default=$_SESSION.think.user.username}' lay-verify="发布者用户名 " title="发布者用户名 " placeholder="发布者用户名 " class="layui-input">
+        </div>
+    </div>
+    <input type="hidden" name="article_publisher_id" value="{$_SESSION.think.user.id}" />
+
+    <div class="hr-line-dashed"></div>
+    <div class="layui-form-item text-center">
+        <input type="hidden" name="article_type" value="1" />
+        {if isset($vo['article_id'])}<input type='hidden' value='{$vo.article_id}' name='article_id'/>{/if}
+        <button class="layui-btn" lay-submit="" lay-filter="submit">保存数据</button>
+        <button type='button' data-open='{:url("$classuri/article")}' class="layui-btn layui-btn-danger">返回列表</button>
+    </div>
+
+</form>
+
+<script>window.form.render();</script>
+
+<script>
+    layui.use(['form', 'laydate', 'element'], function(){
+        var form = layui.form
+            ,layer = layui.layer
+            ,laydate = layui.laydate
+            ,element = layui.element; //选项卡 依赖element 模块
+
+
+        //自定义验证规则
+        form.verify({
+            article_title: function(value){
+                if(value.length < 5){
+                    return '标题至少得5个字符啊';
+                }
+            }
+        });
+
+        //自定义验证规则
+        form.verify({
+            article_keyword: function(value){
+                if(value.length < 2){
+                    return '关键字至少得2个字符啊';
+                }
+            }
+        });
+
+
+    });
+</script>
+
+<script>
+    (function ($) {
+        var proto = $.ui.autocomplete.prototype, initSource = proto._initSource;
+        function filter(array, term) {
+            var matcher = new RegExp($.ui.autocomplete.escapeRegex(term), "i");
+            return $.grep(array, function (value) {
+                return matcher.test($("<div>").html(value.label || value.value || value).text());
+            });
+        }
+
+        $.extend(proto, {
+            _initSource: function () {
+                if (this.options.html && $.isArray(this.options.source)) {
+                    this.source = function (request, response) {
+                        response(filter(this.options.source, request.term));
+                    };
+                } else {
+                    initSource.call(this);
+                }
+            }, _renderItem: function (ul, item) {
+                return $("<li></li>").data("item.autocomplete", item).append($("<a></a>")[this.options.html ? "html" : "text"](item.label)).appendTo(ul);
+            }
+        });
+    })(jQuery);
+
+    var cache = {};
+    function tagSuggest(request, response) {
+        var term = request.term;
+        if (term in cache) { response(cache[term]); return; }
+        $.ajax({
+            url: 'admin/Document/tagSuggest',
+            dataType: '',
+            data: { format: 'json', q: term },
+            success: function(data) {
+                var suggestions = [];
+                try { var results = data.results; } catch(e) { var results = []; }
+                $.each(results, function() {
+                    try {
+                        var s = this.toLowerCase();
+                        suggestions.push({label: s.replace(term, '<b style="color: red;">'+term+'</b>'), value: s});
+                    } catch(e){}
+                });
+                cache[term] = suggestions;
+                response(suggestions);
+            }
+        });
+    }
+
+    var initTag = "{$vo.article_tag|default=''}";
+    var initTags = new Array();
+    if(initTag != []){
+        initTags = initTag.split(",");
+    }
+
+    $('#article-tag').tagEditor({
+
+        initialTags: initTags, delimiter: ', ',
+        autocomplete: { minLength: 1, maxLength: 10, delay: 200, html: true, position: { collision: 'flip' }, source: tagSuggest },
+        forceLowercase: false,
+        placeholder: '请输入标签名称 ...'
+    });
+
+</script>
+{/block}
+
+{block name='script'}
+<script>
+    $(function () {
+
+        require(['ckeditor'], function () {
+            var editor = window.createEditor('[name="article_content"]');
+            // 设置内容
+//            editor.setData('修改内容');
+            // 获取内容
+//            var content = editor.getData();
+//            console.log(content);
+        });
+
+    });
+</script>
+
+{/block}
+

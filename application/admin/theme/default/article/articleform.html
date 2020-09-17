@@ -1,0 +1,113 @@
+{extend name='common/content' /}
+
+{block name="content"}
+
+<form name="article" class="layui-form layui-box" style='padding:25px 30px 20px 0' action="__SELF__" data-auto="true" method="post">
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">文章标题</label>
+        <div class="layui-input-block">
+            <input type="text" name="article_title" value='{$vo.article_title|default=""}' required="required" lay-verify="article_title" title="请输入文章标题" placeholder="请输入文章标题" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">所属分类</label>
+        <div class="layui-input-block">
+            <select name='ac_id' class='layui-select full-width'>
+                <option value="">请选择分类</option>
+                {foreach $menus as $menu}
+                {eq name='menu.ac_id' value='$vo.ac_id|default=0'}
+                <option selected  value='{$menu.ac_id}'>{$menu.spl}{$menu.ac_name}</option>
+                {else/}
+                <option  value='{$menu.ac_id}'>{$menu.spl}{$menu.ac_name}</option>
+                {/eq}
+                {/foreach}
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">链接：</label>
+        <div class="layui-input-block">
+            <input type="text" name="article_url" value='{$vo.article_url|default=""}' title="请输入跳转链接" placeholder="当填写链接后点击文章标题将直接跳转至链接地址，不显示文章内容。链接格式请以http://开头" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">是否显示</label>
+        <div class="layui-input-block">
+            <input name="article_show" value="0" title="不显示" {eq name='0' value='$vo.article_show|default=0'}checked=""{/eq} type="radio">
+            <input name="article_show" value="1" title="显示" {eq name='1' value='$vo.article_show|default=1'}checked=""{/eq} type="radio">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">文章排序</label>
+        <div class="layui-input-block">
+            <input type="text" name="article_sort" value='{$vo.article_sort|default="0"}' lay-verify="article_sort" title="文章排序(0-255)" placeholder="文章排序(0-255)" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item layui-form-text">
+        <label class="layui-form-label">文章内容</label>
+        <div class="layui-input-block">
+            <textarea name='article_content'>{$vo.article_content|default=''}</textarea>
+        </div>
+    </div>
+
+    <div class="hr-line-dashed"></div>
+    <div class="layui-form-item text-center">
+        {if isset($vo['article_id'])}<input type='hidden' value='{$vo.article_id}' name='article_id'/>{/if}
+        <button class="layui-btn" lay-submit="" lay-filter="submit">保存数据</button>
+        <button type='button' data-open='{:url("$classuri/article")}' class="layui-btn layui-btn-danger">返回列表</button>
+    </div>
+
+</form>
+
+<script>window.form.render();</script>
+
+<script>
+    layui.use(['form', 'laydate', 'element'], function(){
+        var form = layui.form
+            ,layer = layui.layer
+            ,laydate = layui.laydate
+            ,element = layui.element; //选项卡 依赖element 模块
+
+
+        //自定义验证规则
+      form.verify({
+          article_title: function(value){
+              if(value.length < 3){
+                  return '标题至少得3个字符啊';
+              }
+          }
+      });
+
+        //自定义验证规则
+        form.verify({
+            article_keyword: function(value){
+                if(value.length < 2){
+                    return '关键字至少得2个字符啊';
+                }
+            }
+        });
+
+
+    });
+</script>
+
+{/block}
+
+{block name='script'}
+<script>
+
+    require(['ckeditor'], function () {
+        var editor = window.createEditor('[name="article_content"]');
+
+    });
+
+</script>
+
+{/block}
+
