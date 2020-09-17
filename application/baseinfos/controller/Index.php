@@ -15,7 +15,8 @@ class Index extends Controller
    public function index(){
        //实例化数据构造器
        $db=Db::name($this->table);
-
-      return;
+       //查询数据库表，并返回结果
+       $res=$db->select();
+      return json($res);
    }
 }
