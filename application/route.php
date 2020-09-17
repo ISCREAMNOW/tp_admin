@@ -104,4 +104,8 @@ Route::get('article/:article_id', 'frontend/Article/show'); // 文章详情
 // 手机端二级域名
 Route::domain('m', 'mobile');
 
+
+//水利局项目简介信息的接口
+Route::get('api/baseinfo',"baseinfos/Index/index");
+
 return [];
