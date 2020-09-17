@@ -16,6 +16,6 @@ class Index extends Controller
        //实例化数据构造器
        $db=Db::name($this->table);
 
-      return "hello world";
+      return;
    }
 }
